@@ -15,7 +15,7 @@ export default function AboutShort() {
           <div className="w-full lg:w-1/2 relative">
             <div className="relative aspect-[4/3] rounded-[2rem] overflow-hidden shadow-2xl z-10">
               <Image 
-                src="/images/bamboo-salt-making.jpg" 
+                src="/images/og-image.png" 
                 alt="Making bamboo salt"
                 fill
                 className="object-cover"

@@ -8,14 +8,29 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  verification: {
+    google: "pCI23x8QkqEkm14y5vcYidDqNBFz646fRm5d15_hts4",
+  },
   title: "Premium Bamboo Salt from Nepal | Nepal Bamboo Salt",
-  description: "Ancient roasting process. Modern health benefits. Detoxify and improve health with 100% natural Nepal Bamboo Salt.",
-  keywords: ["Bamboo Salt", "Nepal Bamboo Salt", "Natural Health", "Detoxify", "Roasted Salt", "Himalayan Salt Alternative", "Alkaline Salt"],
+  description:
+    "Ancient roasting process. Modern health benefits. Detoxify and improve health with 100% natural Nepal Bamboo Salt.",
+  keywords: [
+    "Bamboo Salt",
+    "Nepal Bamboo Salt",
+    "Natural Health",
+    "Detoxify",
+    "Roasted Salt",
+    "Himalayan Salt Alternative",
+    "Alkaline Salt",
+  ],
   authors: [{ name: "Nepal Bamboo Salt Pvt. Ltd." }],
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"),
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000",
+  ),
   openGraph: {
     title: "Premium Bamboo Salt from Nepal | Nepal Bamboo Salt",
-    description: "Ancient roasting process. Modern health benefits. Detoxify and improve health with 100% natural Nepal Bamboo Salt.",
+    description:
+      "Ancient roasting process. Modern health benefits. Detoxify and improve health with 100% natural Nepal Bamboo Salt.",
     url: process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000",
     siteName: "Nepal Bamboo Salt",
     images: [
@@ -32,7 +47,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Premium Bamboo Salt from Nepal | Nepal Bamboo Salt",
-    description: "Ancient roasting process. Modern health benefits. Detoxify and improve health with 100% natural Nepal Bamboo Salt.",
+    description:
+      "Ancient roasting process. Modern health benefits. Detoxify and improve health with 100% natural Nepal Bamboo Salt.",
     images: ["/images/og-image.png"],
   },
 };
@@ -43,7 +59,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} scroll-smooth antialiased h-full`}>
+    <html
+      lang="en"
+      className={`${inter.variable} scroll-smooth antialiased h-full`}
+    >
       <body className="min-h-full flex flex-col font-sans bg-stone-50 text-stone-900 pb-20 md:pb-0">
         {children}
       </body>

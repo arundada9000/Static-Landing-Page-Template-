@@ -4,11 +4,11 @@ import { ArrowRight, MessageCircle } from "lucide-react";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-[92vh] flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-[100vh] flex items-center justify-center overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/images/contact.jpeg"
+          src="/images/og-image.png"
           alt="Premium Bamboo Salt from Nepal"
           fill
           className="object-cover object-center"
@@ -40,7 +40,7 @@ export default function Hero() {
             Bamboo Salt
           </span>
           <br />
-          from Nepal 🇳🇵
+          from Nepal
         </h1>
 
         <p className="text-lg sm:text-xl md:text-2xl text-white/80 mb-10 max-w-2xl mx-auto font-light leading-relaxed">
