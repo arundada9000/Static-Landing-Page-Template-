@@ -7,10 +7,10 @@ import { Menu, X, ShoppingBag } from "lucide-react";
 
 const links = [
   { label: "Home",     href: "/" },
-  { label: "Products", href: "#products" },
-  { label: "Benefits", href: "#benefits" },
-  { label: "Process",  href: "#process" },
-  { label: "Contact",  href: "#contact" },
+  { label: "Products", href: "/#products" },
+  { label: "Benefits", href: "/#benefits" },
+  { label: "Process",  href: "/#process" },
+  { label: "Contact",  href: "/#contact" },
 ];
 
 export default function Navbar() {

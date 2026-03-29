@@ -8,7 +8,7 @@ A premium, production-ready landing page built for **Nepal Bamboo Salt Pvt. Ltd.
 
 ---
 
-## 🚀 Features & Implementation
+## Features & Implementation
 
 - **Next.js App Router**: Lightning-fast static rendering (`/` and `/shop`) optimized for SEO and Core Web Vitals.
 - **Tailwind CSS v4**: Built entirely with the newest Tailwind engine and strict custom design tokens (`@theme` in `globals.css`) matching the brand's primary green (`#296B46`).
@@ -31,7 +31,7 @@ This project uses comprehensive Next.js file-based metadata out-of-the-box:
 - **`app/icon.png` / `app/apple-icon.png`**: Auto-injected as favicons.
 - **`public/images/og-image.png`**: Custom-crafted social sharing map.
 
-## 🏃‍♂️ Running Locally
+## Running Locally
 
 1. **Install Dependencies**:
    ```bash
