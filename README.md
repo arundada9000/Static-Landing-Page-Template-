@@ -5,7 +5,7 @@
   <img src="https://img.shields.io/badge/TypeScript-Strict-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
 </p>
 
-<h1 align="center">🚀 Premium Product Landing Page Template</h1>
+<h1 align="center"> Premium Product Landing Page Template</h1>
 <p align="center">
   A production-ready, fully customizable Next.js landing page for any product.<br/>
   Built and maintained by <strong><a href="https://sajilodigital.com.np">SajiloDigital</a></strong> — Nepal's premium web agency.
@@ -13,9 +13,9 @@
 
 ---
 
-## 🌟 What Is This?
+## What Is This?
 
-This is SajiloDigital's **flagship product landing page template** — designed to showcase and sell any physical or digital product beautifully. Clothing, electronics, health goods, SaaS tools, food products — you name it. Built to impress at first glance and convert visitors into buyers.
+This is SajiloDigital's **flagship product landing page template**  designed to showcase and sell any physical or digital product beautifully. Clothing, electronics, health goods, SaaS tools, food products — you name it. Built to impress at first glance and convert visitors into buyers.
 
 ### Pages Included
 | Page | Route | Description |
@@ -25,18 +25,18 @@ This is SajiloDigital's **flagship product landing page template** — designed 
 | Shop | `/shop` | Product listing + WhatsApp ordering |
 
 ### Sections on Landing Page
-- 🌟 **Hero** — Full-screen dramatic opener with CTA buttons
-- 🛡️ **Trust Bar** — 5 trust-building feature badges
-- 📖 **About (Short)** — Brand story snippet with image
-- 🛍️ **Products** — 3-tier product cards with WhatsApp Order + View buttons
-- ✨ **Benefits** — 5 key product benefits with floating stat cards
-- ⚙️ **Process** — 4-step how-it's-made visual cards
-- 📞 **CTA** — Final conversion section (WhatsApp / Shop / Call)
-- 🔗 **Footer** — Contact, quick links, social media
+- **Hero** — Full-screen dramatic opener with CTA buttons
+- **Trust Bar** — 5 trust-building feature badges
+- **About (Short)** — Brand story snippet with image
+- **Products** — 3-tier product cards with WhatsApp Order + View buttons
+- **Benefits** — 5 key product benefits with floating stat cards
+- **Process** — 4-step how-it's-made visual cards
+- **CTA** — Final conversion section (WhatsApp / Shop / Call)
+- **Footer** — Contact, quick links, social media
 
 ---
 
-## ⚡ Quick Start
+## Quick Start
 
 ```bash
 # 1. Clone this repo
@@ -58,7 +58,7 @@ Open [http://localhost:3000](http://localhost:3000) — the template is live!
 
 ---
 
-## 🎨 How to Rebrand for a New Client (3 Steps)
+## How to Rebrand for a New Client (3 Steps)
 
 Almost everything lives in **2 config files**. You rarely need to touch React components.
 
@@ -122,7 +122,7 @@ export const products: Product[] = [
 
 ---
 
-## 🎨 Changing the Color Scheme
+## Changing the Color Scheme
 
 All colors are in **one place** — `app/globals.css`:
 
@@ -153,7 +153,7 @@ All colors are in **one place** — `app/globals.css`:
 
 ---
 
-## 🖼️ Sourcing Images (Unsplash)
+## Sourcing Images (Unsplash)
 
 1. Go to [unsplash.com](https://unsplash.com), search for the client's product category
 2. Click any photo → copy the browser URL
@@ -169,8 +169,8 @@ All colors are in **one place** — `app/globals.css`:
 
 ```
 ├── config/
-│   ├── site.ts          ← 🔑 Brand, contact, social, agency
-│   └── content.ts       ← 🔑 All section copy, images, features, steps
+│   ├── site.ts          ← Brand, contact, social, agency
+│   └── content.ts       ← All section copy, images, features, steps
 │
 ├── app/
 │   ├── data/
@@ -189,7 +189,7 @@ All colors are in **one place** — `app/globals.css`:
 │   │
 │   ├── about/page.tsx   ← Full About page
 │   ├── shop/page.tsx    ← Shop "Coming Soon" page
-│   ├── globals.css      ← 🎨 Color scheme (change colors here)
+│   ├── globals.css      ← Color scheme (change colors here)
 │   └── layout.tsx       ← SEO metadata (auto-generated from siteConfig)
 │
 ├── next.config.ts       ← Image domains config
@@ -199,7 +199,7 @@ All colors are in **one place** — `app/globals.css`:
 
 ---
 
-## 🚢 Deploying for a Client
+## Deploying for a Client
 
 ### Recommended: Vercel (Free tier, perfect for landing pages)
 
@@ -224,7 +224,7 @@ Use nginx as reverse proxy to point the domain to port 3000.
 
 ---
 
-## ✅ Client Launch Checklist
+## Client Launch Checklist
 
 - [ ] `config/site.ts` — name, tagline, contact details, WhatsApp number, social links
 - [ ] `config/content.ts` — all section copy and Unsplash image URLs
@@ -238,7 +238,7 @@ Use nginx as reverse proxy to point the domain to port 3000.
 
 ---
 
-## 🧩 Tech Stack
+## Tech Stack
 
 | Tech | Version | Role |
 |------|---------|------|
@@ -251,7 +251,7 @@ Use nginx as reverse proxy to point the domain to port 3000.
 
 ---
 
-## 🏢 Built by SajiloDigital
+## Built by SajiloDigital
 
 <p align="center">
   <strong>
@@ -260,9 +260,10 @@ Use nginx as reverse proxy to point the domain to port 3000.
   <br/>
   Nepal's premier web design & development agency.<br/>
   We build premium digital products for Nepali and global businesses.
+  <img src="/public/images/SajiloDigital.png" alt="SajiloDigital" width="100" height="100" />
 </p>
 
-> 💼 **Need a custom website, e-commerce store, or a full digital strategy?**  
+> **Need a custom website, e-commerce store, or a full digital strategy?**  
 > Reach out at [sajilodigital.com.np](https://sajilodigital.com.np)
 
 ---
