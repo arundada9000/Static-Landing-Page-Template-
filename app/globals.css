@@ -3,21 +3,32 @@
 @theme inline {
   --font-sans: var(--font-inter);
 
-  /* Brand Colors */
-  --color-primary:        #296B46;
-  --color-primary-light:  #3a9962;
-  --color-primary-dark:   #1b4a30;
-  --color-primary-50:     #edf7f1;
-  --color-primary-100:    #c6ecd7;
-  --color-secondary:      #f8f4ef;
-  --color-secondary-dark: #e8ddd0;
-  --color-accent:         #d4a853;
-  --color-accent-light:   #f0d49a;
+  /*
+   * ══════════════════════════════════════════════════════
+   *  BRAND COLORS — Change these to rebrand for any client.
+   *  All components automatically inherit these values.
+   * ══════════════════════════════════════════════════════
+   */
+
+  /* Primary — default: Indigo. Works for tech, fashion, health, SaaS, etc. */
+  --color-primary:        #4F46E5;
+  --color-primary-light:  #818CF8;
+  --color-primary-dark:   #3730A3;
+  --color-primary-50:     #EEF2FF;
+  --color-primary-100:    #C7D2FE;
+
+  /* Secondary surface */
+  --color-secondary:      #f8f7ff;
+  --color-secondary-dark: #e8e6f5;
+
+  /* Accent — warm gold that complements any primary */
+  --color-accent:         #F59E0B;
+  --color-accent-light:   #FDE68A;
 
   /* Neutral Surface */
   --color-surface:        #ffffff;
-  --color-surface-alt:    #faf9f7;
-  --color-border:         #e8e0d5;
+  --color-surface-alt:    #fafafa;
+  --color-border:         #e8e0ff;
   --color-muted:          #78716c;
   --color-heading:        #1c1917;
   --color-body:           #44403c;
@@ -38,7 +49,7 @@
   }
 
   body {
-    background-color: #faf9f7;
+    background-color: #fafafa;
     color: #1c1917;
   }
 }
@@ -55,4 +66,3 @@
     }
   }
 }
-

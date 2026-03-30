@@ -1,20 +1,21 @@
 import Link from "next/link";
 import Image from "next/image";
 import {
-  ArrowLeft,
   Bell,
   ShoppingBag,
   Phone,
   ShoppingCart,
-  TruckElectric,
   Wallet,
   WalletCards,
+  TruckElectric,
 } from "lucide-react";
 import { products } from "../data/products";
+import { siteConfig } from "@/config/site";
 import type { Metadata } from "next";
+import Navbar from "../components/Navbar";
 
 export const metadata: Metadata = {
-  title: "Shop | Nepal Bamboo Salt — Coming Soon",
+  title: `Shop | ${siteConfig.name} — Coming Soon`,
   description:
     "Our online store is coming soon. In the meantime, order via WhatsApp or call us directly.",
 };
@@ -27,29 +28,31 @@ function WhatsAppIcon() {
   );
 }
 
-import Navbar from "../components/Navbar";
-
 export default function ShopPage() {
   const getWhatsAppUrl = (productName: string) => {
     const message = encodeURIComponent(`Hi! I want to order ${productName}`);
-    return `https://wa.me/9779704741630?text=${message}`;
+    return `https://wa.me/${siteConfig.contact.whatsapp}?text=${message}`;
   };
 
+  const notifyWhatsApp = `https://wa.me/${siteConfig.contact.whatsapp}?text=${encodeURIComponent(
+    `Please notify me when the ${siteConfig.name} online store is live`
+  )}`;
+
   return (
-    <div className="min-h-screen bg-[#faf9f7]">
+    <div className="min-h-screen" style={{ backgroundColor: "var(--color-surface-alt)" }}>
       <Navbar />
 
-      {/* Hero Banner — dark green with inline style */}
+      {/* Hero Banner */}
       <div
         className="relative text-white py-28 lg:py-36 overflow-hidden text-center"
-        style={{ backgroundColor: "#1b4a30" }}
+        style={{ backgroundColor: "var(--color-primary-dark)" }}
       >
         {/* Glow scrim */}
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
             background:
-              "radial-gradient(ellipse at 50% 50%, rgba(41,107,70,0.35) 0%, transparent 70%)",
+              "radial-gradient(ellipse at 50% 50%, color-mix(in srgb, var(--color-primary) 40%, transparent) 0%, transparent 70%)",
           }}
         />
 
@@ -65,10 +68,7 @@ export default function ShopPage() {
           {/* Badge */}
           <span
             className="inline-block text-xs font-bold tracking-widest uppercase mb-5 px-4 py-1.5 rounded-full border border-white/20"
-            style={{
-              color: "#d4a853",
-              backgroundColor: "rgba(255,255,255,0.08)",
-            }}
+            style={{ color: "var(--color-accent)", backgroundColor: "rgba(255,255,255,0.08)" }}
           >
             Phase 2 — Coming Soon
           </span>
@@ -78,7 +78,8 @@ export default function ShopPage() {
             <span
               className="text-transparent bg-clip-text"
               style={{
-                backgroundImage: "linear-gradient(to right, #f0d49a, #d4a853)",
+                backgroundImage:
+                  "linear-gradient(to right, var(--color-accent-light), var(--color-accent))",
               }}
             >
               Coming Soon
@@ -89,23 +90,23 @@ export default function ShopPage() {
             className="text-lg mb-10 leading-relaxed max-w-xl mx-auto"
             style={{ color: "rgba(255,255,255,0.7)" }}
           >
-            We&apos;re building a beautiful online store with cart, secure
-            payments (eSewa, Khalti, PayPal), and fast delivery across Nepal.
-            Until then, order directly via WhatsApp!
+            We&apos;re building a beautiful online store with cart, secure payments, and
+            fast delivery worldwide. Until then, order directly via WhatsApp!
           </p>
 
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <a
-              href="https://wa.me/9779851216564?text=Please%20notify%20me%20when%20the%20Nepal%20Bamboo%20Salt%20online%20store%20is%20live"
+              href={notifyWhatsApp}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 text-white px-6 py-3 rounded-full font-bold text-sm transition-all active:scale-95 bg-[#296B46] hover:bg-[#36895a]"
+              className="flex items-center gap-2 text-white px-6 py-3 rounded-full font-bold text-sm transition-all active:scale-95"
+              style={{ background: "var(--color-primary)" }}
             >
               <Bell className="w-4 h-4" />
               Notify Me When Live
             </a>
             <a
-              href="tel:+9779851216564"
+              href={`tel:${siteConfig.contact.phone.replace(/\s/g, "")}`}
               className="flex items-center gap-2 text-white border border-white/25 px-6 py-3 rounded-full font-bold text-sm transition-all active:scale-95 hover:bg-white/10"
             >
               <Phone className="w-4 h-4" />
@@ -118,15 +119,21 @@ export default function ShopPage() {
       {/* Product Listings */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="text-center mb-12">
-          <span className="inline-block text-xs font-bold tracking-widest text-[#296B46] uppercase mb-3 px-3 py-1 bg-[#edf7f1] rounded-full border border-[#c6ecd7]">
+          <span
+            className="inline-block text-xs font-bold tracking-widest uppercase mb-3 px-3 py-1 rounded-full border"
+            style={{
+              color: "var(--color-primary)",
+              backgroundColor: "var(--color-primary-50)",
+              borderColor: "var(--color-primary-100)",
+            }}
+          >
             Order Now via WhatsApp
           </span>
           <h2 className="text-3xl font-extrabold text-stone-900 mt-4 mb-3">
             Products Available Right Now
           </h2>
           <p className="text-stone-500">
-            Browse our collection and place your order instantly through
-            WhatsApp.
+            Browse our collection and place your order instantly through WhatsApp.
           </p>
         </div>
 
@@ -145,7 +152,10 @@ export default function ShopPage() {
                   className="object-cover"
                 />
                 {product.isBest && (
-                  <div className="absolute top-3 left-3 bg-[#296B46] text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">
+                  <div
+                    className="absolute top-3 left-3 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md"
+                    style={{ background: "var(--color-primary)" }}
+                  >
                     Best Seller
                   </div>
                 )}
@@ -158,10 +168,8 @@ export default function ShopPage() {
                   {product.shortDescription}
                 </p>
                 <p className="text-xs text-stone-400 mb-5">
-                  <span className="font-bold text-stone-700">
-                    Available weights:{" "}
-                  </span>
-                  {product.weight}
+                  <span className="font-bold text-stone-700">Variant: </span>
+                  {product.variant}
                 </p>
                 <a
                   href={getWhatsAppUrl(product.name)}
@@ -181,30 +189,29 @@ export default function ShopPage() {
       {/* Phase 2 Features */}
       <div
         className="border-t border-stone-200 py-16"
-        style={{ backgroundColor: "#edf7f1" }}
+        style={{ backgroundColor: "var(--color-primary-50)" }}
       >
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-2xl font-extrabold text-stone-900 mb-3">
             What&apos;s Coming in Phase 2
           </h2>
-          <p className="text-stone-500 mb-10">
-            Our full-featured online store is on its way.
-          </p>
+          <p className="text-stone-500 mb-10">Our full-featured online store is on its way.</p>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-5">
             {[
               { label: "Shopping Cart", icon: <ShoppingCart /> },
-              { label: "eSewa / Khalti", icon: <Wallet /> },
-              { label: "IME", icon: <WalletCards /> },
+              { label: "Secure Payments", icon: <Wallet /> },
+              { label: "Card Payments", icon: <WalletCards /> },
               { label: "Fast Delivery", icon: <TruckElectric /> },
             ].map(({ label, icon }) => (
               <div
                 key={label}
-                className="bg-white rounded-2xl border border-[#c6ecd7] p-5 flex flex-col items-center gap-3 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all"
+                className="bg-white rounded-2xl border p-5 flex flex-col items-center gap-3 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all"
+                style={{ borderColor: "var(--color-primary-100)" }}
               >
-                <span className="text-3xl text-primary">{icon}</span>
-                <span className="text-sm font-bold text-stone-900">
-                  {label}
+                <span style={{ color: "var(--color-primary)" }} className="text-3xl">
+                  {icon}
                 </span>
+                <span className="text-sm font-bold text-stone-900">{label}</span>
               </div>
             ))}
           </div>

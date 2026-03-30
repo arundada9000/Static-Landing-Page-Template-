@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { Phone, ShoppingBag } from "lucide-react";
+import { siteConfig } from "@/config/site";
+import { ctaContent } from "@/config/content";
 
 function WhatsAppIcon() {
   return (
@@ -10,51 +12,80 @@ function WhatsAppIcon() {
 }
 
 export default function CTA() {
+  const whatsappHref = `https://wa.me/${siteConfig.contact.whatsapp}?text=${encodeURIComponent(
+    `Hi! I want to order from ${siteConfig.name}`
+  )}`;
+  const callHref = `tel:${siteConfig.contact.phone.replace(/\s/g, "")}`;
+
   return (
-    <section className="py-24 lg:py-32 relative overflow-hidden" style={{ backgroundColor: "#1b4a30" }}>
+    <section
+      className="py-24 lg:py-32 relative overflow-hidden"
+      style={{ backgroundColor: "var(--color-primary-dark)" }}
+    >
       {/* Decorative glows */}
-      <div className="absolute -top-32 -left-32 w-96 h-96 rounded-full blur-3xl pointer-events-none" style={{ backgroundColor: "#296B46", opacity: 0.35 }} />
-      <div className="absolute -bottom-32 -right-32 w-96 h-96 rounded-full blur-3xl pointer-events-none" style={{ backgroundColor: "#3a9962", opacity: 0.2 }} />
+      <div
+        className="absolute -top-32 -left-32 w-96 h-96 rounded-full blur-3xl pointer-events-none opacity-40"
+        style={{ backgroundColor: "var(--color-primary)" }}
+      />
+      <div
+        className="absolute -bottom-32 -right-32 w-96 h-96 rounded-full blur-3xl pointer-events-none opacity-25"
+        style={{ backgroundColor: "var(--color-primary-light)" }}
+      />
 
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
-        <span className="inline-block text-xs font-bold tracking-widest uppercase mb-6 px-3 py-1 rounded-full border border-white/20" style={{ color: "#d4a853", backgroundColor: "rgba(255,255,255,0.08)" }}>
-          Ready to Order?
+        {/* Badge */}
+        <span
+          className="inline-block text-xs font-bold tracking-widest uppercase mb-6 px-3 py-1 rounded-full border border-white/20"
+          style={{ color: "var(--color-accent)", backgroundColor: "rgba(255,255,255,0.08)" }}
+        >
+          {ctaContent.badge}
         </span>
+
         <h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight mb-6 leading-tight">
-          Experience the Power <br />
-          <span className="text-transparent bg-clip-text" style={{ backgroundImage: "linear-gradient(to right, #f0d49a, #d4a853)" }}>
-            of Bamboo Salt
+          {ctaContent.headlineStart}{" "}
+          <span
+            className="text-transparent bg-clip-text"
+            style={{
+              backgroundImage:
+                "linear-gradient(to right, var(--color-accent-light), var(--color-accent))",
+            }}
+          >
+            {ctaContent.headlineHighlight}
           </span>
         </h2>
+
         <p className="text-white/70 text-lg md:text-xl mb-12 max-w-2xl mx-auto leading-relaxed">
-          Start your wellness journey today. 100% natural, traditionally roasted bamboo salt — delivered straight to your door.
+          {ctaContent.subheadline}
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          {/* WhatsApp */}
           <a
-            href="https://wa.me/9779704741630?text=I%20want%20to%20order%20Nepal%20Bamboo%20Salt"
+            href={whatsappHref}
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-3 bg-[#25D366] hover:bg-[#1da851] text-white px-8 py-4 rounded-full font-bold text-base transition-all duration-300 shadow-xl active:scale-95 w-full sm:w-auto justify-center"
           >
             <WhatsAppIcon />
-            Order via WhatsApp
+            {ctaContent.whatsappBtnLabel}
           </a>
 
+          {/* Shop */}
           <Link
-            href="/shop"
+            href={ctaContent.storeBtnHref}
             className="flex items-center gap-3 text-white border border-white/30 bg-white/10 hover:bg-white/20 px-8 py-4 rounded-full font-bold text-base transition-all duration-300 active:scale-95 w-full sm:w-auto justify-center backdrop-blur-sm"
           >
             <ShoppingBag className="w-5 h-5" />
-            Visit Our Store
+            {ctaContent.storeBtnLabel}
           </Link>
 
+          {/* Call */}
           <a
-            href="tel:+9779851216564"
+            href={callHref}
             className="flex items-center gap-3 text-white border border-white/30 bg-white/10 hover:bg-white/20 px-8 py-4 rounded-full font-bold text-base transition-all duration-300 active:scale-95 w-full sm:w-auto justify-center backdrop-blur-sm"
           >
             <Phone className="w-5 h-5" />
-            Call Now
+            {ctaContent.callBtnLabel}
           </a>
         </div>
       </div>

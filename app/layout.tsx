@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { siteConfig } from "@/config/site";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -8,35 +9,22 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  verification: {
-    google: "pCI23x8QkqEkm14y5vcYidDqNBFz646fRm5d15_hts4",
-  },
-  title: "Premium Bamboo Salt from Nepal | Nepal Bamboo Salt",
-  description:
-    "Ancient roasting process. Modern health benefits. Detoxify and improve health with 100% natural Nepal Bamboo Salt.",
-  keywords: [
-    "Bamboo Salt",
-    "Nepal Bamboo Salt",
-    "Natural Health",
-    "Detoxify",
-    "Roasted Salt",
-    "Himalayan Salt Alternative",
-    "Alkaline Salt",
-  ],
-  authors: [{ name: "Nepal Bamboo Salt Pvt. Ltd." }],
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "bamboosalt.com"),
+  title: `${siteConfig.name} — ${siteConfig.tagline}`,
+  description: siteConfig.description,
+  keywords: siteConfig.keywords,
+  authors: [{ name: siteConfig.name }],
+  metadataBase: new URL(siteConfig.url),
   openGraph: {
-    title: "Premium Bamboo Salt from Nepal | Nepal Bamboo Salt",
-    description:
-      "Ancient roasting process. Modern health benefits. Detoxify and improve health with 100% natural Nepal Bamboo Salt.",
-    url: process.env.NEXT_PUBLIC_SITE_URL || "bamboosalt.com",
-    siteName: "Nepal Bamboo Salt",
+    title: `${siteConfig.name} — ${siteConfig.tagline}`,
+    description: siteConfig.description,
+    url: siteConfig.url,
+    siteName: siteConfig.name,
     images: [
       {
-        url: "/images/og-image.png",
+        url: siteConfig.ogImage,
         width: 1200,
         height: 630,
-        alt: "Nepal Bamboo Salt - Premium Quality",
+        alt: `${siteConfig.name} — ${siteConfig.tagline}`,
       },
     ],
     locale: "en_US",
@@ -44,10 +32,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Premium Bamboo Salt from Nepal | Nepal Bamboo Salt",
-    description:
-      "Ancient roasting process. Modern health benefits. Detoxify and improve health with 100% natural Nepal Bamboo Salt.",
-    images: ["/images/og-image.png"],
+    title: `${siteConfig.name} — ${siteConfig.tagline}`,
+    description: siteConfig.description,
+    images: [siteConfig.ogImage],
   },
 };
 
@@ -61,7 +48,7 @@ export default function RootLayout({
       lang="en"
       className={`${inter.variable} scroll-smooth antialiased h-full`}
     >
-      <body className="min-h-full flex flex-col font-sans bg-stone-50 text-stone-900 pb-20 md:pb-0">
+      <body className="min-h-full flex flex-col font-sans bg-surface-alt text-heading pb-20 md:pb-0">
         {children}
       </body>
     </html>
