@@ -75,6 +75,34 @@ export const shopCategories = [
 // Add a new product object to this array — the rest of the UI handles itself.
 
 export const allProducts: ShopProduct[] = [
+  {
+    id: "t-shirt",
+    name: "T-shirt",
+    shortDescription: "T-shirt for summer",
+    longDescription: "Best cotton t-shirt for summer",
+    price: 1199,
+    originalPrice: 2000,
+    images: [
+      "https://res-console.cloudinary.com/dx327tmux/thumbnails/transform/v1/image/upload/Y19maWxsLGhfMjAwLHdfMjAw/v1/SU1HXzE0OTNfazVyd2xo/template_primary",
+      "https://res-console.cloudinary.com/dx327tmux/thumbnails/transform/v1/image/upload/Y19maWxsLGhfMjAwLHdfMjAw/v1/QXNoaXNoLVBob3Rvcm9vbV9zbWo1ODQ=/template_primary",
+    ],
+    category: "Clothes",
+    badge: "New",
+    tags: ["premium"],
+    features: ["cotton"],
+    options: [
+      {
+        id: "x",
+        name: "size",
+        choices: ["xl", "2xl", "3xl"],
+      },
+      {
+        id: "c",
+        name: "color",
+        choices: ["white"],
+      },
+    ],
+  },
   // ── 1 ────────────────────────────────────────────────────────────────────
   {
     id: "the-shop-signature",
@@ -573,7 +601,11 @@ export const allProducts: ShopProduct[] = [
       {
         id: "switches",
         name: "Tactile Feel",
-        choices: ["Linear (Smooth & Quiet)", "Tactile (Bump & Thock)", "Clicky (Loud & Sharp)"],
+        choices: [
+          "Linear (Smooth & Quiet)",
+          "Tactile (Bump & Thock)",
+          "Clicky (Loud & Sharp)",
+        ],
       },
       {
         id: "case_color",

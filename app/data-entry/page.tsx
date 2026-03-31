@@ -141,81 +141,7 @@ function generateTS(products: FormProduct[], currency: string, categories: strin
     })
     .join("\n\n");
 
-  return `/**
- * ============================================================
- *  SHOP PRODUCT CATALOG — allProducts.ts
- *  Add / edit products here. The UI (listing card, detail page,
- *  cart drawer, and WhatsApp message) all update automatically.
- * ============================================================
- */
-
-// ─── Types ───────────────────────────────────────────────────────────────────
-
-export interface ProductOption {
-  /** Machine-readable key — used as the key in selectedOptions state  */
-  id: string;
-  /** Human-readable label shown above the picker (e.g. "Size", "Color") */
-  name: string;
-  /** Available choices the customer can pick from */
-  choices: string[];
-}
-
-export interface ShopProduct {
-  id: string;
-  name: string;
-  /** One-liner shown on listing cards */
-  shortDescription: string;
-  /** Full HTML-safe copy shown on the detail page */
-  longDescription: string;
-  /** Main price in ${currency.trim()} (or whatever currency; adjust the symbol in siteConfig) */
-  price: number;
-  /** If provided, the original price is shown struck-through (sale signal) */
-  originalPrice?: number;
-  /** First image = cover image on the card */
-  images: string[];
-  /** Used for the filter bar. Keep consistent. */
-  category: string;
-  /** Optional extra tags shown as small chips */
-  tags?: string[];
-  /** Optional badge on the card — "Bestseller" | "New" | "Sale" | "Limited" | string */
-  badge?: string;
-  /** Bullet-point features shown on the detail page */
-  features?: string[];
-  options?: ProductOption[];
-  /** Set false to hide the product from the listing (soft-delete) */
-  active?: boolean;
-}
-
-// ─── Currency symbol — change once here to match your client ─────────────────
-export const CURRENCY = "${currency}";
-
-// ─── Helper to format a price ────────────────────────────────────────────────
-export const formatPrice = (n: number) =>
-  \`\${CURRENCY}\${n.toLocaleString("en-IN")}\`;
-
-// ─── Category list for the filter bar ────────────────────────────────────────
-// Add new categories here when you add new products.
-export const shopCategories = [
-${catList},
-];
-
-// ─── Products ─────────────────────────────────────────────────────────────────
-// Add a new product object to this array — the rest of the UI handles itself.
-
-export const allProducts: ShopProduct[] = [
-${productBlocks}
-];
-
-// ─── Helper — get a single product by id ─────────────────────────────────────
-export const getProductById = (id: string): ShopProduct | undefined =>
-  allProducts.find((p) => p.active !== false && p.id === id);
-
-// ─── Helper — get products by category ───────────────────────────────────────
-export const getProductsByCategory = (category: string): ShopProduct[] =>
-  category === "All"
-    ? allProducts.filter((p) => p.active !== false)
-    : allProducts.filter((p) => p.active !== false && p.category === category);
-`;
+  return `[\n${productBlocks}\n]`;
 }
 
 function escape(str: string) {
@@ -239,6 +165,23 @@ function ImageUrlInput({
 }) {
   const [isValid, setIsValid] = useState<boolean | null>(null);
 
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    let val = e.target.value.trim();
+    // Auto-convert Cloudinary console thumbnail URLs to public delivery URLs
+    const cloudinaryRegex = /^https:\/\/res-console\.cloudinary\.com\/([^\/]+)\/thumbnails\/transform\/v1\/image\/upload\/[^\/]+\/v1\/([^\/]+)(?:\/.*)?$/;
+    const match = val.match(cloudinaryRegex);
+    if (match) {
+      try {
+        const cloudName = match[1];
+        const publicId = atob(match[2]);
+        val = `https://res.cloudinary.com/${cloudName}/image/upload/v1/${publicId}`;
+      } catch {
+        // ignore errors
+      }
+    }
+    onChange(val);
+  };
+
   return (
     <div className="flex gap-2 items-start">
       <div className="flex-1 space-y-1">
@@ -246,8 +189,8 @@ function ImageUrlInput({
           <input
             type="url"
             value={value}
-            onChange={(e) => onChange(e.target.value)}
-            placeholder={`Image ${index + 1} URL — e.g. https://images.unsplash.com/photo-XXXX?w=900&q=80`}
+            onChange={handleChange}
+            placeholder={`Image ${index + 1} URL — e.g. https://images.unsplash... or Cloudinary console URL`}
             className="w-full px-3 py-2.5 bg-white border border-stone-200 rounded-xl text-sm text-stone-900 placeholder-stone-400 focus:outline-none focus:border-stone-400 pr-10"
           />
           {value && (
@@ -425,16 +368,17 @@ export default function DataEntryPage() {
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
-    a.download = "allProducts.ts";
+    a.download = "product-data.ts";
     a.click();
     URL.revokeObjectURL(url);
-    showToast("⬇️ allProducts.ts downloaded!");
+    showToast("⬇️ product-data.ts downloaded!");
   };
 
   // ── Email ─────────────────────────────────────────────────────────────────
   const emailCode = () => {
     const subject = `Product Data — ${products.length} Product${products.length !== 1 ? "s" : ""}`;
-    const body = `Hello SajiloDigital,\n\nPlease find my product data below. Copy the content into allProducts.ts\n\n---\n\n${generatedCode}`;
+    const pageUrl = window.location.href;
+    const body = `Hello SajiloDigital,\n\nPlease find my product data below generated from ${pageUrl}.\n\nCopy the array below into your project:\n\n---\n\n${generatedCode}`;
     window.open(
       `mailto:${agencyEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`,
       "_blank"
@@ -445,18 +389,11 @@ export default function DataEntryPage() {
   const sendViaWhatsApp = () => {
     if (products.length === 0) return;
     const phone = agencyWhatsapp.replace(/[^0-9]/g, "");
-    const productList = products
-      .map((p, i) => {
-        const price = parseFloat(p.price) || 0;
-        const cat = p.category === "Other" ? p.customCategory || "Other" : p.category;
-        return `${i + 1}. *${p.name}* — ${currency}${price.toLocaleString("en-IN")} (${cat})`;
-      })
-      .join("\n");
+    const pageUrl = window.location.href;
     const msg =
-      `Hello! 👋 I've filled in my product catalog using the SajiloDigital template tool.` +
-      `\n\n📦 *${products.length} Product${products.length !== 1 ? "s" : ""} Ready:*\n${productList}` +
-      `\n\n📎 I will also send the *allProducts.ts* file via email to ${agencyEmail}.` +
-      `\n\nPlease confirm once received. Thank you!`;
+      `Hello! 👋 I've filled in my product catalog using the SajiloDigital template tool.\n\n` +
+      `🔗 *Tool URL:* ${pageUrl}\n\n` +
+      `📦 *${products.length} Product${products.length !== 1 ? "s" : ""} Below:*\n\n${generatedCode}`;
     window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`, "_blank");
   };
 
@@ -533,11 +470,11 @@ export default function DataEntryPage() {
           <div className="flex items-center gap-1.5 shrink-0">
             <button
               onClick={() => setShowPreview(!showPreview)}
-              title={showPreview ? "Hide code" : "Preview generated code"}
+              title={showPreview ? "Hide preview" : "Preview generated cards"}
               className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 border border-white/10 text-white text-xs font-bold transition-all"
             >
               {showPreview ? <EyeOff className="w-3.5 h-3.5" /> : <Eye className="w-3.5 h-3.5" />}
-              {showPreview ? "Hide" : "Preview"}
+              {showPreview ? "Edit Form" : "Preview"}
             </button>
 
             <button
@@ -553,11 +490,11 @@ export default function DataEntryPage() {
             <button
               onClick={downloadFile}
               disabled={products.length === 0}
-              title="Download allProducts.ts"
+              title="Download Product Data"
               className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 border border-white/10 disabled:opacity-30 text-white text-xs font-bold transition-all"
             >
               <Download className="w-3.5 h-3.5" />
-              <span className="hidden md:inline">Download</span>
+              <span className="hidden md:inline">Download Data</span>
             </button>
 
             <div className="w-px h-4 bg-white/20" />
@@ -787,7 +724,7 @@ export default function DataEntryPage() {
                   style={{ background: "linear-gradient(135deg, var(--color-primary), var(--color-primary-dark))" }}
                 >
                   <Download className="w-4 h-4" />
-                  Download allProducts.ts
+                  Download Data
                 </button>
 
                 <div className="grid grid-cols-2 gap-2">
@@ -820,25 +757,56 @@ export default function DataEntryPage() {
         {/* ── Right: Form / Preview ── */}
         <main className="flex-1 min-w-0">
           {showPreview ? (
-            /* Code Preview */
-            <div className="bg-stone-950 rounded-2xl overflow-hidden shadow-xl">
-              <div className="flex items-center justify-between px-5 py-3 border-b border-stone-800">
-                <div className="flex gap-1.5">
-                  <div className="w-3 h-3 rounded-full bg-rose-500" />
-                  <div className="w-3 h-3 rounded-full bg-amber-400" />
-                  <div className="w-3 h-3 rounded-full bg-emerald-500" />
+            /* Card Grid Preview */
+            <div className="space-y-6">
+              <div className="flex items-center justify-between">
+                <div>
+                  <h2 className="text-xl font-extrabold text-stone-900">Live Card Preview</h2>
+                  <p className="text-sm text-stone-500">How your products will look on the shop page</p>
                 </div>
-                <span className="text-stone-400 text-xs font-mono">allProducts.ts</span>
-                <button onClick={copyCode} className="flex items-center gap-1 text-stone-400 hover:text-white text-xs font-bold transition-colors">
-                  <Copy className="w-3 h-3" />
-                  {copied ? "Copied!" : "Copy"}
-                </button>
               </div>
-              <pre className="p-5 text-green-400 text-xs font-mono overflow-auto max-h-[70vh] leading-relaxed whitespace-pre-wrap">
-                {products.length === 0
-                  ? "// Add at least one product to generate the file."
-                  : generatedCode}
-              </pre>
+              
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {products.length === 0 ? (
+                  <div className="col-span-full py-12 text-center text-stone-400">
+                    <p className="text-sm font-medium">No products added yet.</p>
+                  </div>
+                ) : (
+                  products.map((p) => {
+                    const badgeToShow = p.badge === "Custom…" ? p.customBadge : p.badge;
+                    return (
+                      <div key={p.uid} className="bg-white rounded-[1.5rem] overflow-hidden border border-stone-200 shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg">
+                        <div className="relative aspect-[4/3] bg-stone-100">
+                          {p.images[0] ? (
+                            <img src={p.images[0]} alt={p.name} className="w-full h-full object-cover" />
+                          ) : (
+                            <div className="w-full h-full flex items-center justify-center">
+                              <ImageIcon className="w-10 h-10 text-stone-300" />
+                            </div>
+                          )}
+                          {badgeToShow && (
+                            <div className="absolute top-3 left-3 text-white text-[10px] font-extrabold px-3 py-1 rounded-full shadow-lg" style={{ background: "var(--color-primary)" }}>
+                              {badgeToShow}
+                            </div>
+                          )}
+                        </div>
+                        <div className="p-4">
+                          <h3 className="font-extrabold text-stone-900 text-base mb-1 line-clamp-2">{p.name || "Unnamed Product"}</h3>
+                          <p className="text-stone-500 text-xs mb-3 line-clamp-2">{p.shortDescription || "No description provided."}</p>
+                          <div className="flex items-center gap-3">
+                            <span className="font-black text-sm text-white px-3 py-1 rounded-lg" style={{ background: "var(--color-primary)" }}>
+                              {currency}{parseFloat(p.price || "0").toLocaleString()}
+                            </span>
+                            {p.originalPrice && (
+                              <span className="text-xs text-stone-400 line-through">{currency}{parseFloat(p.originalPrice).toLocaleString()}</span>
+                            )}
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })
+                )}
+              </div>
             </div>
           ) : (
             /* Product Form */
