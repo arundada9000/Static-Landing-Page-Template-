@@ -214,7 +214,7 @@ export const processSteps: ProcessStep[] = [
     num: "03",
     title: "Expert Crafting",
     desc: "Skilled artisans bring each design to life with precision — every component assembled with care and expertise.",
-    img: "https://images.unsplash.com/photo-1624615903992-a2a1e61b3f98?w=800&q=80",
+    img: "https://images.unsplash.com/photo-1671726805768-575f88de945a?w=800&q=80",
     Icon: Zap,
   },
   {
