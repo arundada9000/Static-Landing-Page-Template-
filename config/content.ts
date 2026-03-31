@@ -253,3 +253,52 @@ export const footerLinks = [
 
 export const footerTagline =
   "Bringing premium craftsmanship into the hands of everyone who deserves the best. Quality you can trust, delivered to your door.";
+
+// ─── FAQ Section ─────────────────────────────────────────────────────────────
+
+export interface FAQItem {
+  id: string;
+  question: string;
+  answer: string;
+}
+
+export const faqContent = {
+  badge: "Got Questions?",
+  headlineStart: "Frequently Asked",
+  headlineHighlight: "Questions",
+  subheadline:
+    "Everything you need to know about our products, shipping, and guarantees. If you can't find your answer here, feel free to contact our support team.",
+};
+
+export const faqItems: FAQItem[] = [
+  {
+    id: "faq-1",
+    question: "Do you offer international shipping?",
+    answer:
+      "Yes! We ship worldwide. International deliveries typically take 5-10 business days depending on the destination. All orders include full tracking so you can monitor your package every step of the way.",
+  },
+  {
+    id: "faq-2",
+    question: "What is your return policy?",
+    answer:
+      "We stand behind the quality of our products with a 30-day money-back guarantee. If you aren't completely satisfied, simply return the item in its original condition and packaging for a full refund or exchange.",
+  },
+  {
+    id: "faq-3",
+    question: "How do I care for my product?",
+    answer:
+      "Each product comes with specific care instructions. In general, avoid prolonged exposure to direct sunlight or extreme moisture, and strictly use mild, non-abrasive cleaners to preserve the materials' integrity.",
+  },
+  {
+    id: "faq-4",
+    question: "Are your materials sustainably sourced?",
+    answer:
+      "Absolutely. We are committed to ethical manufacturing. Our materials are meticulously sourced from environmentally conscious partners who share our dedication to rigorous sustainability standards.",
+  },
+  {
+    id: "faq-5",
+    question: "Can I request a custom order?",
+    answer:
+      "Yes, we offer bespoke modifications and completely custom orders. Please reach out via our Contact page or WhatsApp with your specifications, and our design team will get back to you with a direct consultation.",
+  },
+];

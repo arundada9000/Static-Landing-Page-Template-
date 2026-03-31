@@ -297,6 +297,329 @@ export const allProducts: ShopProduct[] = [
       },
     ],
   },
+
+  // ── 7 ────────────────────────────────────────────────────────────────────
+  {
+    id: "polarized-aviators",
+    name: "Classic Polarized Aviators",
+    shortDescription:
+      "Timeless aviator silhouette packed with modern UV400 polarized lenses.",
+    longDescription:
+      "Meticulously designed for uncompromising sun protection without sacrificing style. These aviators feature ultra-lightweight titanium alloy frames and proprietary diamond-coated polarized lenses that eliminate 99% of reflected glare. Perfect for driving, boating, or everyday city wear.",
+    price: 4500,
+    originalPrice: 6000,
+    images: [
+      "https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=900&q=80",
+      "https://images.unsplash.com/photo-1508296695146-257a814070b4?w=900&q=80",
+    ],
+    category: "Accessories",
+    badge: "Trending",
+    tags: ["Polarized", "UV400"],
+    features: [
+      "Ultra-lightweight titanium alloy frame",
+      "Diamond-coated polarized lenses",
+      "100% UVA/UVB protection",
+      "Anti-scratch and anti-reflective coating",
+      "Includes premium leather travel case",
+    ],
+    options: [
+      {
+        id: "frame_color",
+        name: "Frame Colour",
+        choices: ["Matte Black", "Gunmetal", "Rose Gold"],
+      },
+      {
+        id: "lens_color",
+        name: "Lens Tint",
+        choices: ["Midnight Dark", "Gradient Amber", "Ocean Blue"],
+      },
+    ],
+  },
+
+  // ── 8 ────────────────────────────────────────────────────────────────────
+  {
+    id: "minimalist-backpack",
+    name: "Minimalist Commuter Backpack",
+    shortDescription:
+      "Weather-resistant, structured tech-backpack designed for daily urban transit.",
+    longDescription:
+      "Simplify your daily commute with a backpack that anticipates your every need. Built from 1000D ballistic nylon, the Minimalist Commuter is highly weather-resistant and holds its structure flawlessly. It features a suspended, fleece-lined laptop sleeve, hidden passport pockets, and a ventilated back-panel.",
+    price: 8900,
+    images: [
+      "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=900&q=80",
+      "https://images.unsplash.com/photo-1491637639811-60e2756cc1c7?w=900&q=80",
+    ],
+    category: "Bags",
+    badge: "Bestseller",
+    tags: ["Water-Resistant", "Tech Ready"],
+    features: [
+      "1000D Ballistic Nylon Exterior",
+      "Suspended 15-inch laptop sleeve",
+      "Hidden anti-theft back pocket",
+      "Ergonomic, ventilated back-panel",
+      "YKK AquaGuard zippers",
+    ],
+    options: [
+      {
+        id: "size",
+        name: "Capacity",
+        choices: ["18L (Everyday)", "24L (Extended)"],
+      },
+      {
+        id: "color",
+        name: "Exterior Colour",
+        choices: ["Onyx Black", "Charcoal", "Lunar Grey"],
+      },
+    ],
+  },
+
+  // ── 9 ────────────────────────────────────────────────────────────────────
+  {
+    id: "cashmere-scarf",
+    name: "Mongolian Cashmere Scarf",
+    shortDescription:
+      "Unbelievably soft, 100% Grade-A Mongolian cashmere for ultimate winter layering.",
+    longDescription:
+      "Wrap yourself in luxury. Ethically sourced from the high plateaus of Mongolia, our Grade-A cashmere is spun from the longest, finest fibres to prevent pilling while maintaining a cloud-like softness. Large enough to style as a wrap, yet delicate enough to tuck inside a tailored overcoat.",
+    price: 5200,
+    originalPrice: 6800,
+    images: [
+      "https://images.unsplash.com/photo-1520903920243-00d872a2d1c9?w=900&q=80",
+      "https://images.unsplash.com/photo-1584916201218-f4242ceb4809?w=900&q=80",
+    ],
+    category: "Apparel",
+    badge: "Sale",
+    tags: ["Cashmere", "Winter Essential"],
+    features: [
+      "100% Grade-A Mongolian Cashmere",
+      "Extra-long staple fibres to prevent pilling",
+      "Generous 180cm x 30cm dimensions",
+      "Lightweight yet remarkably warm",
+    ],
+    options: [
+      {
+        id: "color",
+        name: "Colour",
+        choices: ["Camel", "Ivory", "Midnight", "Burgundy"],
+      },
+      {
+        id: "monogram",
+        name: "Add Monogram? (Free)",
+        choices: ["No Monogram", "Include Initials (Contact Us)"],
+      },
+    ],
+  },
+
+  // ── 10 ───────────────────────────────────────────────────────────────────
+  {
+    id: "smart-leather-belt",
+    name: "Micro-Adjust Leather Belt",
+    shortDescription:
+      "A hole-less leather belt that adjusts in quarter-inch increments for a perfect fit.",
+    longDescription:
+      "Ditch traditional belt holes. Our Micro-Adjust Leather Belt uses a hidden track system sewn into the back, allowing for precise quarter-inch adjustments. Crafted from a single piece of full-grain leather, it ensures zero cracking, zero stretching, and a flawlessly sleek profile.",
+    price: 3500,
+    images: [
+      "https://images.unsplash.com/photo-1624222247344-550fb60583dc?w=900&q=80",
+      "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=900&q=80",
+    ],
+    category: "Accessories",
+    tags: ["Full-Grain", "Innovative"],
+    features: [
+      "Hidden track system with 30+ size positions",
+      "Full-grain leather construction",
+      "Solid zinc-alloy buckle (removable/swappable)",
+      "Zero holes to stretch or crack",
+    ],
+    options: [
+      {
+        id: "leather_color",
+        name: "Leather Colour",
+        choices: ["Midnight Black", "Espresso Brown", "Walnut"],
+      },
+      {
+        id: "buckle_finish",
+        name: "Buckle Finish",
+        choices: ["Brushed Gunmetal", "Matte Black", "Polished Silver"],
+      },
+    ],
+  },
+
+  // ── 11 ───────────────────────────────────────────────────────────────────
+  {
+    id: "smart-ceramic-mug",
+    name: "Temp-Control Ceramic Mug",
+    shortDescription:
+      "A smart heated mug that keeps your coffee exactly at the perfect temperature.",
+    longDescription:
+      "Never drink cold coffee again. This smart ceramic-coated mug features a built-in precision heating element powered by an all-day battery coaster. Connect via bluetooth to set your exact preferred drinking temperature, and the mug will maintain it for up to 3 hours off-coaster, or all day when docked.",
+    price: 18500,
+    images: [
+      "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=900&q=80",
+      "https://images.unsplash.com/photo-1497935586351-b67a49e012bf?w=900&q=80",
+    ],
+    category: "Accessories",
+    badge: "Tech",
+    tags: ["Smart Home", "Ceramic"],
+    features: [
+      "Precision temperature control (120°F - 145°F)",
+      "3-hour built-in battery life",
+      "Scratch-resistant ceramic coating",
+      "Auto-sleep and wake tracking",
+      "Bluetooth app connectivity",
+    ],
+    options: [
+      {
+        id: "color",
+        name: "Colour",
+        choices: ["Matte White", "Matte Black", "Copper Edition"],
+      },
+      {
+        id: "size",
+        name: "Size",
+        choices: ["10 oz", "14 oz"],
+      },
+    ],
+  },
+
+  // ── 12 ───────────────────────────────────────────────────────────────────
+  {
+    id: "weekender-duffel",
+    name: "Signature Weekender Duffel",
+    shortDescription:
+      "The ultimate short-trip companion made from weather-treated canvas and saddle leather.",
+    longDescription:
+      "Designed perfectly for a 3-day getaway. The Signature Weekender meets all international carry-on size limits while providing cavernous packing space. It features a standalone shoe compartment, waterproof interior zip pockets, and a magnetic quick-access passport slot. Crafted to age beautifully.",
+    price: 16500,
+    originalPrice: 19000,
+    images: [
+      "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=900&q=80",
+      "https://images.unsplash.com/photo-1547949003-9792a18a2601?w=900&q=80",
+    ],
+    category: "Bags",
+    badge: "Sale",
+    tags: ["Travel", "Leather"],
+    features: [
+      "TSA Carry-on approved dimensions",
+      "Dedicated ventilated shoe compartment",
+      "Vegetable-tanned saddle leather trim",
+      "Waterproof interior toiletry pocket",
+      "Includes padded shoulder strap",
+    ],
+    options: [
+      {
+        id: "color",
+        name: "Canvas Colour",
+        choices: ["Navy Blue", "Olive Green", "Desert Sand"],
+      },
+    ],
+  },
+
+  // ── 13 ───────────────────────────────────────────────────────────────────
+  {
+    id: "wireless-anc-headphones",
+    name: "Studio Pro ANC Headphones",
+    shortDescription:
+      "Audiophile-grade wireless over-ear headphones with adaptive noise cancellation.",
+    longDescription:
+      "Immerse yourself. The Studio Pro combines 50mm beryllium drivers with our state-of-the-art Adaptive ANC algorithm that samples ambient noise 50,000 times per second. Enjoy absolute silence on airplanes or vibrant, distortion-free audio at home, all wrapped in plush lambskin ear-pads.",
+    price: 38000,
+    images: [
+      "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=900&q=80",
+      "https://images.unsplash.com/photo-1583394838336-acd977736f90?w=900&q=80",
+    ],
+    category: "Accessories",
+    tags: ["Audio", "Wireless"],
+    features: [
+      "Adaptive Active Noise Cancellation",
+      "50mm Beryllium acoustic drivers",
+      "40-hour battery life (ANC on)",
+      "Premium lambskin leather ear-pads",
+      "Multipoint Bluetooth 5.3 connection",
+    ],
+    options: [
+      {
+        id: "finish",
+        name: "Finish",
+        choices: ["Silver/Brown", "All Black", "Gunmetal/Grey"],
+      },
+    ],
+  },
+
+  // ── 14 ───────────────────────────────────────────────────────────────────
+  {
+    id: "mechanical-keyboard",
+    name: "Vanguard Typing Board",
+    shortDescription:
+      "A heavy CNC-milled aluminum mechanical keyboard built for endless typing comfort.",
+    longDescription:
+      "Type at the speed of thought. The Vanguard is a 75% layout mechanical keyboard machined from a solid block of aerospace grade aluminum. It features hot-swappable switches, double-shot PBT keycaps that never shine, and a gasket-mounted design that produces a deep, satisfying acoustic profile.",
+    price: 24500,
+    images: [
+      "https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=900&q=80",
+      "https://images.unsplash.com/photo-1595225476474-87563907a212?w=900&q=80",
+    ],
+    category: "Accessories",
+    badge: "Limited",
+    tags: ["Tech", "Productivity"],
+    features: [
+      "CNC-milled solid aluminum chassis",
+      "Hot-swappable PCB (5-pin)",
+      "Sound-dampening silicone foam kit",
+      "Double-shot PBT keycaps",
+      "QMK/VIA fully programmable",
+    ],
+    options: [
+      {
+        id: "switches",
+        name: "Tactile Feel",
+        choices: ["Linear (Smooth & Quiet)", "Tactile (Bump & Thock)", "Clicky (Loud & Sharp)"],
+      },
+      {
+        id: "case_color",
+        name: "Case Colour",
+        choices: ["E-White", "Anodized Black", "Forest Green"],
+      },
+    ],
+  },
+
+  // ── 15 ───────────────────────────────────────────────────────────────────
+  {
+    id: "heavyweight-hoodie",
+    name: "Heavyweight Box Hoodie",
+    shortDescription:
+      "A perfectly draping, 500GSM ultra-dense cotton hoodie designed for life.",
+    longDescription:
+      "We took the staple hoodie and uncompromisingly upgraded every thread. Knitted from custom 500-gram heavy loopback cotton, this hoodie features a modern, slightly boxy fit, dropped shoulders, and a double-lined hood that holds its shape permanently. No strings, no logos — just immaculate tailoring.",
+    price: 9500,
+    originalPrice: 11000,
+    images: [
+      "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=900&q=80",
+      "https://images.unsplash.com/photo-1620799140188-3b2a02fd9a77?w=900&q=80",
+    ],
+    category: "Apparel",
+    badge: "Trending",
+    tags: ["Streetwear", "Heavyweight"],
+    features: [
+      "Ultra-heavy 500GSM Loopback Cotton",
+      "Pre-shrunk to completely eliminate shrinkage",
+      "Double-lined rigid hood construction",
+      "Kangaroo pocket with hidden interior phone slot",
+      "Modern dropped-shoulder boxy fit",
+    ],
+    options: [
+      {
+        id: "size",
+        name: "Size",
+        choices: ["S", "M", "L", "XL", "2XL"],
+      },
+      {
+        id: "color",
+        name: "Colour",
+        choices: ["Washed Black", "Heather Grey", "Mocha", "Vintage White"],
+      },
+    ],
+  },
 ];
 
 // ─── Helper — get a single product by id ─────────────────────────────────────
