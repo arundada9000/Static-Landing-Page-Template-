@@ -1,6 +1,7 @@
 {
-  "name": "temp-app",
-  "version": "0.1.2",
+  "name": "sajilodigital-product-template",
+  "version": "1.0.0",
+  "description": "Premium Next.js Product Landing Page Template by SajiloDigital",
   "private": true,
   "scripts": {
     "dev": "next dev",

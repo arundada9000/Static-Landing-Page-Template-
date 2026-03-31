@@ -1,7 +1,8 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Home, Package, Info, ShoppingBag, Phone, Menu, X, Star, Settings } from "lucide-react";
 import { siteConfig, navLinks } from "@/config/site";
@@ -113,22 +114,32 @@ export default function Navbar() {
         <div className="px-4 sm:px-6 md:px-5 lg:px-6">
           <div className="flex items-center justify-between h-16 md:h-[70px] gap-4">
 
-            {/* Logo — Text monogram */}
+            {/* Logo */}
             <Link
               href="/"
               onClick={(e) => handleLinkClick(e, "/")}
               className="flex items-center gap-3 group shrink-0"
             >
-              <div
-                className="w-10 h-10 md:w-11 md:h-11 rounded-full flex items-center justify-center font-extrabold text-lg text-white shadow-lg group-hover:shadow-primary/40 transition-all duration-300"
-                style={{ background: "linear-gradient(135deg, var(--color-primary), var(--color-primary-dark))" }}
-              >
-                {siteConfig.name.charAt(0)}
-              </div>
+              {siteConfig.logoSrc ? (
+                <div className="relative w-10 h-10 md:w-11 md:h-11">
+                  <Image
+                    src={siteConfig.logoSrc}
+                    alt={siteConfig.name}
+                    fill
+                    className="object-contain"
+                  />
+                </div>
+              ) : (
+                <div
+                  className="w-10 h-10 md:w-11 md:h-11 rounded-full flex items-center justify-center font-extrabold text-lg text-white shadow-lg group-hover:shadow-primary/40 transition-all duration-300"
+                  style={{ background: "linear-gradient(135deg, var(--color-primary), var(--color-primary-dark))" }}
+                >
+                  {siteConfig.name.charAt(0)}
+                </div>
+              )}
               <div className="hidden sm:block leading-none">
                 <span
                   className="font-extrabold text-base lg:text-lg text-stone-900 block transition-colors"
-                  style={{ ["--tw-text-opacity" as string]: "1" }}
                 >
                   {siteConfig.name}
                 </span>

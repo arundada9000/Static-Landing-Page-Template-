@@ -27,7 +27,7 @@ export const siteConfig = {
 
   /** Logo — use a circular image at /public/images/circular-logo.png
    *  OR set to null to render the text monogram logo instead */
-  logoSrc: null as string | null,
+  logoSrc: "/images/SajiloDigital.png" as string | null,
 
   /** SEO keywords */
   keywords: [

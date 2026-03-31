@@ -262,8 +262,7 @@ Use nginx as reverse proxy to point the domain to port 3000.
   We build premium digital products for Nepali and global businesses.
 </p>
 <p align="center">
-  <img src="/public/images/SajiloDigital.png" alt="SajiloDigital" width="100" height="100" />
-
+  <img src="/images/SajiloDigital.png" alt="SajiloDigital" width="100" height="100" />
 </p>
 > **Need a custom website, e-commerce store, or a full digital strategy?**  
 > Reach out at [sajilodigital.com.np](https://sajilodigital.com.np)

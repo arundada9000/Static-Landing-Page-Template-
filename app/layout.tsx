@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { siteConfig } from "@/config/site";
@@ -38,6 +38,25 @@ export const metadata: Metadata = {
     description: siteConfig.description,
     images: [siteConfig.ogImage],
   },
+  icons: {
+    icon: siteConfig.logoSrc || "/images/circular-logo.png",
+    apple: [
+      {
+        url: siteConfig.logoSrc || "/images/circular-logo.png",
+        sizes: "180x180",
+        type: "image/png",
+      },
+    ],
+  },
+  manifest: "/manifest", // Next.js auto-resolves this to /app/manifest.ts
+};
+
+export const viewport: Viewport = {
+  themeColor: "#3932A9",
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  viewportFit: "cover",
 };
 
 export default function RootLayout({

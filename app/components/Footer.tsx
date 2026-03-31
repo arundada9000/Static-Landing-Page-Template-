@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { MapPin, Phone, Mail } from "lucide-react";
 import { siteConfig } from "@/config/site";
 import { footerLinks, footerTagline } from "@/config/content";
@@ -27,21 +28,31 @@ export default function Footer() {
             className="sm:col-span-2 lg:col-span-2"
           >
             <Link href="/" className="flex items-center gap-3 mb-5 group w-fit">
-              {/* Text monogram logo */}
-              <div
-                className="w-10 h-10 rounded-full flex items-center justify-center font-extrabold text-lg text-white shadow-lg"
-                style={{
-                  background: "linear-gradient(135deg, var(--color-primary), var(--color-primary-dark))",
-                }}
-              >
-                {siteConfig.name.charAt(0)}
-              </div>
+              {siteConfig.logoSrc ? (
+                <div className="relative w-10 h-10">
+                  <Image
+                    src={siteConfig.logoSrc}
+                    alt={siteConfig.name}
+                    fill
+                    className="object-contain"
+                  />
+                </div>
+              ) : (
+                <div
+                  className="w-10 h-10 rounded-full flex items-center justify-center font-extrabold text-lg text-white shadow-lg"
+                  style={{
+                    background: "linear-gradient(135deg, var(--color-primary), var(--color-primary-dark))",
+                  }}
+                >
+                  {siteConfig.name.charAt(0)}
+                </div>
+              )}
               <div>
-                <span className="font-extrabold text-lg leading-tight block">
+                <span className="font-extrabold text-lg leading-tight block text-white/90 text-stone-900 md:text-white">
                   {siteConfig.name}
                 </span>
                 <span
-                  className="text-xs font-semibold tracking-widest uppercase"
+                  className="text-[10px] font-bold tracking-widest uppercase block"
                   style={{ color: "var(--color-primary-light)" }}
                 >
                   {siteConfig.tagline}
