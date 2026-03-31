@@ -110,7 +110,7 @@ interface CartContextValue {
   clearCart: () => void;
   openCart: () => void;
   closeCart: () => void;
-  checkoutViaWhatsApp: () => void;
+  checkoutViaWhatsApp: (isPaid?: boolean) => void;
 }
 
 const CartContext = createContext<CartContextValue | null>(null);
@@ -169,7 +169,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   const closeCart = useCallback(() => dispatch({ type: "CLOSE_CART" }), []);
 
   /** Build the WhatsApp message from the current cart and open wa.me */
-  const checkoutViaWhatsApp = useCallback(() => {
+  const checkoutViaWhatsApp = useCallback((isPaid?: boolean) => {
     if (state.items.length === 0) return;
 
     const lines: string[] = [
@@ -195,7 +195,13 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
 
     lines.push(`*Total: ${CURRENCY}${subtotal.toLocaleString("en-IN")}*`);
     lines.push("");
-    lines.push("Please let me know how to proceed with payment. Thank you!");
+    
+    if (isPaid) {
+      lines.push("✅ *PAYMENT STATUS: PAID VIA QR*");
+      lines.push("I have submitted my payment via the QR code. Please verify my transaction.");
+    } else {
+      lines.push("Please let me know how to proceed with payment. Thank you!");
+    }
 
     const message = encodeURIComponent(lines.join("\n"));
     const phone = siteConfig.contact.whatsapp.replace(/[^0-9]/g, "");

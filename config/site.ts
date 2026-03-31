@@ -60,6 +60,12 @@ export const siteConfig = {
     name: "SajiloDigital",
     url: "https://sajilodigital.com.np",
   },
+
+  /** QR Payment options for the checkout flow */
+  qrPayments: [
+    { name: "eSewa", imageSrc: "/images/qr1.jpeg" },
+    { name: "Khalti", imageSrc: "/images/qr2.jpeg" },
+  ],
 };
 
 // ─── Navigation Links ────────────────────────────────────────────────────────
