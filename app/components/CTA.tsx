@@ -15,10 +15,13 @@ function WhatsAppIcon() {
 }
 
 export default function CTA() {
-  const whatsappHref = `https://wa.me/${siteConfig.contact.whatsapp}?text=${encodeURIComponent(
+  // Clean the phone number for WhatsApp wa.me API (must be digits only)
+  const cleanWhatsAppNumber = siteConfig.contact.whatsapp.replace(/\D/g, "");
+  
+  const whatsappHref = `https://wa.me/${cleanWhatsAppNumber}?text=${encodeURIComponent(
     `Hi! I want to order from ${siteConfig.name}`
   )}`;
-  const callHref = `tel:${siteConfig.contact.phone.replace(/\s/g, "")}`;
+  const callHref = `tel:${siteConfig.contact.phone.replace(/\D/g, "")}`;
 
   return (
     <section
