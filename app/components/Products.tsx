@@ -95,15 +95,20 @@ export default function Products() {
                       {product.shortDescription}
                     </p>
 
-                    <div className="flex items-center gap-3 mb-6 pb-6 border-b border-stone-100">
-                      <span className="text-xl font-extrabold text-stone-900">
-                        {formatPrice(product.price)}
-                      </span>
-                      {product.originalPrice && (
-                        <span className="text-sm font-bold text-stone-400 line-through">
-                          {formatPrice(product.originalPrice)}
+                    <div className="flex items-center justify-between mb-6 pb-6 border-b border-stone-50">
+                      <div className="flex items-center gap-4">
+                        <span 
+                          className="text-lg font-black px-5 py-2 rounded-xl text-white shadow-xl shadow-[var(--color-primary)]/10"
+                          style={{ background: "linear-gradient(135deg, var(--color-primary), var(--color-primary-dark))" }}
+                        >
+                          {formatPrice(product.price)}
                         </span>
-                      )}
+                        {product.originalPrice && (
+                          <span className="text-xs font-bold text-stone-400 line-through">
+                            {formatPrice(product.originalPrice)}
+                          </span>
+                        )}
+                      </div>
                     </div>
                   </div>
 

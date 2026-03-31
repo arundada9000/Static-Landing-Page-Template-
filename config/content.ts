@@ -190,7 +190,7 @@ export interface ProcessStep {
 
 export const processContent = {
   badge: "How We Do It",
-  headline: "The THE SHOP Process",
+  headline: "THE SHOP Process",
   subheadline:
     "A meticulous, end-to-end journey that transforms the finest raw materials into products you will treasure for a lifetime.",
 };

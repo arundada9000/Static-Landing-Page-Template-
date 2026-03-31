@@ -244,21 +244,25 @@ export default function ShopPage() {
                         </p>
                         
                         <div className="flex items-center justify-between mt-auto">
-                          <div className="flex items-baseline gap-2">
-                            <span className="font-extrabold text-lg text-stone-900">
+                          <div className="flex items-center gap-3">
+                            <span 
+                              className="font-black text-lg text-white px-4 py-1.5 rounded-xl shadow-lg transition-transform group-hover:scale-105"
+                              style={{ background: "linear-gradient(135deg, var(--color-primary), var(--color-primary-dark))" }}
+                            >
                               {formatPrice(product.price)}
                             </span>
                             {product.originalPrice && (
-                              <span className="text-sm text-stone-400 line-through font-medium">
+                              <span className="text-[12px] font-bold text-stone-400 line-through">
                                 {formatPrice(product.originalPrice)}
                               </span>
                             )}
                           </div>
+                          
                           <div
-                            className="w-10 h-10 rounded-full flex items-center justify-center text-white transition-transform group-hover:scale-110 shadow-md"
+                            className="w-10 h-10 rounded-full flex items-center justify-center text-white transition-all group-hover:scale-110 shadow-md group-hover:shadow-[var(--color-primary)]/20"
                             style={{ backgroundColor: "var(--color-primary)" }}
                           >
-                            <ArrowRight className="w-4 h-4" />
+                            <ArrowRight className="w-5 h-5 group-hover:translate-x-0.5 transition-transform" />
                           </div>
                         </div>
                       </div>
