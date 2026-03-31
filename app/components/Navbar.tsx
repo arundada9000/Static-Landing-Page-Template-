@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { Home, Package, Info, ShoppingBag, Phone, Menu, X } from "lucide-react";
 import { siteConfig, navLinks } from "@/config/site";
 import { motion, AnimatePresence } from "framer-motion";
+import { useCart } from "../context/CartContext";
 
 const mobileLinks = [
   { label: "Home", href: "/", icon: Home },
@@ -16,6 +17,7 @@ const mobileLinks = [
 ];
 
 export default function Navbar() {
+  const { openCart, totalItems } = useCart();
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [activeHash, setActiveHash] = useState("");
@@ -168,6 +170,21 @@ export default function Navbar() {
                 <ShoppingBag className="w-4 h-4 group-hover:-rotate-12 transition-transform duration-300" />
                 Shop Now
               </Link>
+              
+              {/* Cart Button */}
+              <button
+                onClick={openCart}
+                className="relative p-2 text-stone-600 hover:bg-stone-100 rounded-full transition-colors active:scale-95"
+                style={{ ["--tw-text-opacity" as string]: "1" }}
+              >
+                <ShoppingBag className="w-6 h-6" />
+                {totalItems > 0 && (
+                  <span className="absolute 0 top-0.5 right-0.5 w-4 h-4 bg-rose-500 text-white text-[10px] font-bold flex items-center justify-center rounded-full shadow-sm">
+                    {totalItems}
+                  </span>
+                )}
+              </button>
+
               <button
                 className="lg:hidden p-2 text-stone-600 hover:bg-stone-100 rounded-full transition-colors active:scale-95"
                 style={{ ["--tw-text-opacity" as string]: "1" }}

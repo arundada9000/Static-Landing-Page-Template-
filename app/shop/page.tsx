@@ -1,229 +1,200 @@
-import Link from "next/link";
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
-import {
-  Bell,
-  ShoppingBag,
-  Phone,
-  ShoppingCart,
-  Wallet,
-  WalletCards,
-  TruckElectric,
-} from "lucide-react";
-import { products } from "../data/products";
+import Link from "next/link";
 import { siteConfig } from "@/config/site";
-import type { Metadata } from "next";
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 import { FadeIn } from "../components/FadeIn";
-
-export const metadata: Metadata = {
-  title: `Shop | ${siteConfig.name} — Coming Soon`,
-  description:
-    "Our online store is coming soon. In the meantime, order via WhatsApp or call us directly.",
-};
-
-function WhatsAppIcon() {
-  return (
-    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z" />
-    </svg>
-  );
-}
+import { useCart } from "../context/CartContext";
+import { ShoppingBag, ArrowRight } from "lucide-react";
+import {
+  allProducts,
+  shopCategories,
+  formatPrice,
+  ShopProduct,
+} from "../data/allProducts";
 
 export default function ShopPage() {
-  const getWhatsAppUrl = (productName: string) => {
-    const message = encodeURIComponent(`Hi! I want to order ${productName}`);
-    return `https://wa.me/${siteConfig.contact.whatsapp}?text=${message}`;
-  };
+  const [activeCategory, setActiveCategory] = useState("All");
 
-  const notifyWhatsApp = `https://wa.me/${siteConfig.contact.whatsapp}?text=${encodeURIComponent(
-    `Please notify me when the ${siteConfig.name} online store is live`
-  )}`;
+  const filteredProducts =
+    activeCategory === "All"
+      ? allProducts.filter((p) => p.active !== false)
+      : allProducts.filter(
+          (p) => p.active !== false && p.category === activeCategory
+        );
 
   return (
-    <div className="min-h-screen" style={{ backgroundColor: "var(--color-surface-alt)" }}>
+    <div className="min-h-screen flex flex-col" style={{ backgroundColor: "var(--color-surface-alt)" }}>
       <Navbar />
 
-      {/* Hero Banner */}
-      <div
-        className="relative text-white py-28 lg:py-36 overflow-hidden text-center"
-        style={{ backgroundColor: "var(--color-primary-dark)" }}
-      >
-        {/* Glow scrim */}
+      <main className="flex-1">
+        {/* ── Hero Banner ── */}
         <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            background:
-              "radial-gradient(ellipse at 50% 50%, color-mix(in srgb, var(--color-primary) 40%, transparent) 0%, transparent 70%)",
-          }}
-        />
-
-        <div className="relative z-10 max-w-2xl mx-auto px-4">
-          <FadeIn>
-            {/* Icon */}
+          className="relative text-white pt-32 pb-24 lg:pt-40 lg:pb-32 overflow-hidden text-center"
+          style={{ backgroundColor: "var(--color-primary-dark)" }}
+        >
+          {/* Subtle grid pattern */}
           <div
-            className="w-20 h-20 rounded-3xl flex items-center justify-center mx-auto mb-6 border border-white/20"
-            style={{ backgroundColor: "rgba(255,255,255,0.12)" }}
-          >
-            <ShoppingBag className="w-10 h-10 text-white" />
-          </div>
-
-          {/* Badge */}
-          <span
-            className="inline-block text-xs font-bold tracking-widest uppercase mb-5 px-4 py-1.5 rounded-full border border-white/20"
-            style={{ color: "var(--color-accent)", backgroundColor: "rgba(255,255,255,0.08)" }}
-          >
-            Phase 2 — Coming Soon
-          </span>
-
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight mb-5 leading-tight">
-            Our Online Store is <br />
-            <span
-              className="text-transparent bg-clip-text"
-              style={{
-                backgroundImage:
-                  "linear-gradient(to right, var(--color-accent-light), var(--color-accent))",
-              }}
-            >
-              Coming Soon
-            </span>
-          </h1>
-
-          <p
-            className="text-lg mb-10 leading-relaxed max-w-xl mx-auto"
-            style={{ color: "rgba(255,255,255,0.7)" }}
-          >
-            We&apos;re building a beautiful online store with cart, secure payments, and
-            fast delivery worldwide. Until then, order directly via WhatsApp!
-          </p>
-
-          <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <a
-              href={notifyWhatsApp}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 text-white px-6 py-3 rounded-full font-bold text-sm transition-all active:scale-95"
-              style={{ background: "var(--color-primary)" }}
-            >
-              <Bell className="w-4 h-4" />
-              Notify Me When Live
-            </a>
-            <a
-              href={`tel:${siteConfig.contact.phone.replace(/\s/g, "")}`}
-              className="flex items-center gap-2 text-white border border-white/25 px-6 py-3 rounded-full font-bold text-sm transition-all active:scale-95 hover:bg-white/10"
-            >
-              <Phone className="w-4 h-4" />
-              Call Us Now
-            </a>
-          </div>
-          </FadeIn>
-        </div>
-      </div>
-
-      {/* Product Listings */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <FadeIn className="text-center mb-12">
-          <span
-            className="inline-block text-xs font-bold tracking-widest uppercase mb-3 px-3 py-1 rounded-full border"
+            className="absolute inset-0 pointer-events-none"
             style={{
-              color: "var(--color-primary)",
-              backgroundColor: "var(--color-primary-50)",
-              borderColor: "var(--color-primary-100)",
+              backgroundImage:
+                "linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)",
+              backgroundSize: "60px 60px",
             }}
-          >
-            Order Now via WhatsApp
-          </span>
-          <h2 className="text-3xl font-extrabold text-stone-900 mt-4 mb-3">
-            Products Available Right Now
-          </h2>
-          <p className="text-stone-500">
-            Browse our collection and place your order instantly through WhatsApp.
-          </p>
-        </FadeIn>
+          />
+          <div
+            className="absolute inset-0 pointer-events-none"
+            style={{
+              background:
+                "radial-gradient(ellipse at 50% 100%, color-mix(in srgb, var(--color-primary) 50%, transparent) 0%, transparent 80%)",
+            }}
+          />
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {products.map((product, idx) => (
-            <FadeIn key={product.id} delay={idx * 0.1}>
+          <div className="relative z-10 max-w-4xl mx-auto px-4">
+            <FadeIn>
               <div
-                className="bg-white rounded-3xl overflow-hidden border border-stone-200 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col h-full"
+                className="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6 backdrop-blur-md border border-white/20"
+                style={{ backgroundColor: "rgba(255,255,255,0.1)" }}
               >
-              <div className="relative h-56 w-full overflow-hidden bg-stone-100">
-                <Image
-                  src={product.imagePath}
-                  alt={product.name}
-                  fill
-                  sizes="(max-width: 640px) 100vw, 33vw"
-                  className="object-cover"
-                />
-                {product.isBest && (
-                  <div
-                    className="absolute top-3 left-3 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md"
-                    style={{ background: "var(--color-primary)" }}
-                  >
-                    Best Seller
-                  </div>
-                )}
+                <ShoppingBag className="w-8 h-8 text-white/90" />
               </div>
-              <div className="p-6 flex flex-col flex-1">
-                <h3 className="font-extrabold text-stone-900 text-lg mb-2">
-                  {product.name}
-                </h3>
-                <p className="text-stone-500 text-sm mb-4 flex-1">
-                  {product.shortDescription}
-                </p>
-                <p className="text-xs text-stone-400 mb-5">
-                  <span className="font-bold text-stone-700">Variant: </span>
-                  {product.variant}
-                </p>
-                <a
-                  href={getWhatsAppUrl(product.name)}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#1da851] text-white py-3 rounded-xl font-bold text-sm transition-all active:scale-95"
-                >
-                  <WhatsAppIcon />
-                  Order via WhatsApp
-                </a>
-              </div>
-              </div>
-            </FadeIn>
-          ))}
-        </div>
-      </div>
 
-      {/* Phase 2 Features */}
-      <div
-        className="border-t border-stone-200 py-16"
-        style={{ backgroundColor: "var(--color-primary-50)" }}
-      >
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <FadeIn>
-            <h2 className="text-2xl font-extrabold text-stone-900 mb-3">
-            What&apos;s Coming in Phase 2
-          </h2>
-          <p className="text-stone-500 mb-10">Our full-featured online store is on its way.</p>
-          </FadeIn>
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-5">
-            {[
-              { label: "Shopping Cart", icon: <ShoppingCart /> },
-              { label: "Secure Payments", icon: <Wallet /> },
-              { label: "Card Payments", icon: <WalletCards /> },
-              { label: "Fast Delivery", icon: <TruckElectric /> },
-            ].map(({ label, icon }, idx) => (
-              <FadeIn key={label} delay={idx * 0.1}>
-                <div
-                  className="bg-white rounded-2xl border p-5 flex flex-col items-center gap-3 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all h-full"
-                  style={{ borderColor: "var(--color-primary-100)" }}
+              <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold tracking-tight mb-6 leading-tight">
+                Curated {" "}
+                <span
+                  className="text-transparent bg-clip-text"
+                  style={{
+                    backgroundImage:
+                      "linear-gradient(to right, var(--color-accent-light), var(--color-accent))",
+                  }}
                 >
-                  <span style={{ color: "var(--color-primary)" }} className="text-3xl">
-                    {icon}
-                  </span>
-                  <span className="text-sm font-bold text-stone-900">{label}</span>
-                </div>
-              </FadeIn>
-            ))}
+                  Excellence
+                </span>
+              </h1>
+
+              <p className="text-lg md:text-xl mb-0 leading-relaxed max-w-2xl mx-auto text-white/70 font-medium">
+                Discover our collection of premium goods. Add to your cart and place your order securely via WhatsApp.
+              </p>
+            </FadeIn>
           </div>
         </div>
-      </div>
+
+        {/* ── Shop Section ── */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+          
+          {/* Filter Bar */}
+          <FadeIn direction="up">
+            <div className="flex flex-wrap items-center justify-center gap-2 mb-16">
+              {shopCategories.map((cat) => {
+                const isActive = activeCategory === cat;
+                return (
+                  <button
+                    key={cat}
+                    onClick={() => setActiveCategory(cat)}
+                    aria-pressed={isActive}
+                    aria-label={`Filter by category: ${cat}`}
+                    className={`px-6 py-2.5 rounded-full text-sm font-bold transition-all duration-300 cursor-pointer ${
+                      isActive ? "ring-2 ring-offset-2 ring-primary" : ""
+                    }`}
+                    style={{
+                      backgroundColor: isActive
+                        ? "var(--color-primary)"
+                        : "white",
+                      color: isActive ? "white" : "var(--color-stone-600)",
+                      border: isActive
+                        ? "1px solid var(--color-primary)"
+                        : "1px solid var(--color-border)",
+                      boxShadow: isActive
+                        ? "0 4px 14px color-mix(in srgb, var(--color-primary) 30%, transparent)"
+                        : "0 2px 4px transparent",
+                    }}
+                  >
+                    {cat}
+                  </button>
+                );
+              })}
+            </div>
+          </FadeIn>
+
+          {/* Product Grid */}
+          {filteredProducts.length === 0 ? (
+            <div className="text-center py-20 text-stone-500 font-medium">
+              No products found in this category.
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
+              {filteredProducts.map((product, idx) => (
+                <FadeIn key={product.id} delay={idx * 0.05} direction="up">
+                  <Link href={`/shop/${product.id}`} className="block group h-full">
+                    <div className="bg-white rounded-[2rem] overflow-hidden border border-stone-200/60 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-500 flex flex-col h-full relative">
+                      
+                      {/* Badge (if any) */}
+                      {product.badge && (
+                        <div
+                          className="absolute top-4 left-4 z-20 text-white text-xs font-extrabold px-4 py-1.5 rounded-full shadow-lg backdrop-blur-md"
+                          style={{ background: "var(--color-primary)" }}
+                        >
+                          {product.badge}
+                        </div>
+                      )}
+
+                      {/* Image Container */}
+                      <div className="relative aspect-[4/3] w-full overflow-hidden bg-stone-100">
+                        <Image
+                          src={product.images[0]}
+                          alt={product.name}
+                          fill
+                          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                          className="object-cover transition-transform duration-700 group-hover:scale-105"
+                        />
+                        {/* Hover Overlay */}
+                        <div className="absolute inset-0 bg-stone-900/0 group-hover:bg-stone-900/10 transition-colors duration-500" />
+                      </div>
+
+                      {/* Content */}
+                      <div className="p-6 md:p-8 flex flex-col flex-1">
+                        <div className="flex justify-between items-start gap-4 mb-3">
+                          <h3 className="font-extrabold text-stone-900 text-xl line-clamp-2">
+                            {product.name}
+                          </h3>
+                        </div>
+                        
+                        <p className="text-stone-500 text-sm mb-6 flex-1 line-clamp-3 leading-relaxed">
+                          {product.shortDescription}
+                        </p>
+                        
+                        <div className="flex items-center justify-between mt-auto">
+                          <div className="flex items-baseline gap-2">
+                            <span className="font-extrabold text-lg text-stone-900">
+                              {formatPrice(product.price)}
+                            </span>
+                            {product.originalPrice && (
+                              <span className="text-sm text-stone-400 line-through font-medium">
+                                {formatPrice(product.originalPrice)}
+                              </span>
+                            )}
+                          </div>
+                          <div
+                            className="w-10 h-10 rounded-full flex items-center justify-center text-white transition-transform group-hover:scale-110 shadow-md"
+                            style={{ backgroundColor: "var(--color-primary)" }}
+                          >
+                            <ArrowRight className="w-4 h-4" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </Link>
+                </FadeIn>
+              ))}
+            </div>
+          )}
+        </div>
+      </main>
+      
+      <Footer />
     </div>
   );
 }

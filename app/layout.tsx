@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { siteConfig } from "@/config/site";
+import { CartProvider } from "./context/CartContext";
+import CartDrawer from "./components/CartDrawer";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -49,7 +51,10 @@ export default function RootLayout({
       className={`${inter.variable} scroll-smooth antialiased h-full`}
     >
       <body className="min-h-full flex flex-col font-sans bg-surface-alt text-heading pb-20 md:pb-0">
-        {children}
+        <CartProvider>
+          {children}
+          <CartDrawer />
+        </CartProvider>
       </body>
     </html>
   );
