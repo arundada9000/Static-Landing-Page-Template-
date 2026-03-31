@@ -46,7 +46,7 @@ export const heroContent = {
   /** Hero background image */
   heroImage:
     "https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?w=1920&q=80",
-  heroImageAlt: "Premium VELA product showcase",
+  heroImageAlt: "Premium THE SHOP product showcase",
 };
 
 // ─── About / Brand Story Section ───────────────────────────────────────────
@@ -61,7 +61,7 @@ export const aboutContent = {
 
   /** Body paragraphs */
   body1:
-    "At VELA, we believe every great product starts with an uncompromising vision. Our team of artisans and engineers collaborate to create goods that truly stand apart from the rest.",
+    "At THE SHOP, we believe every great product starts with an uncompromising vision. Our team of artisans and engineers collaborate to create goods that truly stand apart from the rest.",
   body2:
     "Every piece we craft goes through a meticulous multi-stage process — blending best-in-class materials with decades of expertise to deliver an experience that exceeds every expectation.",
 
@@ -81,7 +81,7 @@ export const aboutContent = {
   /** About section image */
   aboutImage:
     "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=80",
-  aboutImageAlt: "VELA craftsmanship and production process",
+  aboutImageAlt: "THE SHOP craftsmanship and production process",
 };
 
 // ─── Trust Bar ───────────────────────────────────────────────────────────────
@@ -129,17 +129,17 @@ export interface Benefit {
 }
 
 export const benefitsContent = {
-  badge: "Why Choose VELA?",
+  badge: "Why Choose THE SHOP?",
   headlineStart: "Designed to",
   headlineHighlight: "Elevate",
   headlineEnd: "Your Life",
   subheadline:
-    "VELA products are crafted to seamlessly integrate into your world — delivering quality you can see, feel, and trust every single day.",
+    "THE SHOP products are crafted to seamlessly integrate into your world — delivering quality you can see, feel, and trust every single day.",
 
   /** Side image */
   benefitsImage:
     "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1200&q=80",
-  benefitsImageAlt: "Lifestyle benefits of VELA products",
+  benefitsImageAlt: "Lifestyle benefits of THE SHOP products",
 
   /** Floating stat card */
   statValue: "50K+",
@@ -190,7 +190,7 @@ export interface ProcessStep {
 
 export const processContent = {
   badge: "How We Do It",
-  headline: "The VELA Process",
+  headline: "The THE SHOP Process",
   subheadline:
     "A meticulous, end-to-end journey that transforms the finest raw materials into products you will treasure for a lifetime.",
 };
@@ -229,7 +229,7 @@ export const processSteps: ProcessStep[] = [
 // ─── CTA Section ─────────────────────────────────────────────────────────────
 
 export const ctaContent = {
-  badge: "Ready to Experience VELA?",
+  badge: "Ready to Experience THE SHOP?",
   headlineStart: "Elevate Your",
   headlineHighlight: "Everyday",
   subheadline:

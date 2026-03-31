@@ -1,7 +1,10 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, MessageCircle } from "lucide-react";
 import { heroContent } from "@/config/content";
+import { motion } from "framer-motion";
 
 export default function Hero() {
   return (
@@ -33,15 +36,25 @@ export default function Hero() {
       {/* Content */}
       <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
         {/* Badge */}
-        <div className="inline-flex md:mt-7 items-center gap-2 px-4 py-1.5 rounded-full bg-white/15 backdrop-blur-md border border-white/25 text-sm font-semibold mb-8 uppercase tracking-widest">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="inline-flex md:mt-7 items-center gap-2 px-4 py-1.5 rounded-full bg-white/15 backdrop-blur-md border border-white/25 text-sm font-semibold mb-8 uppercase tracking-widest"
+        >
           <span
             className="w-2 h-2 rounded-full inline-block animate-pulse"
             style={{ backgroundColor: "var(--color-accent)" }}
           />
           {heroContent.badge}
-        </div>
+        </motion.div>
 
-        <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold mb-6 tracking-tight leading-[1.05]">
+        <motion.h1 
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold mb-6 tracking-tight leading-[1.05]"
+        >
           {heroContent.headlineStart}{" "}
           <span
             className="text-transparent bg-clip-text"
@@ -54,14 +67,24 @@ export default function Hero() {
           </span>
           <br />
           {heroContent.headlineEnd}
-        </h1>
+        </motion.h1>
 
-        <p className="text-lg sm:text-xl md:text-2xl text-white/80 mb-10 max-w-2xl mx-auto font-light leading-relaxed">
+        <motion.p 
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="text-lg sm:text-xl md:text-2xl text-white/80 mb-10 max-w-2xl mx-auto font-light leading-relaxed"
+        >
           {heroContent.subheadline}
-        </p>
+        </motion.p>
 
         {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="flex flex-col sm:flex-row items-center justify-center gap-4"
+        >
           <Link
             href={heroContent.primaryCTA.href}
             className="group flex items-center gap-2 text-white px-8 py-4 rounded-full font-bold text-base transition-all duration-300 shadow-xl active:scale-95 w-full sm:w-auto justify-center"
@@ -77,13 +100,18 @@ export default function Hero() {
             <MessageCircle className="w-4 h-4" />
             {heroContent.secondaryCTA.label}
           </Link>
-        </div>
+        </motion.div>
 
         {/* Scroll hint */}
-        <div className="mt-20 flex flex-col items-center gap-2 opacity-50">
+        <motion.div 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 0.5 }}
+          transition={{ duration: 1, delay: 1 }}
+          className="mt-20 flex flex-col items-center gap-2"
+        >
           <span className="text-xs uppercase tracking-widest">Scroll to explore</span>
           <div className="w-px h-12 bg-gradient-to-b from-white to-transparent" />
-        </div>
+        </motion.div>
       </div>
     </section>
   );

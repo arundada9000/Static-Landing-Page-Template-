@@ -8,17 +8,19 @@
 
 export const siteConfig = {
   /** The brand / company name shown in the header & footer */
-  name: "VELA",
+  name: "THE SHOP",
 
   /** One-line brand tagline shown in footer */
   tagline: "Crafted for the Exceptional",
 
   /** Meta description for SEO */
   description:
-    "Discover premium-quality products engineered for those who demand the best. VELA combines breakthrough innovation with timeless craftsmanship.",
+    "Discover premium-quality products engineered for those who demand the best. THE SHOP combines breakthrough innovation with timeless craftsmanship.",
 
   /** Canonical URL of the deployed site */
-  url: process.env.NEXT_PUBLIC_SITE_URL || "https://velaproducts.com",
+  url:
+    process.env.NEXT_PUBLIC_SITE_URL ||
+    "https://statictemplate.sajilodigital.com.np",
 
   /** Open Graph / Twitter card image (place in /public/images/) */
   ogImage: "/images/og-image.png",
@@ -29,7 +31,7 @@ export const siteConfig = {
 
   /** SEO keywords */
   keywords: [
-    "VELA",
+    "THE SHOP",
     "premium products",
     "luxury goods",
     "high quality craftsmanship",

@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { benefits, benefitsContent } from "@/config/content";
+import { motion } from "framer-motion";
 
 export default function Benefits() {
   return (
@@ -23,7 +24,13 @@ export default function Benefits() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 xl:gap-24 items-center">
 
           {/* Image column */}
-          <div className="relative order-2 lg:order-1">
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.7 }}
+            className="relative order-2 lg:order-1"
+          >
             <div className="relative h-[500px] lg:h-[620px] rounded-3xl overflow-hidden shadow-2xl">
               <Image
                 src={benefitsContent.benefitsImage}
@@ -66,10 +73,16 @@ export default function Benefits() {
                 {benefitsContent.badgeLabel}
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Content column */}
-          <div className="order-1 lg:order-2">
+          <motion.div 
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.7 }}
+            className="order-1 lg:order-2"
+          >
             <span
               className="inline-block text-xs font-bold tracking-widest uppercase mb-3 px-3 py-1 rounded-full border"
               style={{
@@ -124,7 +137,7 @@ export default function Benefits() {
                 </div>
               ))}
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

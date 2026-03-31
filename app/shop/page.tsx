@@ -13,6 +13,7 @@ import { products } from "../data/products";
 import { siteConfig } from "@/config/site";
 import type { Metadata } from "next";
 import Navbar from "../components/Navbar";
+import { FadeIn } from "../components/FadeIn";
 
 export const metadata: Metadata = {
   title: `Shop | ${siteConfig.name} — Coming Soon`,
@@ -57,7 +58,8 @@ export default function ShopPage() {
         />
 
         <div className="relative z-10 max-w-2xl mx-auto px-4">
-          {/* Icon */}
+          <FadeIn>
+            {/* Icon */}
           <div
             className="w-20 h-20 rounded-3xl flex items-center justify-center mx-auto mb-6 border border-white/20"
             style={{ backgroundColor: "rgba(255,255,255,0.12)" }}
@@ -113,12 +115,13 @@ export default function ShopPage() {
               Call Us Now
             </a>
           </div>
+          </FadeIn>
         </div>
       </div>
 
       {/* Product Listings */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="text-center mb-12">
+        <FadeIn className="text-center mb-12">
           <span
             className="inline-block text-xs font-bold tracking-widest uppercase mb-3 px-3 py-1 rounded-full border"
             style={{
@@ -135,14 +138,14 @@ export default function ShopPage() {
           <p className="text-stone-500">
             Browse our collection and place your order instantly through WhatsApp.
           </p>
-        </div>
+        </FadeIn>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {products.map((product) => (
-            <div
-              key={product.id}
-              className="bg-white rounded-3xl overflow-hidden border border-stone-200 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col"
-            >
+          {products.map((product, idx) => (
+            <FadeIn key={product.id} delay={idx * 0.1}>
+              <div
+                className="bg-white rounded-3xl overflow-hidden border border-stone-200 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col h-full"
+              >
               <div className="relative h-56 w-full overflow-hidden bg-stone-100">
                 <Image
                   src={product.imagePath}
@@ -181,7 +184,8 @@ export default function ShopPage() {
                   Order via WhatsApp
                 </a>
               </div>
-            </div>
+              </div>
+            </FadeIn>
           ))}
         </div>
       </div>
@@ -192,27 +196,30 @@ export default function ShopPage() {
         style={{ backgroundColor: "var(--color-primary-50)" }}
       >
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-2xl font-extrabold text-stone-900 mb-3">
+          <FadeIn>
+            <h2 className="text-2xl font-extrabold text-stone-900 mb-3">
             What&apos;s Coming in Phase 2
           </h2>
           <p className="text-stone-500 mb-10">Our full-featured online store is on its way.</p>
+          </FadeIn>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-5">
             {[
               { label: "Shopping Cart", icon: <ShoppingCart /> },
               { label: "Secure Payments", icon: <Wallet /> },
               { label: "Card Payments", icon: <WalletCards /> },
               { label: "Fast Delivery", icon: <TruckElectric /> },
-            ].map(({ label, icon }) => (
-              <div
-                key={label}
-                className="bg-white rounded-2xl border p-5 flex flex-col items-center gap-3 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all"
-                style={{ borderColor: "var(--color-primary-100)" }}
-              >
-                <span style={{ color: "var(--color-primary)" }} className="text-3xl">
-                  {icon}
-                </span>
-                <span className="text-sm font-bold text-stone-900">{label}</span>
-              </div>
+            ].map(({ label, icon }, idx) => (
+              <FadeIn key={label} delay={idx * 0.1}>
+                <div
+                  className="bg-white rounded-2xl border p-5 flex flex-col items-center gap-3 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all h-full"
+                  style={{ borderColor: "var(--color-primary-100)" }}
+                >
+                  <span style={{ color: "var(--color-primary)" }} className="text-3xl">
+                    {icon}
+                  </span>
+                  <span className="text-sm font-bold text-stone-900">{label}</span>
+                </div>
+              </FadeIn>
             ))}
           </div>
         </div>

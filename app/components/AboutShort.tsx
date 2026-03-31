@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, ShieldCheck, Zap } from "lucide-react";
 import { aboutContent } from "@/config/content";
+import { motion } from "framer-motion";
 
 export default function AboutShort() {
   return (
@@ -22,7 +23,13 @@ export default function AboutShort() {
         <div className="flex flex-col lg:flex-row items-center gap-16">
 
           {/* Image Side */}
-          <div className="w-full lg:w-1/2 relative">
+          <motion.div 
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.7 }}
+            className="w-full lg:w-1/2 relative"
+          >
             <div className="relative aspect-[4/3] rounded-[2rem] overflow-hidden shadow-2xl z-10">
               <Image
                 src={aboutContent.aboutImage}
@@ -41,10 +48,16 @@ export default function AboutShort() {
                 {aboutContent.badgeLabel}
               </span>
             </div>
-          </div>
+          </motion.div>
 
           {/* Content Side */}
-          <div className="w-full lg:w-1/2 space-y-8">
+          <motion.div 
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.7 }}
+            className="w-full lg:w-1/2 space-y-8"
+          >
             <div>
               <span
                 className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase mb-4 px-3 py-1 rounded-full border"
@@ -124,7 +137,7 @@ export default function AboutShort() {
                 </div>
               </Link>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

@@ -1,7 +1,10 @@
+"use client";
+
 import Link from "next/link";
 import { Phone, ShoppingBag } from "lucide-react";
 import { siteConfig } from "@/config/site";
 import { ctaContent } from "@/config/content";
+import { motion } from "framer-motion";
 
 function WhatsAppIcon() {
   return (
@@ -32,7 +35,13 @@ export default function CTA() {
         style={{ backgroundColor: "var(--color-primary-light)" }}
       />
 
-      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+      <motion.div 
+        initial={{ opacity: 0, scale: 0.95, y: 30 }}
+        whileInView={{ opacity: 1, scale: 1, y: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.7 }}
+        className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white"
+      >
         {/* Badge */}
         <span
           className="inline-block text-xs font-bold tracking-widest uppercase mb-6 px-3 py-1 rounded-full border border-white/20"
@@ -88,7 +97,7 @@ export default function CTA() {
             {ctaContent.callBtnLabel}
           </a>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

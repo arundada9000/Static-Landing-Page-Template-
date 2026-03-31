@@ -4,6 +4,7 @@ import Link from "next/link";
 import { MapPin, Phone, Mail } from "lucide-react";
 import { siteConfig } from "@/config/site";
 import { footerLinks, footerTagline } from "@/config/content";
+import { motion } from "framer-motion";
 
 export default function Footer() {
   return (
@@ -18,7 +19,13 @@ export default function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
 
           {/* Brand */}
-          <div className="sm:col-span-2 lg:col-span-2">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.5 }}
+            className="sm:col-span-2 lg:col-span-2"
+          >
             <Link href="/" className="flex items-center gap-3 mb-5 group w-fit">
               {/* Text monogram logo */}
               <div
@@ -98,10 +105,15 @@ export default function Footer() {
                 </svg>
               </a>
             </div>
-          </div>
+          </motion.div>
 
           {/* Quick Links */}
-          <div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+          >
             <h4 className="font-bold text-white text-sm uppercase tracking-widest mb-6">
               Quick Links
             </h4>
@@ -130,10 +142,15 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
-          </div>
+          </motion.div>
 
           {/* Contact */}
-          <div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
             <h4 className="font-bold text-white text-sm uppercase tracking-widest mb-6">
               Contact Us
             </h4>
@@ -193,11 +210,15 @@ export default function Footer() {
                 </a>
               </li>
             </ul>
-          </div>
+          </motion.div>
         </div>
 
         {/* Bottom Bar */}
-        <div
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.3 }}
           className="pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs"
           style={{
             borderTop: "1px solid rgba(255,255,255,0.1)",
@@ -223,7 +244,7 @@ export default function Footer() {
               Built by {siteConfig.agency.name}
             </a>
           </div>
-        </div>
+        </motion.div>
       </div>
     </footer>
   );

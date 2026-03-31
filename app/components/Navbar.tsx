@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Home, Package, Info, ShoppingBag, Phone, Menu, X } from "lucide-react";
 import { siteConfig, navLinks } from "@/config/site";
+import { motion, AnimatePresence } from "framer-motion";
 
 const mobileLinks = [
   { label: "Home", href: "/", icon: Home },
@@ -89,7 +90,10 @@ export default function Navbar() {
   return (
     <>
       {/* Desktop floating pill / Mobile top bar */}
-      <nav
+      <motion.nav
+        initial={{ y: -100, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.8, type: "spring", stiffness: 100 }}
         className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] md:top-5 md:left-1/2 md:-translate-x-1/2 md:w-[95%] lg:w-[85%] md:max-w-6xl md:rounded-full ${
           scrolled
             ? "bg-white/90 backdrop-blur-xl shadow-lg border-b md:border border-stone-200/50"
@@ -178,7 +182,7 @@ export default function Navbar() {
 
           </div>
         </div>
-      </nav>
+      </motion.nav>
 
       {/* Mobile Fullscreen Overlay */}
       <div
@@ -220,7 +224,12 @@ export default function Navbar() {
       </div>
 
       {/* Mobile Bottom Tab Bar */}
-      <div className="md:hidden fixed bottom-0 left-0 w-full bg-white/90 backdrop-blur-xl border-t border-stone-200/60 z-50 pb-safe shadow-[0_-4px_20px_rgba(0,0,0,0.06)]">
+      <motion.div 
+        initial={{ y: 100, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.8, type: "spring", stiffness: 100, delay: 0.3 }}
+        className="md:hidden fixed bottom-0 left-0 w-full bg-white/90 backdrop-blur-xl border-t border-stone-200/60 z-50 pb-safe shadow-[0_-4px_20px_rgba(0,0,0,0.06)]"
+      >
         <div className="flex items-center justify-around px-2 h-[68px]">
           {mobileLinks.map((link) => {
             const isActive = getIsActive(link.href);
@@ -261,7 +270,7 @@ export default function Navbar() {
             );
           })}
         </div>
-      </div>
+      </motion.div>
     </>
   );
 }

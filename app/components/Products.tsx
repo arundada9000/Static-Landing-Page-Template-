@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Tag, Star, ArrowRight, ShoppingBag } from "lucide-react";
 import { products } from "../data/products";
 import { siteConfig } from "@/config/site";
+import { motion } from "framer-motion";
 
 function WhatsAppIcon({ className }: { className?: string }) {
   return (
@@ -25,7 +26,13 @@ export default function Products() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-16">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+          className="text-center max-w-2xl mx-auto mb-16"
+        >
           <span
             className="inline-block text-xs font-bold tracking-widest uppercase mb-3 px-3 py-1 rounded-full border"
             style={{
@@ -42,13 +49,17 @@ export default function Products() {
           <p className="text-stone-500 text-lg leading-relaxed">
             Three tiers of uncompromising quality — each crafted to deliver an exceptional experience.
           </p>
-        </div>
+        </motion.div>
 
         {/* Product Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {products.map((product) => (
-            <div
+          {products.map((product, idx) => (
+            <motion.div
               key={product.id}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5, delay: idx * 0.15 }}
               className="group bg-white rounded-3xl overflow-hidden flex flex-col border transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl"
               style={
                 product.isBest
@@ -119,7 +130,7 @@ export default function Products() {
                   </Link>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
 
