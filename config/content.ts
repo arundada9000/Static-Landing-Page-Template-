@@ -40,8 +40,8 @@ export const heroContent = {
     "Engineered for those who refuse to compromise. Discover the perfect blend of innovation, quality, and timeless design.",
 
   /** CTA buttons */
-  primaryCTA: { label: "Shop Now", href: "#products" },
-  secondaryCTA: { label: "Discover More", href: "#benefits" },
+  primaryCTA: { label: "Shop Now", href: "/shop" },
+  secondaryCTA: { label: "Discover More", href: "/#benefits" },
 
   /** Hero background image */
   heroImage:

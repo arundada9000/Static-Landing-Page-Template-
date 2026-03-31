@@ -77,12 +77,12 @@ export const shopCategories = [
 export const allProducts: ShopProduct[] = [
   // ── 1 ────────────────────────────────────────────────────────────────────
   {
-    id: "vela-signature",
-    name: "VELA Signature Watch",
+    id: "the-shop-signature",
+    name: "THE SHOP Signature Watch",
     shortDescription:
       "Our best-loved timepiece. Swiss-inspired movement, sapphire glass, and a presence that commands any room.",
     longDescription:
-      "The VELA Signature is the cornerstone of our collection. Featuring a 40 mm stainless-steel case, scratch-resistant sapphire crystal, and a precision quartz movement accurate to ±15 sec/month. Available in three colourways, each paired with a genuine full-grain leather strap that deepens beautifully with wear.",
+      "The THE SHOP Signature is the cornerstone of our collection. Featuring a 40 mm stainless-steel case, scratch-resistant sapphire crystal, and a precision quartz movement accurate to ±15 sec/month. Available in three colourways, each paired with a genuine full-grain leather strap that deepens beautifully with wear.",
     price: 12500,
     originalPrice: 16000,
     images: [
@@ -117,12 +117,12 @@ export const allProducts: ShopProduct[] = [
 
   // ── 2 ────────────────────────────────────────────────────────────────────
   {
-    id: "vela-elite",
-    name: "VELA Elite Chronograph",
+    id: "the-shop-elite",
+    name: "THE SHOP Elite Chronograph",
     shortDescription:
-      "The pinnacle of the VELA line — a full chronograph with dual sub-dials and a titanium case.",
+      "The pinnacle of the THE SHOP line — a full chronograph with dual sub-dials and a titanium case.",
     longDescription:
-      "Built for those who accept nothing less than extraordinary. The VELA Elite features a 43 mm Grade-5 titanium case, tri-compax chronograph layout, and a flying-seconds sub-dial. The domed sapphire crystal sits atop a dial hand-treated with Super-LumiNova® for clear readability in any light.",
+      "Built for those who accept nothing less than extraordinary. The THE SHOP Elite features a 43 mm Grade-5 titanium case, tri-compax chronograph layout, and a flying-seconds sub-dial. The domed sapphire crystal sits atop a dial hand-treated with Super-LumiNova® for clear readability in any light.",
     price: 28500,
     images: [
       "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=900&q=80",
@@ -150,12 +150,12 @@ export const allProducts: ShopProduct[] = [
 
   // ── 3 ────────────────────────────────────────────────────────────────────
   {
-    id: "vela-sport",
-    name: "VELA Sport Active",
+    id: "the-shop-sport",
+    name: "THE SHOP Sport Active",
     shortDescription:
       "Lightweight, tough, and track-ready. The Sport is built for people on the move.",
     longDescription:
-      "The VELA Sport Active strips away excess and doubles down on performance. A 38 mm aerospace-aluminium case, shock-resistant mineral glass, and a breathable silicone strap make it the perfect companion from early runs to evening drinks.",
+      "The THE SHOP Sport Active strips away excess and doubles down on performance. A 38 mm aerospace-aluminium case, shock-resistant mineral glass, and a breathable silicone strap make it the perfect companion from early runs to evening drinks.",
     price: 7200,
     originalPrice: 8500,
     images: [
@@ -307,6 +307,4 @@ export const getProductById = (id: string): ShopProduct | undefined =>
 export const getProductsByCategory = (category: string): ShopProduct[] =>
   category === "All"
     ? allProducts.filter((p) => p.active !== false)
-    : allProducts.filter(
-        (p) => p.active !== false && p.category === category
-      );
+    : allProducts.filter((p) => p.active !== false && p.category === category);

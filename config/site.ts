@@ -70,7 +70,7 @@ export const navLinks = [
   { label: "Products", href: "/#products" },
   { label: "Benefits", href: "/#benefits" },
   { label: "Process", href: "/#process" },
-  { label: "Contact", href: "/#contact" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export const mobileNavLinks = [
@@ -78,5 +78,5 @@ export const mobileNavLinks = [
   { label: "Products", href: "/#products", icon: "Package" as const },
   { label: "Shop", href: "/shop", icon: "ShoppingBag" as const },
   { label: "About", href: "/about", icon: "Info" as const },
-  { label: "Contact", href: "/#contact", icon: "Phone" as const },
+  { label: "Contact", href: "/contact", icon: "Phone" as const },
 ];

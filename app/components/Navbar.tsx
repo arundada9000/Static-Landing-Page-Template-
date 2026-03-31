@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Home, Package, Info, ShoppingBag, Phone, Menu, X } from "lucide-react";
+import { Home, Package, Info, ShoppingBag, Phone, Menu, X, Star, Settings } from "lucide-react";
 import { siteConfig, navLinks } from "@/config/site";
 import { motion, AnimatePresence } from "framer-motion";
 import { useCart } from "../context/CartContext";
@@ -13,7 +13,16 @@ const mobileLinks = [
   { label: "Products", href: "/#products", icon: Package },
   { label: "Shop", href: "/shop", icon: ShoppingBag },
   { label: "About", href: "/about", icon: Info },
-  { label: "Contact", href: "/#contact", icon: Phone },
+  { label: "Contact", href: "/contact", icon: Phone },
+];
+
+const sidebarLinks = [
+  { label: "Home", href: "/", icon: Home },
+  { label: "About", href: "/about", icon: Info },
+  { label: "Products", href: "/#products", icon: Package },
+  { label: "Benefits", href: "/#benefits", icon: Star },
+  { label: "Process", href: "/#process", icon: Settings },
+  { label: "Contact", href: "/contact", icon: Phone },
 ];
 
 export default function Navbar() {
@@ -96,11 +105,10 @@ export default function Navbar() {
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, type: "spring", stiffness: 100 }}
-        className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] md:top-5 md:left-1/2 md:-translate-x-1/2 md:w-[95%] lg:w-[85%] md:max-w-6xl md:rounded-full ${
-          scrolled
+        className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] md:top-5 md:left-1/2 md:-translate-x-1/2 md:w-[95%] lg:w-[85%] md:max-w-6xl md:rounded-full ${scrolled
             ? "bg-white/90 backdrop-blur-xl shadow-lg border-b md:border border-stone-200/50"
             : "bg-white/70 md:bg-white/80 backdrop-blur-md md:shadow-md border-b md:border border-transparent md:border-stone-100"
-        }`}
+          }`}
       >
         <div className="px-4 sm:px-6 md:px-5 lg:px-6">
           <div className="flex items-center justify-between h-16 md:h-[70px] gap-4">
@@ -143,11 +151,10 @@ export default function Navbar() {
                       key={link.href}
                       href={link.href}
                       onClick={(e) => handleLinkClick(e, link.href)}
-                      className={`px-4 lg:px-5 py-2 rounded-full text-sm font-bold transition-all duration-300 ease-out select-none ${
-                        isActive
+                      className={`px-4 lg:px-5 py-2 rounded-full text-sm font-bold transition-all duration-300 ease-out select-none ${isActive
                           ? "bg-white shadow-sm ring-1 ring-black/5 scale-[1.02]"
                           : "text-stone-500 hover:text-stone-900 hover:bg-black/5 hover:scale-[1.02]"
-                      }`}
+                        }`}
                       style={isActive ? { color: "var(--color-primary)" } : {}}
                     >
                       {link.label}
@@ -170,7 +177,7 @@ export default function Navbar() {
                 <ShoppingBag className="w-4 h-4 group-hover:-rotate-12 transition-transform duration-300" />
                 Shop Now
               </Link>
-              
+
               {/* Cart Button */}
               <button
                 onClick={openCart}
@@ -203,25 +210,29 @@ export default function Navbar() {
 
       {/* Mobile Fullscreen Overlay */}
       <div
-        className={`lg:hidden fixed inset-0 z-40 bg-white/95 backdrop-blur-xl transition-all duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-          mobileMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
-        }`}
+        className={`lg:hidden fixed inset-0 z-40 bg-white/95 backdrop-blur-xl transition-all duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] ${mobileMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+          }`}
       >
         <div
-          className={`pt-24 px-6 space-y-3 transition-transform duration-500 delay-75 ${
-            mobileMenuOpen ? "translate-y-0" : "translate-y-8"
-          }`}
+          className={`pt-24 px-6 space-y-3 transition-transform duration-500 delay-75 ${mobileMenuOpen ? "translate-y-0" : "translate-y-8"
+            }`}
         >
-          {navLinks.map((link) => {
+          {sidebarLinks.map((link) => {
             const isActive = getIsActive(link.href);
+            const Icon = link.icon;
             return (
               <Link
                 key={link.href}
                 href={link.href}
                 onClick={(e) => handleLinkClick(e, link.href)}
-                className="block text-2xl font-extrabold pb-4 border-b border-stone-100 transition-colors text-stone-700 hover:text-stone-900"
+                className="flex items-center gap-4 text-2xl font-extrabold pb-4 border-b border-stone-100 transition-colors text-stone-700 hover:text-stone-900 group"
                 style={isActive ? { color: "var(--color-primary)" } : {}}
               >
+                <div
+                  className={`p-2 rounded-xl transition-colors ${isActive ? "bg-[var(--color-primary)]/10" : "bg-stone-50 group-hover:bg-stone-100"}`}
+                >
+                  <Icon className="w-6 h-6" style={isActive ? { color: "var(--color-primary)" } : {}} />
+                </div>
                 {link.label}
               </Link>
             );
@@ -241,7 +252,7 @@ export default function Navbar() {
       </div>
 
       {/* Mobile Bottom Tab Bar */}
-      <motion.div 
+      <motion.div
         initial={{ y: 100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, type: "spring", stiffness: 100, delay: 0.3 }}
@@ -265,9 +276,8 @@ export default function Navbar() {
                   />
                 )}
                 <div
-                  className={`p-1.5 rounded-xl transition-all duration-300 ease-out ${
-                    isActive ? "scale-110 mb-0.5" : "text-stone-500 group-hover:text-stone-800 group-hover:scale-105 group-hover:bg-black/5"
-                  }`}
+                  className={`p-1.5 rounded-xl transition-all duration-300 ease-out ${isActive ? "scale-110 mb-0.5" : "text-stone-500 group-hover:text-stone-800 group-hover:scale-105 group-hover:bg-black/5"
+                    }`}
                 >
                   <Icon
                     className="w-[22px] h-[22px] transition-colors duration-300"
@@ -276,9 +286,8 @@ export default function Navbar() {
                   />
                 </div>
                 <span
-                  className={`text-[10px] font-bold tracking-tight transition-all duration-300 ${
-                    isActive ? "translate-y-0" : "text-stone-500 -translate-y-0.5"
-                  }`}
+                  className={`text-[10px] font-bold tracking-tight transition-all duration-300 ${isActive ? "translate-y-0" : "text-stone-500 -translate-y-0.5"
+                    }`}
                   style={isActive ? { color: "var(--color-primary)" } : {}}
                 >
                   {link.label}
