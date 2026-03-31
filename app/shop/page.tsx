@@ -8,7 +8,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { FadeIn } from "../components/FadeIn";
 import { useCart } from "../context/CartContext";
-import { ShoppingBag, ArrowRight } from "lucide-react";
+import { ShoppingBag, ArrowRight, Search, ListFilter, ArrowUpDown, Tag } from "lucide-react";
 import {
   allProducts,
   shopCategories,
@@ -18,13 +18,33 @@ import {
 
 export default function ShopPage() {
   const [activeCategory, setActiveCategory] = useState("All");
+  const [activeBadge, setActiveBadge] = useState("All");
+  const [sortOrder, setSortOrder] = useState("default"); // default, asc, desc
+  const [searchQuery, setSearchQuery] = useState("");
 
-  const filteredProducts =
-    activeCategory === "All"
-      ? allProducts.filter((p) => p.active !== false)
-      : allProducts.filter(
-          (p) => p.active !== false && p.category === activeCategory
-        );
+  const filteredProducts = allProducts
+    .filter((p) => {
+      if (p.active === false) return false;
+      
+      const matchesCategory =
+        activeCategory === "All" || p.category === activeCategory;
+        
+      const matchesBadge =
+        activeBadge === "All" || p.badge === activeBadge;
+        
+      const matchesSearch =
+        searchQuery.trim() === "" ||
+        p.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        p.shortDescription.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        p.tags?.some(tag => tag.toLowerCase().includes(searchQuery.toLowerCase()));
+
+      return matchesCategory && matchesBadge && matchesSearch;
+    })
+    .sort((a, b) => {
+      if (sortOrder === "asc") return a.price - b.price;
+      if (sortOrder === "desc") return b.price - a.price;
+      return 0; // default order based on array index
+    });
 
   return (
     <div className="min-h-screen flex flex-col" style={{ backgroundColor: "var(--color-surface-alt)" }}>
@@ -87,35 +107,92 @@ export default function ShopPage() {
           
           {/* Filter Bar */}
           <FadeIn direction="up">
-            <div className="flex flex-wrap items-center justify-center gap-2 mb-16">
-              {shopCategories.map((cat) => {
-                const isActive = activeCategory === cat;
-                return (
-                  <button
-                    key={cat}
-                    onClick={() => setActiveCategory(cat)}
-                    aria-pressed={isActive}
-                    aria-label={`Filter by category: ${cat}`}
-                    className={`px-6 py-2.5 rounded-full text-sm font-bold transition-all duration-300 cursor-pointer ${
-                      isActive ? "ring-2 ring-offset-2 ring-primary" : ""
-                    }`}
-                    style={{
-                      backgroundColor: isActive
-                        ? "var(--color-primary)"
-                        : "white",
-                      color: isActive ? "white" : "var(--color-stone-600)",
-                      border: isActive
-                        ? "1px solid var(--color-primary)"
-                        : "1px solid var(--color-border)",
-                      boxShadow: isActive
-                        ? "0 4px 14px color-mix(in srgb, var(--color-primary) 30%, transparent)"
-                        : "0 2px 4px transparent",
-                    }}
+            <div className="flex flex-col gap-4 mb-16 max-w-5xl mx-auto">
+              {/* Top Row: Search */}
+              <div className="relative w-full group">
+                <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                  <Search className="w-5 h-5 text-stone-400 group-focus-within:text-[var(--color-primary)] transition-colors" />
+                </div>
+                <input
+                  type="text"
+                  placeholder="Search products by name, tag, or description..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="w-full pl-11 pr-4 py-4 bg-white border border-stone-200/80 rounded-2xl text-stone-900 placeholder-stone-400 focus:outline-none focus:border-[var(--color-primary)] focus:ring-4 focus:ring-[var(--color-primary)]/10 shadow-sm hover:shadow-md transition-all text-sm font-medium"
+                />
+              </div>
+
+              {/* Bottom Row: Filters (Category, Badge, Sort) */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                
+                {/* Category Dropdown */}
+                <div className="relative w-full group">
+                  <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-stone-400 group-focus-within:text-[var(--color-primary)] transition-colors z-10">
+                    <ListFilter className="w-4 h-4" />
+                  </div>
+                  <select
+                    value={activeCategory}
+                    onChange={(e) => setActiveCategory(e.target.value)}
+                    className="w-full pl-10 pr-10 py-3 bg-white border border-stone-200/80 rounded-xl text-stone-900 focus:outline-none focus:border-[var(--color-primary)] focus:ring-4 focus:ring-[var(--color-primary)]/10 shadow-sm hover:border-stone-300 transition-all appearance-none cursor-pointer text-sm font-medium hover:bg-stone-50"
                   >
-                    {cat}
-                  </button>
-                );
-              })}
+                    {shopCategories.map((cat) => (
+                      <option key={cat} value={cat}>
+                        {cat === "All" ? "All Categories" : cat}
+                      </option>
+                    ))}
+                  </select>
+                  <div className="absolute inset-y-0 right-0 pr-4 flex items-center pointer-events-none text-stone-400 z-10">
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </div>
+                </div>
+
+                {/* Badge Dropdown */}
+                <div className="relative w-full group">
+                  <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-stone-400 group-focus-within:text-[var(--color-primary)] transition-colors z-10">
+                    <Tag className="w-4 h-4" />
+                  </div>
+                  <select
+                    value={activeBadge}
+                    onChange={(e) => setActiveBadge(e.target.value)}
+                    className="w-full pl-10 pr-10 py-3 bg-white border border-stone-200/80 rounded-xl text-stone-900 focus:outline-none focus:border-[var(--color-primary)] focus:ring-4 focus:ring-[var(--color-primary)]/10 shadow-sm hover:border-stone-300 transition-all appearance-none cursor-pointer text-sm font-medium hover:bg-stone-50"
+                  >
+                    <option value="All">All Tags</option>
+                    <option value="Bestseller">Bestsellers</option>
+                    <option value="Sale">On Sale</option>
+                    <option value="New">New Arrivals</option>
+                    <option value="Limited">Limited Edition</option>
+                  </select>
+                  <div className="absolute inset-y-0 right-0 pr-4 flex items-center pointer-events-none text-stone-400 z-10">
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </div>
+                </div>
+
+                {/* Price Sort Dropdown */}
+                <div className="relative w-full group">
+                  <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-stone-400 group-focus-within:text-[var(--color-primary)] transition-colors z-10">
+                    <ArrowUpDown className="w-4 h-4" />
+                  </div>
+                  <select
+                    value={sortOrder}
+                    onChange={(e) => setSortOrder(e.target.value)}
+                    className="w-full pl-10 pr-10 py-3 bg-white border border-stone-200/80 rounded-xl text-stone-900 focus:outline-none focus:border-[var(--color-primary)] focus:ring-4 focus:ring-[var(--color-primary)]/10 shadow-sm hover:border-stone-300 transition-all appearance-none cursor-pointer text-sm font-medium hover:bg-stone-50"
+                  >
+                    <option value="default">Default Sorting</option>
+                    <option value="asc">Price: Low to High</option>
+                    <option value="desc">Price: High to Low</option>
+                  </select>
+                  <div className="absolute inset-y-0 right-0 pr-4 flex items-center pointer-events-none text-stone-400 z-10">
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </div>
+                </div>
+
+              </div>
             </div>
           </FadeIn>
 
