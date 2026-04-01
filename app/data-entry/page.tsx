@@ -5,8 +5,9 @@ import {
   Plus, Trash2, Download, Copy, Mail, MessageSquare,
   Eye, EyeOff, Package, Edit3, Check, X, Image as ImageIcon,
   Tag, Layers, DollarSign, AlignLeft, Info, ExternalLink,
-  AlertCircle, Sparkles, Save, Settings2, Send,
+  AlertCircle, Sparkles, Save, Settings2, Send, Lock,
 } from "lucide-react";
+import { allProducts } from "../data/allProducts";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -74,7 +75,7 @@ function emptyProduct(): FormProduct {
 
 // ─── TypeScript generator ─────────────────────────────────────────────────────
 
-function generateTS(products: FormProduct[], currency: string, categories: string[]): string {
+function generateTS(products: FormProduct[], currency: string, categories: string[], domain: string, passcode: string): string {
   const allCats = ["All", ...categories.filter(Boolean)];
   const catList = allCats.map((c) => `  "${c}"`).join(",\n");
 
@@ -141,7 +142,7 @@ function generateTS(products: FormProduct[], currency: string, categories: strin
     })
     .join("\n\n");
 
-  return `[\n${productBlocks}\n]`;
+  return `// Sent by: ${passcode}\n// Origin: ${domain}\n\n[\n${productBlocks}\n]`;
 }
 
 function escape(str: string) {
@@ -254,6 +255,11 @@ export default function DataEntryPage() {
   const [agencyWhatsapp, setAgencyWhatsapp] = useState(DEFAULT_WHATSAPP);
   const [showSettings, setShowSettings] = useState(false);
 
+  // New Passcode States
+  const [passcode, setPasscode] = useState("");
+  const [showPasscodeModal, setShowPasscodeModal] = useState(false);
+  const [pendingAction, setPendingAction] = useState<"copy" | "download" | "email" | "whatsapp" | null>(null);
+
   const allCategories = [...DEFAULT_CATEGORIES, ...customCategories.filter(
     (c) => !DEFAULT_CATEGORIES.includes(c)
   )];
@@ -264,11 +270,41 @@ export default function DataEntryPage() {
       const saved = localStorage.getItem(STORAGE_KEY);
       if (saved) {
         const { products: p, currency: c, customCategories: cc, agencyEmail: ae, agencyWhatsapp: aw } = JSON.parse(saved);
-        if (p) setProducts(p);
+        if (p && p.length > 0) {
+          setProducts(p);
+        } else {
+          // Preload from allProducts map if empty
+          const mapped = allProducts.map(prod => ({
+            ...emptyProduct(),
+            ...prod,
+            uid: makeUid(),
+            options: (prod.options || []).map(opt => ({ ...opt, choices: opt.choices.join(", ") })),
+            features: prod.features || [""],
+            images: prod.images || [""],
+            tags: (prod.tags || []).join(", "),
+            price: prod.price.toString(),
+            originalPrice: prod.originalPrice ? prod.originalPrice.toString() : "",
+          }));
+          setProducts(mapped as unknown as FormProduct[]);
+        }
         if (c) setCurrency(c);
         if (cc) setCustomCategories(cc);
         if (ae) setAgencyEmail(ae);
         if (aw) setAgencyWhatsapp(aw);
+      } else {
+        // Preload completely fresh
+        const mapped = allProducts.map(prod => ({
+          ...emptyProduct(),
+          ...prod,
+          uid: makeUid(),
+          options: (prod.options || []).map(opt => ({ ...opt, choices: opt.choices.join(", ") })),
+          features: prod.features || [""],
+          images: prod.images || [""],
+          tags: (prod.tags || []).join(", "),
+          price: prod.price.toString(),
+          originalPrice: prod.originalPrice ? prod.originalPrice.toString() : "",
+        }));
+        setProducts(mapped as unknown as FormProduct[]);
       }
     } catch { /* ignore */ }
   }, []);
@@ -343,6 +379,7 @@ export default function DataEntryPage() {
 
   // ── Delete product ────────────────────────────────────────────────────────
   const deleteProduct = (uid: string) => {
+    if (!window.confirm("Are you sure you want to delete this product?")) return;
     setProducts((prev) => prev.filter((p) => p.uid !== uid));
     if (editingUid === uid) { setEditingUid(null); setCurrent(emptyProduct()); }
     showToast("🗑️ Product removed.");
@@ -351,50 +388,63 @@ export default function DataEntryPage() {
   // ── Cancel edit ───────────────────────────────────────────────────────────
   const cancelEdit = () => { setEditingUid(null); setCurrent(emptyProduct()); };
 
-  // ── Generate code ─────────────────────────────────────────────────────────
-  const generatedCode = generateTS(products, currency, allCategories.filter((c) => c !== "All"));
+  // ── Export Actions with Passcode Check ────────────────────────────────────
+  const executeExport = (action: "copy" | "download" | "email" | "whatsapp") => {
+    const domain = typeof window !== "undefined" ? window.location.hostname : "unknown";
+    const generatedCode = generateTS(products, currency, allCategories.filter((c) => c !== "All"), domain, passcode);
 
-  // ── Copy ──────────────────────────────────────────────────────────────────
-  const copyCode = async () => {
-    await navigator.clipboard.writeText(generatedCode);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-    showToast("📋 Copied to clipboard!");
+    if (action === "copy") {
+      navigator.clipboard.writeText(generatedCode);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+      showToast("📋 Copied to clipboard!");
+    } else if (action === "download") {
+      const blob = new Blob([generatedCode], { type: "text/plain" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "product-data.ts";
+      a.click();
+      URL.revokeObjectURL(url);
+      showToast("⬇️ product-data.ts downloaded!");
+    } else if (action === "email") {
+      const subject = `Product Data from ${domain} — ${products.length} Products`;
+      const pageUrl = window.location.href;
+      const body = `Hello SajiloDigital,\n\nVerified Code: ${passcode}\nOrigin: ${domain}\n\nPlease find my product catalog below, generated from ${pageUrl}.\n\nCopy the array below into your project:\n\n---\n\n${generatedCode}`;
+      window.open(`mailto:${agencyEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`, "_blank");
+    } else if (action === "whatsapp") {
+      const phone = agencyWhatsapp.replace(/[^0-9]/g, "");
+      const pageUrl = window.location.href;
+      const msg =
+        `*Update from ${domain}*\nVerified Passcode: ${passcode}\n\n` +
+        `Hello! 👋 I've mapped out my product catalog using the template tool.\n\n` +
+        `🔗 *Tool URL:* ${pageUrl}\n\n` +
+        `📦 *${products.length} Products Below:*\n\n${generatedCode}`;
+      window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`, "_blank");
+    }
+
+    setShowPasscodeModal(false);
+    setPendingAction(null);
   };
 
-  // ── Download ──────────────────────────────────────────────────────────────
-  const downloadFile = () => {
-    const blob = new Blob([generatedCode], { type: "text/plain" });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = "product-data.ts";
-    a.click();
-    URL.revokeObjectURL(url);
-    showToast("⬇️ product-data.ts downloaded!");
+  const requirePasscodeAndExecute = (action: "copy" | "download" | "email" | "whatsapp") => {
+    if (!passcode.trim()) {
+      setPendingAction(action);
+      setShowPasscodeModal(true);
+    } else {
+      executeExport(action);
+    }
   };
 
-  // ── Email ─────────────────────────────────────────────────────────────────
-  const emailCode = () => {
-    const subject = `Product Data — ${products.length} Product${products.length !== 1 ? "s" : ""}`;
-    const pageUrl = window.location.href;
-    const body = `Hello SajiloDigital,\n\nPlease find my product data below generated from ${pageUrl}.\n\nCopy the array below into your project:\n\n---\n\n${generatedCode}`;
-    window.open(
-      `mailto:${agencyEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`,
-      "_blank"
-    );
-  };
-
-  // ── WhatsApp ──────────────────────────────────────────────────────────────
-  const sendViaWhatsApp = () => {
-    if (products.length === 0) return;
-    const phone = agencyWhatsapp.replace(/[^0-9]/g, "");
-    const pageUrl = window.location.href;
-    const msg =
-      `Hello! 👋 I've filled in my product catalog using the SajiloDigital template tool.\n\n` +
-      `🔗 *Tool URL:* ${pageUrl}\n\n` +
-      `📦 *${products.length} Product${products.length !== 1 ? "s" : ""} Below:*\n\n${generatedCode}`;
-    window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`, "_blank");
+  const handlePasscodeSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!passcode.trim()) {
+      showToast("⚠️ Secret Code cannot be empty");
+      return;
+    }
+    if (pendingAction) {
+      executeExport(pendingAction);
+    }
   };
 
   // ── Image helpers ─────────────────────────────────────────────────────────
@@ -478,7 +528,7 @@ export default function DataEntryPage() {
             </button>
 
             <button
-              onClick={copyCode}
+              onClick={() => requirePasscodeAndExecute("copy")}
               disabled={products.length === 0}
               title="Copy generated TypeScript"
               className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 border border-white/10 disabled:opacity-30 text-white text-xs font-bold transition-all"
@@ -488,7 +538,7 @@ export default function DataEntryPage() {
             </button>
 
             <button
-              onClick={downloadFile}
+              onClick={() => requirePasscodeAndExecute("download")}
               disabled={products.length === 0}
               title="Download Product Data"
               className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 border border-white/10 disabled:opacity-30 text-white text-xs font-bold transition-all"
@@ -500,7 +550,7 @@ export default function DataEntryPage() {
             <div className="w-px h-4 bg-white/20" />
 
             <button
-              onClick={sendViaWhatsApp}
+              onClick={() => requirePasscodeAndExecute("whatsapp")}
               disabled={products.length === 0}
               title="Send summary via WhatsApp"
               className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg disabled:opacity-30 text-white text-xs font-bold transition-all hover:brightness-110 active:scale-95"
@@ -511,7 +561,7 @@ export default function DataEntryPage() {
             </button>
 
             <button
-              onClick={emailCode}
+              onClick={() => requirePasscodeAndExecute("email")}
               disabled={products.length === 0}
               title="Email full file to agency"
               className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg disabled:opacity-30 text-stone-900 text-xs font-bold transition-all hover:brightness-105 active:scale-95"
@@ -719,7 +769,7 @@ export default function DataEntryPage() {
               </div>
               <div className="p-3 space-y-2">
                 <button
-                  onClick={downloadFile}
+                  onClick={() => requirePasscodeAndExecute("download")}
                   className="w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl font-bold text-white text-sm transition-all hover:-translate-y-0.5 hover:shadow-md"
                   style={{ background: "linear-gradient(135deg, var(--color-primary), var(--color-primary-dark))" }}
                 >
@@ -729,7 +779,7 @@ export default function DataEntryPage() {
 
                 <div className="grid grid-cols-2 gap-2">
                   <button
-                    onClick={sendViaWhatsApp}
+                    onClick={() => requirePasscodeAndExecute("whatsapp")}
                     className="flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl font-bold text-white text-xs transition-all hover:-translate-y-0.5 hover:shadow-md"
                     style={{ background: "#25D366" }}
                   >
@@ -737,7 +787,7 @@ export default function DataEntryPage() {
                     WhatsApp
                   </button>
                   <button
-                    onClick={emailCode}
+                    onClick={() => requirePasscodeAndExecute("email")}
                     className="flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl font-bold text-stone-900 text-xs transition-all hover:-translate-y-0.5 hover:shadow-md"
                     style={{ background: "var(--color-accent)" }}
                   >
@@ -1213,6 +1263,46 @@ export default function DataEntryPage() {
           )}
         </main>
       </div>
+
+      {/* ── Passcode Modal ── */}
+      {showPasscodeModal && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-stone-900/60 backdrop-blur-sm">
+          <div className="bg-white rounded-3xl w-full max-w-sm shadow-2xl p-6 animate-scale-in border border-stone-200">
+            <div className="w-12 h-12 bg-rose-50 text-rose-500 rounded-full flex items-center justify-center mb-5 border border-rose-100">
+              <Lock className="w-6 h-6" />
+            </div>
+            <h2 className="text-xl font-extrabold text-stone-900 mb-2">Security Check</h2>
+            <p className="text-[13px] text-stone-500 mb-6 leading-relaxed">
+              Please enter your Secret Passcode to securely export this catalog. We verify this code to block unauthorized changes.
+            </p>
+            <form onSubmit={handlePasscodeSubmit}>
+              <input
+                type="text"
+                value={passcode}
+                onChange={(e) => setPasscode(e.target.value)}
+                autoFocus
+                className="w-full px-4 py-3 bg-stone-50 border border-stone-200 rounded-xl text-stone-900 font-black tracking-widest text-center focus:outline-none focus:border-rose-400 focus:ring-4 focus:ring-rose-500/10 mb-6 uppercase"
+                placeholder="YOUR CODE"
+              />
+              <div className="flex gap-3">
+                <button
+                  type="button"
+                  onClick={() => setShowPasscodeModal(false)}
+                  className="flex-1 py-3 px-4 font-bold text-stone-500 hover:text-stone-700 hover:bg-stone-100 rounded-xl transition-all"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  className="flex-1 py-3 px-4 bg-stone-900 text-white font-extrabold rounded-xl hover:brightness-110 shadow-md transition-all active:scale-95 cursor-pointer"
+                >
+                  Confirm
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
