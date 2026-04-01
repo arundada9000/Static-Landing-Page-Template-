@@ -107,8 +107,8 @@ export default function Navbar() {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, type: "spring", stiffness: 100 }}
         className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] md:top-5 md:left-1/2 md:-translate-x-1/2 md:w-[95%] lg:w-[85%] md:max-w-6xl md:rounded-full ${scrolled
-            ? "bg-white/90 backdrop-blur-xl shadow-lg border-b md:border border-stone-200/50"
-            : "bg-white/70 md:bg-white/80 backdrop-blur-md md:shadow-md border-b md:border border-transparent md:border-stone-100"
+          ? "bg-white/90 backdrop-blur-xl shadow-lg border-b md:border border-stone-200/50"
+          : "bg-white/70 md:bg-white/80 backdrop-blur-md md:shadow-md border-b md:border border-transparent md:border-stone-100"
           }`}
       >
         <div className="px-4 sm:px-6 md:px-5 lg:px-6">
@@ -126,6 +126,8 @@ export default function Navbar() {
                     src={siteConfig.logoSrc}
                     alt={siteConfig.name}
                     fill
+                    sizes="44px"
+                    priority
                     className="object-contain"
                   />
                 </div>
@@ -163,8 +165,8 @@ export default function Navbar() {
                       href={link.href}
                       onClick={(e) => handleLinkClick(e, link.href)}
                       className={`px-4 lg:px-5 py-2 rounded-full text-sm font-bold transition-all duration-300 ease-out select-none ${isActive
-                          ? "bg-white shadow-sm ring-1 ring-black/5 scale-[1.02]"
-                          : "text-stone-500 hover:text-stone-900 hover:bg-black/5 hover:scale-[1.02]"
+                        ? "bg-white shadow-sm ring-1 ring-black/5 scale-[1.02]"
+                        : "text-stone-500 hover:text-stone-900 hover:bg-black/5 hover:scale-[1.02]"
                         }`}
                       style={isActive ? { color: "var(--color-primary)" } : {}}
                     >

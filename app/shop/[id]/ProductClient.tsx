@@ -39,7 +39,7 @@ export default function ProductClient({ product }: { product: ShopProduct }) {
   const handleAddToCart = () => {
     addItem({ product, selectedOptions, quantity });
     setAdded(true);
-    
+
     // Instead of immediately opening the drawer, we show a sleek toast notification
     toast.success(`${quantity}x ${product.name} added to cart`, {
       description: "Your item is ready for checkout.",
@@ -79,11 +79,11 @@ export default function ProductClient({ product }: { product: ShopProduct }) {
     if (touchStart === null) return;
     const touchEnd = e.changedTouches[0].clientX;
     const swipeDistance = touchStart - touchEnd;
-    
+
     // Swipe left (next image)
     if (swipeDistance > 50) {
       nextImage();
-    } 
+    }
     // Swipe right (previous image)
     else if (swipeDistance < -50) {
       prevImage();
@@ -120,7 +120,7 @@ export default function ProductClient({ product }: { product: ShopProduct }) {
         {/* ── Left Column: Image Gallery ── */}
         <FadeIn direction="right" className="space-y-6 lg:sticky lg:top-32">
           {/* Main Image */}
-          <div 
+          <div
             className="relative aspect-square md:aspect-[4/5] bg-stone-50 rounded-[2.5rem] overflow-hidden shadow-sm group select-none touch-pan-y"
             onTouchStart={handleTouchStart}
             onTouchEnd={handleTouchEnd}
@@ -184,13 +184,12 @@ export default function ProductClient({ product }: { product: ShopProduct }) {
                   key={idx}
                   onClick={() => setActiveImageIdx(idx)}
                   aria-label={`View image ${idx + 1} of ${product.name}`}
-                  className={`relative w-24 h-24 rounded-2xl overflow-hidden shrink-0 transition-all duration-300 border-2 cursor-pointer ${
-                    activeImageIdx === idx
-                      ? "border-[#4F46E5] ring-2 ring-[#4F46E5]/20 shadow-md scale-105"
-                      : "border-transparent opacity-60 hover:opacity-100 bg-stone-200"
-                  }`}
+                  className={`relative w-24 h-24 rounded-2xl overflow-hidden shrink-0 transition-all duration-300 border-2 cursor-pointer ${activeImageIdx === idx
+                    ? "border-[#4F46E5] ring-2 ring-[#4F46E5]/20 shadow-md scale-105"
+                    : "border-transparent opacity-60 hover:opacity-100 bg-stone-200"
+                    }`}
                 >
-                  <Image src={img} alt="" fill className="object-cover" />
+                  <Image src={img} alt="" fill sizes="96px" className="object-cover" />
                 </button>
               ))}
             </div>
@@ -212,19 +211,23 @@ export default function ProductClient({ product }: { product: ShopProduct }) {
             <div className="inline-flex items-center gap-4 bg-stone-100/50 border border-stone-200/40 p-2 pr-6 rounded-[2rem] shadow-inner mb-6">
               <div
                 className="px-6 py-3 rounded-[1.75rem] flex items-center justify-center text-white shadow-lg"
-                style={{ background: "linear-gradient(135deg, var(--color-primary), var(--color-primary-dark))" }}
+                style={{
+                  background: (product.originalPrice && product.originalPrice > product.price)
+                    ? "linear-gradient(135deg, var(--color-primary), var(--color-primary-dark))"
+                    : "linear-gradient(135deg, var(--color-primary), var(--color-primary-dark))"
+                }}
               >
                 <span className="text-2xl md:text-3xl font-black tracking-tight">{formatPrice(product.price)}</span>
               </div>
               {product.originalPrice && product.originalPrice > product.price && (
                 <div className="flex items-center gap-4">
                   <div className="flex flex-col items-start">
-                    <span className="text-[10px] font-black text-rose-500 uppercase tracking-widest leading-none mb-1">Was</span>
-                    <span className="text-lg text-rose-400/80 line-through font-bold leading-none">
+                    <span className="text-[10px] font-black text-red-500 uppercase tracking-widest leading-none mb-1">Was</span>
+                    <span className="text-lg text-red-500 line-through font-bold leading-none">
                       {formatPrice(product.originalPrice)}
                     </span>
                   </div>
-                  <div className="px-2.5 py-1.5 bg-rose-100 text-rose-600 font-extrabold text-xs tracking-wide rounded-lg shadow-sm border border-rose-200">
+                  <div className="px-2.5 py-1.5 bg-emerald-100 text-emerald-600 font-extrabold text-xs tracking-wide rounded-lg shadow-sm border border-emerald-200">
                     -{Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100)}%
                   </div>
                 </div>
@@ -271,11 +274,10 @@ export default function ProductClient({ product }: { product: ShopProduct }) {
                           onClick={() => handleOptionSelect(option.id, choice)}
                           aria-label={`Select ${option.name}: ${choice}`}
                           aria-pressed={isSelected}
-                          className={`px-6 py-3 rounded-xl text-sm font-bold transition-all border outline-none cursor-pointer focus:ring-4 focus:ring-[#4F46E5]/20 ${
-                            isSelected
-                              ? "bg-stone-900 text-white border-stone-900 shadow-md"
-                              : "bg-white text-stone-600 border-stone-200 hover:border-stone-400 hover:bg-stone-50"
-                          }`}
+                          className={`px-6 py-3 rounded-xl text-sm font-bold transition-all border outline-none cursor-pointer focus:ring-4 focus:ring-[#4F46E5]/20 ${isSelected
+                            ? "bg-stone-900 text-white border-stone-900 shadow-md"
+                            : "bg-white text-stone-600 border-stone-200 hover:border-stone-400 hover:bg-stone-50"
+                            }`}
                         >
                           {choice}
                         </button>
@@ -335,7 +337,7 @@ export default function ProductClient({ product }: { product: ShopProduct }) {
                 <button
                   onClick={handleDirectWhatsAppOrder}
                   className="flex-1 flex items-center justify-center gap-2 py-4 px-6 rounded-2xl font-extrabold text-white text-lg tracking-tight shadow-lg transition-all duration-300 hover:scale-[1.02] hover:-translate-y-1 active:scale-95 cursor-pointer relative group overflow-hidden"
-                  style={{ 
+                  style={{
                     background: "linear-gradient(135deg, #25D366, #128C7E)",
                     boxShadow: "0 12px 32px rgba(37, 211, 102, 0.25)"
                   }}
@@ -427,6 +429,7 @@ export default function ProductClient({ product }: { product: ShopProduct }) {
                     alt={item.name}
                     fill
                     sizes="(max-width: 768px) 100vw, 33vw"
+                    priority={idx < 3}
                     className="object-cover group-hover:scale-105 transition-transform duration-700"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -436,15 +439,26 @@ export default function ProductClient({ product }: { product: ShopProduct }) {
                     {item.name}
                   </h3>
                   <div className="flex items-center gap-3">
-                    <span className="text-xl font-extrabold text-stone-900">
+                    <span
+                      className="text-xl font-extrabold px-3 py-1 rounded-lg text-white"
+                      style={{
+                        background: "linear-gradient(135deg, var(--color-primary), var(--color-primary-dark))"
+                      }}
+                    >
                       {formatPrice(item.price)}
                     </span>
                     {item.originalPrice && (
-                      <span className="text-sm font-bold text-stone-400 line-through">
-                        {formatPrice(item.originalPrice)}
-                      </span>
-                    )
-                    }
+                      <div className="flex flex-col items-start gap-1">
+                        <span className="text-sm font-bold text-red-500 line-through">
+                          {formatPrice(item.originalPrice)}
+                        </span>
+                        {item.originalPrice > item.price && (
+                          <span className="px-2 py-0.5 bg-emerald-100 text-emerald-600 font-extrabold text-[10px] tracking-wide rounded-md border border-emerald-200">
+                            -{Math.round(((item.originalPrice - item.price) / item.originalPrice) * 100)}%
+                          </span>
+                        )}
+                      </div>
+                    )}
                   </div>
                 </div>
               </Link>

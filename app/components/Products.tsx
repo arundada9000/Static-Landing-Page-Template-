@@ -17,7 +17,7 @@ export default function Products() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Section Header */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
@@ -46,7 +46,7 @@ export default function Products() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {featuredProducts.map((product, idx) => {
             const isBest = product.badge === "Bestseller";
-            
+
             return (
               <motion.div
                 key={product.id}
@@ -66,67 +66,76 @@ export default function Products() {
                   }
                 >
                   {/* Product Image */}
-                <div className="relative h-64 w-full overflow-hidden bg-stone-100">
-                  <Image
-                    src={product.images[0]}
-                    alt={product.name}
-                    fill
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                    className="object-cover group-hover:scale-105 transition-transform duration-700"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="relative h-64 w-full overflow-hidden bg-stone-100">
+                    <Image
+                      src={product.images[0]}
+                      alt={product.name}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                      className="object-cover group-hover:scale-105 transition-transform duration-700"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-                  {product.badge && (
-                    <div
-                      className="absolute top-4 left-4 flex items-center gap-1 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-md"
-                      style={
-                        isBest ? { background: "var(--color-primary)" } : { background: "var(--color-accent)" }
-                      }
-                    >
-                      {isBest && <Star className="w-3 h-3 fill-current" />}
-                      {product.badge}
-                    </div>
-                  )}
-                </div>
+                    {product.badge && (
+                      <div
+                        className="absolute top-4 left-4 flex items-center gap-1 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-md"
+                        style={
+                          isBest ? { background: "var(--color-primary)" } : { background: "var(--color-accent)" }
+                        }
+                      >
+                        {isBest && <Star className="w-3 h-3 fill-current" />}
+                        {product.badge}
+                      </div>
+                    )}
+                  </div>
 
-                {/* Content */}
-                <div className="flex flex-col flex-1 p-7">
-                  <div className="flex-1">
-                    <h3 className="text-xl font-extrabold text-stone-900 mb-2 leading-tight">
-                      {product.name}
-                    </h3>
-                    <p className="text-stone-500 text-sm leading-relaxed mb-5 line-clamp-2">
-                      {product.shortDescription}
-                    </p>
+                  {/* Content */}
+                  <div className="flex flex-col flex-1 p-7">
+                    <div className="flex-1">
+                      <h3 className="text-xl font-extrabold text-stone-900 mb-2 leading-tight">
+                        {product.name}
+                      </h3>
+                      <p className="text-stone-500 text-sm leading-relaxed mb-5 line-clamp-2">
+                        {product.shortDescription}
+                      </p>
 
-                    <div className="flex items-center justify-between mb-6 pb-6 border-b border-stone-50">
-                      <div className="flex items-center gap-4">
-                        <span 
-                          className="text-lg font-black px-5 py-2 rounded-xl text-white shadow-xl shadow-[var(--color-primary)]/10"
-                          style={{ background: "linear-gradient(135deg, var(--color-primary), var(--color-primary-dark))" }}
-                        >
-                          {formatPrice(product.price)}
-                        </span>
-                        {product.originalPrice && (
-                          <span className="text-xs font-bold text-stone-400 line-through">
-                            {formatPrice(product.originalPrice)}
+                      <div className="flex items-center justify-between mb-6 pb-6 border-b border-stone-50">
+                        <div className="flex items-center gap-4">
+                          <span
+                            className="text-lg font-black px-5 py-2 rounded-xl text-white shadow-xl shadow-[var(--color-primary)]/10"
+                            style={{
+                              background: "linear-gradient(135deg, var(--color-primary), var(--color-primary-dark))"
+                            }}
+                          >
+                            {formatPrice(product.price)}
                           </span>
-                        )}
+                          {product.originalPrice && (
+                            <div className="flex flex-col items-start gap-1">
+                              <span className="text-xs font-bold text-red-500 line-through">
+                                {formatPrice(product.originalPrice)}
+                              </span>
+                              {product.originalPrice > product.price && (
+                                <span className="px-2 py-0.5 bg-emerald-100 text-emerald-600 font-extrabold text-[10px] tracking-wide rounded-md border border-emerald-200">
+                                  -{Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100)}%
+                                </span>
+                              )}
+                            </div>
+                          )}
+                        </div>
                       </div>
                     </div>
-                  </div>
 
-                  {/* CTA Buttons */}
-                  <div className="flex flex-col gap-3 mt-auto pt-4">
-                    <span
-                      className="w-full flex items-center justify-center gap-1.5 text-center bg-[var(--color-primary)] text-white py-3.5 rounded-xl font-extrabold text-sm group-hover:brightness-110 active:scale-95 transition-all shadow-md shadow-[var(--color-primary)]/20"
-                    >
-                      View Details <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                    </span>
+                    {/* CTA Buttons */}
+                    <div className="flex flex-col gap-3 mt-auto pt-4">
+                      <span
+                        className="w-full flex items-center justify-center gap-1.5 text-center bg-[var(--color-primary)] text-white py-3.5 rounded-xl font-extrabold text-sm group-hover:brightness-110 active:scale-95 transition-all shadow-md shadow-[var(--color-primary)]/20"
+                      >
+                        View Details <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                      </span>
+                    </div>
                   </div>
-                </div>
-              </Link>
-            </motion.div>
+                </Link>
+              </motion.div>
             );
           })}
         </div>
@@ -138,12 +147,12 @@ export default function Products() {
             className="group inline-flex items-center gap-2 text-white px-8 py-4 rounded-full font-bold text-base transition-all duration-300 shadow-xl active:scale-95 w-full sm:w-auto justify-center"
             style={{ background: "var(--color-primary)" }}
             onMouseEnter={(e) =>
-              ((e.currentTarget as HTMLAnchorElement).style.background =
-                "var(--color-primary-light)")
+            ((e.currentTarget as HTMLAnchorElement).style.background =
+              "var(--color-primary-light)")
             }
             onMouseLeave={(e) =>
-              ((e.currentTarget as HTMLAnchorElement).style.background =
-                "var(--color-primary)")
+            ((e.currentTarget as HTMLAnchorElement).style.background =
+              "var(--color-primary)")
             }
           >
             Browse All Products{" "}
