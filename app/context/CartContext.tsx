@@ -62,9 +62,9 @@ function cartReducer(state: CartState, action: CartAction): CartState {
             ? { ...item, quantity: item.quantity + action.payload.quantity }
             : item
         );
-        return { ...state, items: updated, isOpen: true };
+        return { ...state, items: updated };
       }
-      return { ...state, items: [...state.items, action.payload], isOpen: true };
+      return { ...state, items: [...state.items, action.payload] };
     }
 
     case "REMOVE_ITEM":
@@ -123,17 +123,31 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     isOpen: false,
   });
 
-  // Hydrate from localStorage on mount
+  // Hydrate from localStorage on mount & listen to cross-tab storage events
   useEffect(() => {
-    try {
-      const saved = localStorage.getItem(STORAGE_KEY);
-      if (saved) {
-        const parsed: CartItem[] = JSON.parse(saved);
-        dispatch({ type: "HYDRATE", payload: parsed });
+    const hydrate = (saved: string | null) => {
+      try {
+        if (saved) {
+          const parsed: CartItem[] = JSON.parse(saved);
+          dispatch({ type: "HYDRATE", payload: parsed });
+        }
+      } catch {
+        // ignore malformed storage
       }
-    } catch {
-      // ignore malformed storage
-    }
+    };
+
+    // Initial hydrate
+    hydrate(localStorage.getItem(STORAGE_KEY));
+
+    // Listen to changes from other tabs
+    const handleStorageChange = (e: StorageEvent) => {
+      if (e.key === STORAGE_KEY) {
+        hydrate(e.newValue);
+      }
+    };
+    
+    window.addEventListener("storage", handleStorageChange);
+    return () => window.removeEventListener("storage", handleStorageChange);
   }, []);
 
   // Persist to localStorage whenever items change

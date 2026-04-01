@@ -54,14 +54,18 @@ export default function Products() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.5, delay: idx * 0.15 }}
-                className="group bg-white rounded-3xl overflow-hidden flex flex-col border transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl"
-                style={
-                  isBest
-                    ? { borderColor: "var(--color-primary)", boxShadow: "0 4px 24px color-mix(in srgb, var(--color-primary) 15%, transparent)" }
-                    : { borderColor: "#e5e7eb" }
-                }
+                className="h-full"
               >
-                {/* Product Image */}
+                <Link
+                  href={`/shop/${product.id}`}
+                  className="group bg-white rounded-3xl overflow-hidden flex flex-col border h-full transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl"
+                  style={
+                    isBest
+                      ? { borderColor: "var(--color-primary)", boxShadow: "0 4px 24px color-mix(in srgb, var(--color-primary) 15%, transparent)" }
+                      : { borderColor: "#e5e7eb" }
+                  }
+                >
+                  {/* Product Image */}
                 <div className="relative h-64 w-full overflow-hidden bg-stone-100">
                   <Image
                     src={product.images[0]}
@@ -113,16 +117,16 @@ export default function Products() {
                   </div>
 
                   {/* CTA Buttons */}
-                  <div className="flex flex-col gap-3 mt-auto">
-                    <Link
-                      href={`/shop/${product.id}`}
-                      className="w-full text-center bg-[var(--color-primary)] text-white py-3.5 rounded-xl font-extrabold text-sm hover:brightness-110 active:scale-95 transition-all shadow-md shadow-[var(--color-primary)]/20"
+                  <div className="flex flex-col gap-3 mt-auto pt-4">
+                    <span
+                      className="w-full flex items-center justify-center gap-1.5 text-center bg-[var(--color-primary)] text-white py-3.5 rounded-xl font-extrabold text-sm group-hover:brightness-110 active:scale-95 transition-all shadow-md shadow-[var(--color-primary)]/20"
                     >
-                      Configure & Order
-                    </Link>
+                      View Details <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </span>
                   </div>
                 </div>
-              </motion.div>
+              </Link>
+            </motion.div>
             );
           })}
         </div>

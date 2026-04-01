@@ -4,6 +4,7 @@ import "./globals.css";
 import { siteConfig } from "@/config/site";
 import { CartProvider } from "./context/CartContext";
 import CartDrawer from "./components/CartDrawer";
+import { Toaster } from "sonner";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -74,6 +75,7 @@ export default function RootLayout({
           {children}
           <CartDrawer />
         </CartProvider>
+        <Toaster position="bottom-right" richColors />
       </body>
     </html>
   );

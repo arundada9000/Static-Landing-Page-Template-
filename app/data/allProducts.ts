@@ -71,10 +71,10 @@ export const shopCategories = [
   "Apparel",
 ];
 
-// ─── Products ─────────────────────────────────────────────────────────────────
+// ─── Products Data ─────────────────────────────────────────────────────────────
 // Add a new product object to this array — the rest of the UI handles itself.
 
-export const allProducts: ShopProduct[] = [
+const rawProducts: ShopProduct[] = [
   {
     id: "t-shirt",
     name: "T-shirt",
@@ -653,6 +653,58 @@ export const allProducts: ShopProduct[] = [
     ],
   },
 ];
+
+// ─── Image Format Utility For External Sources ────────────────────────────────
+function formatImageUrl(url: string): string {
+  if (!url) return url;
+
+  // 1. Cloudinary Console Dashboard URLs
+  if (url.includes("res-console.cloudinary.com")) {
+    const match = url.match(/res-console\.cloudinary\.com\/([^/]+)\/thumbnails\/transform\/[^/]+\/image\/upload\/([^/]+)\/v1\/([^/]+)/);
+    if (match) {
+      try {
+        const cloudName = match[1];
+        
+        // Base64URL replacing
+        const b64Transform = match[2].replace(/-/g, "+").replace(/_/g, "/");
+        const b64PublicId = match[3].replace(/-/g, "+").replace(/_/g, "/");
+
+        const transformations = typeof atob === "function" 
+          ? atob(b64Transform) 
+          : Buffer.from(b64Transform, "base64").toString();
+          
+        const publicId = typeof atob === "function" 
+          ? atob(b64PublicId) 
+          : Buffer.from(b64PublicId, "base64").toString();
+
+        return `https://res.cloudinary.com/${cloudName}/image/upload/${transformations}/v1/${publicId}`;
+      } catch (e) {
+        // fallback to original if decode fails
+      }
+    }
+  }
+
+  // 2. Google Drive Links
+  if (url.includes("drive.google.com")) {
+    const fileIdMatch = url.match(/\/file\/d\/([^/]+)/) || url.match(/id=([^&]+)/);
+    if (fileIdMatch) {
+      return `https://drive.google.com/uc?export=view&id=${fileIdMatch[1]}`;
+    }
+  }
+
+  // 3. Dropbox Links
+  if (url.includes("dropbox.com") && url.includes("dl=0")) {
+    return url.replace("dl=0", "raw=1");
+  }
+
+  return url;
+}
+
+// ─── Export Mapped Products ──────────────────────────────────────────────────
+export const allProducts: ShopProduct[] = rawProducts.map((product) => ({
+  ...product,
+  images: product.images.map(formatImageUrl),
+}));
 
 // ─── Helper — get a single product by id ─────────────────────────────────────
 export const getProductById = (id: string): ShopProduct | undefined =>

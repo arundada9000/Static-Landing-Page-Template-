@@ -21,6 +21,7 @@ export default function ShopPage() {
   const [activeBadge, setActiveBadge] = useState("All");
   const [sortOrder, setSortOrder] = useState("default"); // default, asc, desc
   const [searchQuery, setSearchQuery] = useState("");
+  const [showFilters, setShowFilters] = useState(false);
 
   const filteredProducts = allProducts
     .filter((p) => {
@@ -108,22 +109,40 @@ export default function ShopPage() {
           {/* Filter Bar */}
           <FadeIn direction="up">
             <div className="flex flex-col gap-4 mb-16 max-w-5xl mx-auto">
-              {/* Top Row: Search */}
-              <div className="relative w-full group">
-                <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                  <Search className="w-5 h-5 text-stone-400 group-focus-within:text-[var(--color-primary)] transition-colors" />
+              {/* Top Row: Search and Mobile Filter Toggle */}
+              <div className="flex items-center gap-3">
+                <div className="relative flex-1 group">
+                  <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                    <Search className="w-5 h-5 text-stone-400 group-focus-within:text-[var(--color-primary)] transition-colors" />
+                  </div>
+                  <input
+                    type="text"
+                    placeholder="Search products..."
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    className="w-full pl-11 pr-4 py-3.5 bg-white border border-stone-200/80 rounded-2xl text-stone-900 placeholder-stone-400 focus:outline-none focus:border-[var(--color-primary)] focus:ring-4 focus:ring-[var(--color-primary)]/10 shadow-sm hover:shadow-md transition-all text-sm font-medium"
+                  />
                 </div>
-                <input
-                  type="text"
-                  placeholder="Search products by name, tag, or description..."
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-11 pr-4 py-4 bg-white border border-stone-200/80 rounded-2xl text-stone-900 placeholder-stone-400 focus:outline-none focus:border-[var(--color-primary)] focus:ring-4 focus:ring-[var(--color-primary)]/10 shadow-sm hover:shadow-md transition-all text-sm font-medium"
-                />
+                
+                <button
+                  onClick={() => setShowFilters(!showFilters)}
+                  className="sm:hidden flex items-center justify-center p-3.5 bg-white border border-stone-200/80 rounded-2xl text-stone-700 shadow-sm hover:bg-stone-50 active:scale-95 transition-all focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]/50"
+                  aria-label="Toggle Filters"
+                >
+                  <ListFilter className={`w-5 h-5 transition-transform duration-300 ${showFilters ? "rotate-90 text-[var(--color-primary)]" : ""}`} />
+                </button>
               </div>
 
               {/* Bottom Row: Filters (Category, Badge, Sort) */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <div 
+                className={`grid grid-cols-1 sm:grid-cols-3 gap-4 transition-all duration-300 ease-in-out sm:mt-0 ${
+                  showFilters 
+                    ? "grid-rows-[1fr] opacity-100 mt-2" 
+                    : "grid-rows-[0fr] opacity-0 mt-0 sm:grid-rows-[1fr] sm:opacity-100"
+                }`}
+              >
+                <div className="overflow-hidden sm:col-span-3 sm:!overflow-visible">
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 
                 {/* Category Dropdown */}
                 <div className="relative w-full group">
@@ -192,6 +211,8 @@ export default function ShopPage() {
                   </div>
                 </div>
 
+                  </div>
+                </div>
               </div>
             </div>
           </FadeIn>
