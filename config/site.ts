@@ -11,7 +11,7 @@ export const siteConfig = {
   name: "THE SHOP",
 
   /** One-line brand tagline shown in footer */
-  tagline: "Crafted for the Exceptional",
+  tagline: "The Exceptional",
 
   /** Meta description for SEO */
   description:
