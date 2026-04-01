@@ -1393,6 +1393,529 @@ const rawProducts: ShopProduct[] = [
       },
     ],
   },
+  // ── 36 ───────────────────────────────────────────────────────────────────
+  {
+    id: "organic-coffee-beans",
+    name: "Single-Origin Organic Coffee Beans",
+    shortDescription: "Freshly roasted, ethically sourced Arabica beans from Ethiopian highlands.",
+    longDescription: "Start your morning right with these specialty-grade coffee beans. Sourced from small-scale farmers in the Yirgacheffe region, these beans are shade-grown, organic-certified, and roasted to a medium profile that highlights notes of jasmine, bergamot, and dark chocolate. Each bag is vacuum-sealed within 48 hours of roasting to preserve peak flavor.",
+    price: 1350,
+    images: [
+      "https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=900&q=80",
+      "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=900&q=80",
+    ],
+    category: "Groceries",
+    badge: "New",
+    tags: ["Organic", "Specialty", "Fair Trade"],
+    features: [
+      "100% Arabica, single-origin Ethiopia Yirgacheffe",
+      "USDA Organic & Fair Trade certified",
+      "Medium roast, whole bean",
+      "Tasting notes: jasmine, bergamot, dark chocolate",
+      "Roasted-to-order, vacuum-sealed",
+      "12 oz (340g) bag",
+    ],
+    options: [
+      {
+        id: "grind",
+        name: "Grind",
+        choices: ["Whole Bean", "French Press", "Drip", "Espresso"],
+      },
+      {
+        id: "size",
+        name: "Size",
+        choices: ["12 oz", "2 lb", "5 lb"],
+      },
+    ],
+  },
+
+  // ── 37 ───────────────────────────────────────────────────────────────────
+  {
+    id: "modular-sectional-sofa",
+    name: "Modular Velvet Sectional Sofa",
+    shortDescription: "Customizable L-shaped sofa with plush velvet upholstery and deep seats.",
+    longDescription: "Transform your living space with this versatile modular sofa. The set includes 4 individual modules that can be arranged into an L-shape, chaise, or separate seating. Upholstered in stain-resistant velvet, the cushions are filled with high-density foam and feather toppers for sink-in comfort. Hidden storage compartments in the ottoman add practicality.",
+    price: 89900,
+    originalPrice: 109900,
+    images: [
+      "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=900&q=80",
+      "https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?w=900&q=80",
+    ],
+    category: "Furniture",
+    badge: "Sale",
+    tags: ["Modular", "Velvet", "Storage"],
+    features: [
+      "4 modular pieces (corner, armless, ottoman, chaise)",
+      "Stain-resistant velvet upholstery",
+      "High-density foam + feather blend cushions",
+      "Hidden storage in ottoman module",
+      "Solid hardwood frame, non-marking feet",
+      "Seat depth: 22 inches",
+    ],
+    options: [
+      {
+        id: "color",
+        name: "Color",
+        choices: ["Emerald Green", "Navy Blue", "Charcoal Grey", "Blush Pink"],
+      },
+      {
+        id: "config",
+        name: "Configuration",
+        choices: ["Left-facing L-shape", "Right-facing L-shape", "Chaise Only", "Full Set (4 modules)"],
+      },
+    ],
+  },
+
+  // ── 38 ───────────────────────────────────────────────────────────────────
+  {
+    id: "smart-air-purifier",
+    name: "BreatheSmart Air Purifier",
+    shortDescription: "HEPA 13 air purifier with smart sensors, Wi-Fi, and coverage up to 500 sq ft.",
+    longDescription: "Breathe cleaner air with this intelligent air purifier. The true HEPA 13 filter captures 99.97% of airborne particles down to 0.3 microns, including allergens, dust, and pet dander. Built-in air quality sensors automatically adjust fan speed, and the companion app provides real-time PM2.5 readings. Whisper-quiet operation makes it perfect for bedrooms.",
+    price: 28900,
+    images: [
+      "https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=900&q=80",
+      "https://images.unsplash.com/photo-1585779034823-7a9ac8fa6b4d?w=900&q=80",
+    ],
+    category: "Electronics",
+    tags: ["HEPA", "Smart Home", "Allergy"],
+    features: [
+      "True HEPA 13 filter (99.97% efficiency)",
+      "Activated carbon pre-filter for odors",
+      "Smart sensor auto-mode",
+      "Wi-Fi + app control, works with Alexa/Google",
+      "Coverage: 500 sq ft (4.8 ACH)",
+      "CADR: 200 CFM, noise: 22–50 dB",
+    ],
+    options: [
+      {
+        id: "color",
+        name: "Color",
+        choices: ["White", "Black"],
+      },
+      {
+        id: "filter",
+        name: "Filter Bundle",
+        choices: ["Unit Only", "+ 1 Extra Filter", "+ 2 Extra Filters"],
+      },
+    ],
+  },
+
+  // ── 39 ───────────────────────────────────────────────────────────────────
+  {
+    id: "handwoven-wool-rug",
+    name: "Handwoven Wool Area Rug",
+    shortDescription: "100% wool rug with traditional geometric patterns, hand-tufted by artisans.",
+    longDescription: "Add warmth and texture to any room with this artisan-crafted wool rug. Hand-tufted using 100% New Zealand wool, it features a timeless geometric design in muted earth tones. The thick pile provides cushioning underfoot, and the cotton canvas backing prevents slipping. Sustainably produced without synthetic dyes.",
+    price: 24900,
+    originalPrice: 32900,
+    images: [
+      "https://images.unsplash.com/photo-1575417375460-2399d3c8a2f0?w=900&q=80",
+      "https://images.unsplash.com/photo-1600166898405-df6c2a2f3c4f?w=900&q=80",
+    ],
+    category: "Home & Living",
+    badge: "Bestseller",
+    tags: ["Wool", "Handmade", "Eco-Friendly"],
+    features: [
+      "100% New Zealand wool pile",
+      "Hand-tufted, 0.5\" pile height",
+      "Traditional geometric patterns",
+      "Cotton canvas backing (rug pad recommended)",
+      "Stain-resistant and naturally flame-retardant",
+      "Fair Trade certified production",
+    ],
+    options: [
+      {
+        id: "size",
+        name: "Size",
+        choices: ["5' x 7'", "6' x 9'", "8' x 10'", "9' x 12'"],
+      },
+      {
+        id: "pattern",
+        name: "Pattern",
+        choices: ["Heritage Medallion", "Diamond Trellis", "Abstract Wave"],
+      },
+    ],
+  },
+
+  // ── 40 ───────────────────────────────────────────────────────────────────
+  {
+    id: "reusable-produce-bags",
+    name: "Organic Cotton Produce Bags (Set of 6)",
+    shortDescription: "Zero-waste mesh bags for fruits, vegetables, and bulk items. Machine washable.",
+    longDescription: "Ditch single-use plastic with these durable produce bags. Made from 100% GOTS-certified organic cotton mesh, they are lightweight, breathable, and tare-weight labeled for easy checkout. Each set includes 6 bags in assorted sizes, perfect for groceries, bulk bin items, and even as travel laundry bags.",
+    price: 1800,
+    images: [
+      "https://images.unsplash.com/photo-1542838132-92c53300491e?w=900&q=80",
+      "https://images.unsplash.com/photo-1610348725531-843dff563e2c?w=900&q=80",
+    ],
+    category: "Groceries",
+    tags: ["Zero Waste", "Organic", "Eco-Friendly"],
+    features: [
+      "100% GOTS-certified organic cotton mesh",
+      "Set of 6: 2 small, 2 medium, 2 large",
+      "Tare weight printed on each bag",
+      "Drawstring closure, machine washable",
+      "Breathable design keeps produce fresh",
+      "Reusable alternative to plastic bags",
+    ],
+    options: [
+      {
+        id: "color",
+        name: "Bag Color",
+        choices: ["Natural Cotton", "Charcoal", "Sage"],
+      },
+    ],
+  },
+
+  // ── 41 ───────────────────────────────────────────────────────────────────
+  {
+    id: "mid-century-desk",
+    name: "Walnut Mid-Century Modern Desk",
+    shortDescription: "Solid walnut desk with tapered legs, hidden drawer, and cable management.",
+    longDescription: "A timeless piece for any home office. Crafted from solid American walnut with a matte lacquer finish, this desk features a spacious work surface, a single dovetailed drawer with soft-close slides, and a built-in cable management tray. The tapered legs give it a classic mid-century silhouette that pairs beautifully with both modern and traditional decor.",
+    price: 58900,
+    images: [
+      "https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?w=900&q=80",
+      "https://images.unsplash.com/photo-1593642634524-b40b5baae6bb?w=900&q=80",
+    ],
+    category: "Furniture",
+    badge: "New",
+    tags: ["Walnut", "Mid-Century", "Home Office"],
+    features: [
+      "Solid American walnut construction",
+      "Matte lacquer finish, hand-rubbed",
+      "Dimensions: 55\"W x 27\"D x 30\"H",
+      "Single dovetail drawer with soft-close",
+      "Integrated cable management grommet",
+      "Tapered solid wood legs",
+    ],
+    options: [
+      {
+        id: "finish",
+        name: "Finish",
+        choices: ["Natural Walnut", "Dark Walnut", "Espresso"],
+      },
+      {
+        id: "drawer",
+        name: "Drawer Configuration",
+        choices: ["Single Drawer", "Two Drawers (+$120)"],
+      },
+    ],
+  },
+
+  // ── 42 ───────────────────────────────────────────────────────────────────
+  {
+    id: "greek-olive-oil",
+    name: "Extra Virgin Olive Oil – Cold Pressed",
+    shortDescription: "Single-estate Greek olive oil, cold-extracted, high polyphenol content.",
+    longDescription: "Experience the true taste of Kalamata olives with this award-winning extra virgin olive oil. Harvested and cold-pressed within hours of picking, it retains high levels of antioxidants and a robust, peppery finish. Perfect for finishing dishes, dipping bread, or as a base for vinaigrettes.",
+    price: 2200,
+    originalPrice: 2800,
+    images: [
+      "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=900&q=80",
+      "https://images.unsplash.com/photo-1534237886190-ced2a7ec0c90?w=900&q=80",
+    ],
+    category: "Groceries",
+    badge: "Sale",
+    tags: ["Organic", "Artisanal", "High Phenolic"],
+    features: [
+      "Single-estate, Koroneiki olives",
+      "Cold-extracted within 4 hours of harvest",
+      "High polyphenol content (>400 mg/kg)",
+      "Acidity <0.4%, unfiltered",
+      "Dark glass bottle protects from light",
+      "500 ml (16.9 oz)",
+    ],
+    options: [
+      {
+        id: "size",
+        name: "Size",
+        choices: ["500 ml", "1 L", "2 L"],
+      },
+    ],
+  },
+
+  // ── 43 ───────────────────────────────────────────────────────────────────
+  {
+    id: "foldable-treadmill",
+    name: "UltraFold Walking Treadmill",
+    shortDescription: "Compact under-desk treadmill with 7.5 mph max speed and remote control.",
+    longDescription: "Stay active while working or watching TV with this space-saving treadmill. The hydraulic folding system allows it to stand vertically, taking up just 2 sq ft of floor space. A 2.5 HP quiet motor supports speeds from 0.5–7.5 mph, and the shock-absorbing deck reduces joint impact. Includes remote control and LED display.",
+    price: 34900,
+    originalPrice: 42900,
+    images: [
+      "https://images.unsplash.com/photo-1570829460005-c840387bb1ca?w=900&q=80",
+      "https://images.unsplash.com/photo-1590496793929-36417d3117de?w=900&q=80",
+    ],
+    category: "Fitness",
+    badge: "Trending",
+    tags: ["Under Desk", "Folding", "Walking"],
+    features: [
+      "Folding design: 56\" L x 22\" W x 5\" H (folded)",
+      "2.5 HP continuous-duty motor",
+      "Speed range: 0.5–7.5 mph",
+      "Shock-absorbing running deck",
+      "Remote control + LED display",
+      "Weight capacity: 265 lbs",
+    ],
+    options: [
+      {
+        id: "color",
+        name: "Frame Color",
+        choices: ["Black", "White"],
+      },
+      {
+        id: "handrail",
+        name: "Handrail",
+        choices: ["No Handrail (Compact)", "Folding Handrail (+$80)"],
+      },
+    ],
+  },
+
+  // ── 44 ───────────────────────────────────────────────────────────────────
+  {
+    id: "artisan-sourdough-starter",
+    name: "San Francisco Sourdough Starter Kit",
+    shortDescription: "Everything you need to bake artisan sourdough: dehydrated starter, banneton, and lame.",
+    longDescription: "Begin your sourdough journey with this complete kit. Includes a dehydrated 100-year-old San Francisco sourdough culture, a proofing basket (banneton), scoring lame, bench scraper, and detailed recipe guide. The starter comes alive in just 3 days, producing bakery-quality loaves with a tangy flavor and crisp crust.",
+    price: 4200,
+    images: [
+      "https://images.unsplash.com/photo-1586444248902-2f64eddc13df?w=900&q=80",
+      "https://images.unsplash.com/photo-1595535873420-a599195b3f4a?w=900&q=80",
+    ],
+    category: "Groceries",
+    tags: ["Baking", "Artisan", "Kit"],
+    features: [
+      "Dehydrated sourdough starter (100+ year culture)",
+      "9-inch round banneton proofing basket",
+      "Stainless steel scoring lame (5 blades)",
+      "Stainless steel bench scraper",
+      "Cloth liner for banneton",
+      "Printable recipe guide with video tutorials",
+    ],
+    options: [
+      {
+        id: "kit",
+        name: "Kit Type",
+        choices: ["Standard Kit", "Premium Kit (+ Dutch Oven & Digital Scale)"],
+      },
+    ],
+  },
+
+  // ── 45 ───────────────────────────────────────────────────────────────────
+  {
+    id: "leather-recliner-chair",
+    name: "Leather Power Recliner Chair",
+    shortDescription: "Single-motor power recliner with USB charging and heat massage.",
+    longDescription: "Relax in ultimate comfort with this power recliner. The high-quality top-grain leather upholstery is soft and durable, while the infinite-position power recline allows you to stop at any angle. Built-in USB ports keep devices charged, and the lumbar heat and vibration massage soothe tired muscles.",
+    price: 52900,
+    images: [
+      "https://images.unsplash.com/photo-1505843513577-22bb7d21e455?w=900&q=80",
+      "https://images.unsplash.com/photo-1631679706909-1844bbd07221?w=900&q=80",
+    ],
+    category: "Furniture",
+    tags: ["Leather", "Power Recline", "Massage"],
+    features: [
+      "Top-grain leather seating surfaces",
+      "Infinite-position power recline",
+      "Dual USB charging ports",
+      "Lumbar heat and vibration massage (5 settings)",
+      "Wall-hugger design (saves space)",
+      "Weight capacity: 300 lbs",
+    ],
+    options: [
+      {
+        id: "color",
+        name: "Color",
+        choices: ["Cognac Brown", "Black", "Dark Grey"],
+      },
+      {
+        id: "size",
+        name: "Size",
+        choices: ["Standard (35\"W)", "Oversized (41\"W)"],
+      },
+    ],
+  },
+
+  // ── 46 ───────────────────────────────────────────────────────────────────
+  {
+    id: "wireless-doorbell-camera",
+    name: "Smart Video Doorbell",
+    shortDescription: "Wireless 2K doorbell camera with facial recognition and two-way audio.",
+    longDescription: "Keep your home secure with this advanced video doorbell. The 2K HDR camera captures crisp details day or night, while AI-powered facial recognition can alert you when familiar or unknown faces appear. Two-way audio lets you speak to visitors remotely, and the wireless design means easy installation with the included rechargeable battery.",
+    price: 15900,
+    originalPrice: 19900,
+    images: [
+      "https://images.unsplash.com/photo-1558002038-1055e2e28d9b?w=900&q=80",
+      "https://images.unsplash.com/photo-1557324232-b8917d3c3dcb?w=900&q=80",
+    ],
+    category: "Electronics",
+    badge: "New",
+    tags: ["Smart Home", "Security", "Wireless"],
+    features: [
+      "2K HDR video with night vision",
+      "AI facial recognition & smart alerts",
+      "Two-way audio with noise cancellation",
+      "Rechargeable battery (up to 6 months per charge)",
+      "IP65 weather resistance",
+      "Works with Alexa, Google Assistant",
+    ],
+    options: [
+      {
+        id: "power",
+        name: "Power Source",
+        choices: ["Battery Only", "Hardwired (Existing Doorbell Wires)", "Battery + Solar Panel"],
+      },
+      {
+        id: "color",
+        name: "Color",
+        choices: ["Matte Black", "Silver"],
+      },
+    ],
+  },
+
+  // ── 47 ───────────────────────────────────────────────────────────────────
+  {
+    id: "bamboo-cutting-board",
+    name: "End-Grain Bamboo Cutting Board",
+    shortDescription: "Large, reversible cutting board with juice groove and built-in knife sharpener.",
+    longDescription: "A chef's essential, this end-grain bamboo board is gentle on knife edges and highly durable. The reversible design features a deep juice groove on one side for meats and a flat surface on the other for vegetables. An integrated ceramic knife sharpener and non-slip feet add functionality. Made from sustainable Moso bamboo.",
+    price: 5400,
+    images: [
+      "https://images.unsplash.com/photo-1590794056226-79ef3a8147e1?w=900&q=80",
+      "https://images.unsplash.com/photo-1584568694244-14fbdf83bd30?w=900&q=80",
+    ],
+    category: "Home & Living",
+    tags: ["Bamboo", "Eco-Friendly", "Kitchen"],
+    features: [
+      "End-grain construction (knife-friendly)",
+      "Reversible: juice groove + flat side",
+      "Integrated ceramic knife sharpener",
+      "Non-slip silicone feet",
+      "Dimensions: 18\" x 12\" x 1.5\"",
+      "Sustainable Moso bamboo, food-safe finish",
+    ],
+    options: [
+      {
+        id: "size",
+        name: "Size",
+        choices: ["Small (12\" x 9\")", "Large (18\" x 12\")", "Extra Large (20\" x 15\")"],
+      },
+      {
+        id: "finish",
+        name: "Finish",
+        choices: ["Natural Bamboo", "Charcoal Bamboo"],
+      },
+    ],
+  },
+
+  // ── 48 ───────────────────────────────────────────────────────────────────
+  {
+    id: "weighted-blanket",
+    name: "Cooling Weighted Blanket",
+    shortDescription: "10 lb bamboo viscose weighted blanket with glass beads, breathable and machine washable.",
+    longDescription: "Experience deeper sleep with this therapeutic weighted blanket. The 10 lb weight is ideal for individuals (approx. 10% of body weight) and evenly distributed using non-toxic glass beads sewn into 7-layer quilted pockets. The bamboo viscose cover is naturally cooling, moisture-wicking, and machine washable for easy care.",
+    price: 8900,
+    images: [
+      "https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=900&q=80",
+      "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=900&q=80",
+    ],
+    category: "Home & Living",
+    tags: ["Sleep", "Therapeutic", "Cooling"],
+    features: [
+      "10 lbs weight, 48\" x 72\" dimensions",
+      "Non-toxic glass bead fill (lead-free)",
+      "7-layer quilted design for even distribution",
+      "Breathable bamboo viscose cover",
+      "Machine washable (cover and insert)",
+      "Hypoallergenic and OEKO-TEX certified",
+    ],
+    options: [
+      {
+        id: "weight",
+        name: "Weight",
+        choices: ["10 lbs (Twin)", "15 lbs (Full/Queen)", "20 lbs (Queen/King)"],
+      },
+      {
+        id: "color",
+        name: "Cover Color",
+        choices: ["Light Grey", "Navy", "Blush", "White"],
+      },
+    ],
+  },
+
+  // ── 49 ───────────────────────────────────────────────────────────────────
+  {
+    id: "electric-guitar",
+    name: "Vintage Style Electric Guitar",
+    shortDescription: "Solid-body electric guitar with alder body, maple neck, and dual humbuckers.",
+    longDescription: "Capture classic rock tones with this well-crafted electric guitar. The alder body offers balanced resonance, while the bolt-on maple neck with rosewood fingerboard provides smooth playability. Two vintage-voiced humbuckers deliver warm, articulate sound suitable for blues, rock, and beyond. Includes a padded gig bag.",
+    price: 34900,
+    originalPrice: 42900,
+    images: [
+      "https://images.unsplash.com/photo-1542728926-5229d2c3b981?w=900&q=80",
+      "https://images.unsplash.com/photo-1509564899744-209f5d44c9c7?w=900&q=80",
+    ],
+    category: "Electronics",
+    badge: "Sale",
+    tags: ["Music", "Guitar", "Vintage"],
+    features: [
+      "Alder body, gloss finish",
+      "Bolt-on maple neck, rosewood fingerboard",
+      "Two vintage-style humbucker pickups",
+      "Tune-o-matic bridge with stopbar tailpiece",
+      "Die-cast tuning machines",
+      "Includes gig bag and truss rod tool",
+    ],
+    options: [
+      {
+        id: "color",
+        name: "Color",
+        choices: ["Sunburst", "Black", "Cherry Red", "Olympic White"],
+      },
+      {
+        id: "case",
+        name: "Case",
+        choices: ["Gig Bag (Included)", "Hard Shell Case (+$120)"],
+      },
+    ],
+  },
+
+  // ── 50 ───────────────────────────────────────────────────────────────────
+  {
+    id: "ceramic-plant-pot",
+    name: "Self-Watering Ceramic Plant Pot",
+    shortDescription: "Glazed ceramic pot with hidden reservoir for low-maintenance plant care.",
+    longDescription: "Keep your plants thriving with this elegant self-watering planter. The glazed ceramic exterior resists moisture, while an internal reservoir holds up to 1 liter of water. A cotton wick system delivers water gradually, preventing over or under-watering. Perfect for busy plant parents or as a thoughtful gift.",
+    price: 3200,
+    images: [
+      "https://images.unsplash.com/photo-1485955900006-10f4d324d411?w=900&q=80",
+      "https://images.unsplash.com/photo-1591857177580-dc82b9ac4e1e?w=900&q=80",
+    ],
+    category: "Home & Living",
+    tags: ["Plants", "Self-Watering", "Ceramic"],
+    features: [
+      "Glazed ceramic exterior, frost-proof",
+      "Hidden water reservoir (1L capacity)",
+      "Cotton wick self-watering system",
+      "Removable inner pot for easy refill",
+      "Saucer included for overflow protection",
+      "Available in multiple colors and sizes",
+    ],
+    options: [
+      {
+        id: "size",
+        name: "Pot Diameter",
+        choices: ["4\" (Small)", "6\" (Medium)", "8\" (Large)"],
+      },
+      {
+        id: "color",
+        name: "Color",
+        choices: ["White", "Terracotta", "Sage Green", "Navy"],
+      },
+    ],
+  },
 ];
 
 // ─── Image Format Utility For External Sources ────────────────────────────────

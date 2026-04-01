@@ -75,7 +75,32 @@ export default function RootLayout({
           {children}
           <CartDrawer />
         </CartProvider>
-        <Toaster position="bottom-right" richColors />
+        <Toaster 
+          position="top-center" 
+          expand={true}
+          toastOptions={{
+            classNames: {
+              toast:
+                "group flex w-full items-center gap-3 rounded-2xl border p-4 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] backdrop-blur-2xl transition-all sm:min-w-[380px]",
+              title: "font-semibold text-[15px]",
+              description: "text-sm font-medium opacity-80",
+              actionButton:
+                "rounded-xl bg-primary px-4 py-2 text-xs font-semibold text-white transition-all hover:bg-primary-dark hover:scale-105 active:scale-95",
+              cancelButton:
+                "rounded-xl bg-black/5 px-4 py-2 text-xs font-semibold transition-all hover:bg-black/10 hover:scale-105 active:scale-95",
+              success:
+                "border-green-500/20 bg-green-50/85 text-green-900",
+              error:
+                "border-red-500/20 bg-red-50/85 text-red-900",
+              warning:
+                "border-amber-500/20 bg-amber-50/85 text-amber-900",
+              info:
+                "border-blue-500/20 bg-blue-50/85 text-blue-900",
+              default:
+                "border-white/40 bg-white/85 text-heading",
+            },
+          }}
+        />
       </body>
     </html>
   );
