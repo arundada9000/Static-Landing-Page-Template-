@@ -132,8 +132,10 @@ const rawProducts: ShopProduct[] = [
     originalPrice: 9200,
     images: [
       "https://images.unsplash.com/photo-1518895949257-7621c3c786d7?w=900&q=80",
-      "https://images.unsplash.com/photo-1490750967868-88aa4476b946?w=900&q=80",
-      "https://images.unsplash.com/photo-1548094990-c16ca90f1f0d?w=900&q=80",
+      // "https://images.unsplash.com/photo-1490750967868-88aa4476b946?w=900&q=80",
+      "https://images.unsplash.com/photo-1597826368522-9f4cb5a6ba48?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHJvc2UlMjBmbG93ZXJ8ZW58MHx8MHx8fDA%3D",
+      // "https://images.unsplash.com/photo-1548094990-c16ca90f1f0d?w=900&q=80",
+      "https://plus.unsplash.com/premium_photo-1703369351133-ae15759133fd?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjV8fHJvc2UlMjBmbG93ZXJ8ZW58MHx8MHx8fDA%3D",
     ],
     category: "Flowers",
     badge: "For You. Only You.",
@@ -215,7 +217,8 @@ const rawProducts: ShopProduct[] = [
     images: [
       "https://images.unsplash.com/photo-1523293182086-7651a899d37f?w=900&q=80",
       "https://images.unsplash.com/photo-1513001900722-370f803f498d?w=900&q=80",
-      "https://images.unsplash.com/photo-1542013936693-884638f95419?w=900&q=80",
+      // "https://images.unsplash.com/photo-1542013936693-884638f95419?w=900&q=80",
+      "https://images.unsplash.com/photo-1594035910387-fea47794261f?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     ],
     category: "Gifts",
     badge: "This Night Matters",
