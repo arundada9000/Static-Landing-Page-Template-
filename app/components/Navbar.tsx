@@ -215,9 +215,7 @@ export default function Navbar() {
                 }}
               >
                 <ShoppingBag className="w-4 h-4 group-hover:-rotate-12 transition-transform duration-300" />
-                <span className=" whitespace-nowrap">
-                  Shop Now
-                </span>
+                <span className=" whitespace-nowrap">Shop Now</span>
               </Link>
 
               {/* Wishlist Link */}
@@ -268,14 +266,14 @@ export default function Navbar() {
 
       {/* Mobile Fullscreen Overlay */}
       <div
-        className={`lg:hidden fixed inset-0 z-40 bg-white/95 backdrop-blur-xl transition-all duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+        className={`xl:hidden fixed inset-0 z-40 bg-white/95 backdrop-blur-xl transition-all duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] ${
           mobileMenuOpen
             ? "opacity-100 pointer-events-auto"
             : "opacity-0 pointer-events-none"
         }`}
       >
         <div
-          className={`pt-24 px-6 space-y-3 transition-transform duration-500 delay-75 ${
+          className={` pt-24 px-6 space-y-3 transition-transform duration-500 delay-75 ${
             mobileMenuOpen ? "translate-y-0" : "translate-y-8"
           }`}
         >
