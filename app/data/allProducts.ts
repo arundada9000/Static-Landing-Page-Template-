@@ -75,6 +75,995 @@ export const shopCategories = [
 // Add a new product object to this array — the rest of the UI handles itself.
 
 const rawProducts: ShopProduct[] = [
+  // ── 51 ───────────────────────────────────────────────────────────────────
+  {
+    id: "eternity-solitaire-ring",
+    name: "Eternity Solitaire Ring",
+    shortDescription: "Some things are simple… and somehow mean everything.",
+    longDescription:
+      "There are moments that don’t need many words. This piece was made for one of those moments. A single brilliant-cut diamond, quietly holding light the way certain people hold your world together. Set in 14k white gold, timeless, steady… certain. Maybe it’s just a ring. Or maybe it’s something you’ve been meaning to say.",
+    price: 125000,
+    originalPrice: 149000,
+    images: [
+      "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=900&q=80",
+      "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?w=900&q=80",
+      "https://images.unsplash.com/photo-1536610656141-0d4b7e47d3e0?w=900&q=80",
+    ],
+    category: "Jewelry",
+    badge: "Limited",
+    tags: ["Forever", "Unsaid", "Important"],
+    features: [
+      "A single diamond, chosen to stand alone",
+      "Classic setting that never goes out of time",
+      "Made to last longer than words sometimes can",
+      "Comfort-fit, because some things should just feel right",
+      "Comes in a velvet box… for a moment that might matter",
+    ],
+    options: [
+      {
+        id: "ring_size",
+        name: "Ring Size (US)",
+        choices: ["4", "5", "6", "7", "8", "9"],
+      },
+      {
+        id: "metal",
+        name: "Metal",
+        choices: ["14k White Gold", "14k Yellow Gold", "Platinum (+$250)"],
+      },
+      {
+        id: "engraving",
+        name: "Engraving (inside band)",
+        choices: ["None", "Date (mm/dd/yyyy)", "Custom Text (up to 20 chars)"],
+      },
+    ],
+  },
+
+  // ── 52 ───────────────────────────────────────────────────────────────────
+  {
+    id: "forever-bloom-bouquet",
+    name: "Forever Bloom Bouquet",
+    shortDescription:
+      "Not just flowers… something people give when they feel too much.",
+    longDescription:
+      "Roses have always been the easy way out… when saying it directly feels harder. Twenty-four of them, carefully chosen, deep red, impossible to ignore. Soft petals, but loud meaning. You could call it a gift. Or maybe just a hint.",
+    price: 7800,
+    originalPrice: 9200,
+    images: [
+      "https://images.unsplash.com/photo-1562690868-60bbe7293e94?w=900&q=80",
+      "https://images.unsplash.com/photo-1490750967868-88aa4476b946?w=900&q=80",
+      "https://images.unsplash.com/photo-1548094990-c16ca90f1f0d?w=900&q=80",
+    ],
+    category: "Flowers",
+    badge: "Bestseller",
+    tags: ["Roses", "Unspoken", "Feelings"],
+    features: [
+      "24 roses… not random, never random",
+      "Wrapped carefully, like something fragile",
+      "Fresh, but meant to leave a lasting impression",
+      "Includes a note… if you decide to write what you mean",
+    ],
+    options: [
+      {
+        id: "quantity",
+        name: "Roses",
+        choices: ["12 Roses", "24 Roses", "36 Roses", "50 Roses (Premium)"],
+      },
+      {
+        id: "ribbon",
+        name: "Ribbon Color",
+        choices: ["Ivory Silk", "Red Velvet", "Blush Satin"],
+      },
+    ],
+  },
+
+  // ── 53 ───────────────────────────────────────────────────────────────────
+  {
+    id: "memory-lane-photo-album",
+    name: "Memory Lane Personalized Album",
+    shortDescription: "For things you didn’t realize were becoming important.",
+    longDescription:
+      "It’s strange how small moments turn into the ones you never forget. This album wasn’t just made to store photos… but to hold everything in between them. The laughs, the pauses, the almost-said things. Maybe it’s just a collection. Or maybe it’s a story you’re still writing.",
+    price: 8900,
+    images: [
+      "https://images.unsplash.com/photo-1529070538774-1843cb3265df?w=900&q=80",
+      "https://images.unsplash.com/photo-1606326608606-aa0b62935f2b?w=900&q=80",
+      "https://images.unsplash.com/photo-1588099768523-f4e1a16f0174?w=900&q=80",
+    ],
+    category: "Gifts",
+    tags: ["Memories", "Us?", "Keepsake"],
+    features: [
+      "Made to hold more than just pictures",
+      "Pages that won’t fade, even if time passes",
+      "Custom embossing… names, dates, or something only you understand",
+      "A place for moments that mattered more than expected",
+    ],
+    options: [
+      {
+        id: "cover_color",
+        name: "Leather Color",
+        choices: ["Cognac Brown", "Jet Black", "Navy Blue", "Burgundy"],
+      },
+      {
+        id: "embossing",
+        name: "Embossing Text",
+        choices: [
+          "Names (e.g., 'Alex & Jamie')",
+          "Date (e.g., 'June 12, 2025')",
+          "Custom Phrase (max 20 chars)",
+        ],
+      },
+      {
+        id: "size",
+        name: "Album Size",
+        choices: [
+          '8" x 8" (Square)',
+          '10" x 8" (Landscape)',
+          '12" x 10" (Large)',
+        ],
+      },
+    ],
+  },
+
+  // ── 54 ───────────────────────────────────────────────────────────────────
+  {
+    id: "romantic-getaway-hamper",
+    name: "Romantic Getaway Hamper",
+    shortDescription: "For a night that might mean more than planned.",
+    longDescription:
+      "Some evenings are just… different. This set was made for one of those. Soft light, something sweet, something warm, and just enough quiet to say what you’ve been holding back. Everything here is carefully chosen—but what happens around it… that part is up to you.",
+    price: 12500,
+    originalPrice: 15900,
+    images: [
+      "https://images.unsplash.com/photo-1513001900722-370f803f498d?w=900&q=80",
+      "https://images.unsplash.com/photo-1542013936693-884638f95419?w=900&q=80",
+      "https://images.unsplash.com/photo-1523293182086-7651a899d37f?w=900&q=80",
+    ],
+    category: "Gifts",
+    badge: "Trending",
+    tags: ["Moment", "Maybe Tonight", "Something"],
+    features: [
+      "A bottle meant to be opened at the right time",
+      "Chocolate… because some things should be shared",
+      "A candle, for softer conversations",
+      "Two glasses… just in case",
+      "A setup that feels intentional, even if you say it isn’t",
+    ],
+    options: [
+      {
+        id: "champagne",
+        name: "Champagne Selection",
+        choices: [
+          "Moët & Chandon",
+          "Veuve Clicquot",
+          "Dom Pérignon (upgrade +$80)",
+        ],
+      },
+      {
+        id: "chocolates",
+        name: "Chocolate Type",
+        choices: [
+          "Milk Chocolate Assortment",
+          "Dark Chocolate Collection",
+          "Mixed (milk & dark)",
+        ],
+      },
+    ],
+  },
+
+  // ── 55 ───────────────────────────────────────────────────────────────────
+  {
+    id: "proposal-in-a-box",
+    name: "Proposal in a Box – Complete Set",
+    shortDescription: "Everything… if you’re ready for everything.",
+    longDescription:
+      "This isn’t just a set. It’s what happens when you stop overthinking and just decide. Every piece here has a role—but none of them matter as much as the moment they lead to. You could call it a gift. Or you could call it what it really is: a question, waiting.",
+    price: 149900,
+    originalPrice: 179900,
+    images: [
+      "https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=900&q=80",
+      "https://images.unsplash.com/photo-1515562121150-06d323b3be5c?w=900&q=80",
+      "https://images.unsplash.com/photo-1604336020151-c88412fd7be3?w=900&q=80",
+    ],
+    category: "Gifts",
+    badge: "Exclusive",
+    tags: ["Big Step", "No Turning Back", "Real"],
+    features: [
+      "Everything needed… except the courage",
+      "Carefully arranged, like it was always meant to happen",
+      "Designed for a moment you won’t forget",
+      "Includes space for one important question",
+    ],
+    options: [
+      {
+        id: "ring",
+        name: "Ring Selection",
+        choices: [
+          "Eternity Solitaire (0.5 ct)",
+          "Eternity Solitaire (1.0 ct, +$24000)",
+          "Custom Ring (contact for quote)",
+        ],
+      },
+      {
+        id: "album_embossing",
+        name: "Album Embossing",
+        choices: ["Names", "Date", "Custom Message"],
+      },
+      {
+        id: "delivery",
+        name: "Special Delivery",
+        choices: [
+          "Standard Shipping",
+          "White Glove (hand-delivered by concierge, +$5000)",
+        ],
+      },
+    ],
+  },
+
+  // ── 56 ───────────────────────────────────────────────────────────────────
+  {
+    id: "eternity-couple-bracelets",
+    name: "Eternity Couple Bracelets",
+    shortDescription: "For two people… who somehow ended up connected.",
+    longDescription:
+      "It’s funny how one place, one moment, or one meeting can change everything. These bracelets hold coordinates—but they’re really about what happened there. Subtle, simple, easy to wear… but impossible to ignore once you know what they mean.",
+    price: 5900,
+    images: [
+      "https://images.unsplash.com/photo-1589674781759-21f0bbfea1b1?w=900&q=80",
+      "https://images.unsplash.com/photo-1535632787350-4e68ef0ac584?w=900&q=80",
+      "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=900&q=80",
+    ],
+    category: "Jewelry",
+    tags: ["Us", "Somewhere", "Connected"],
+    features: [
+      "Coordinates that mean something (to you)",
+      "A quiet reminder, worn every day",
+      "Two pieces… meant to exist together",
+      "Simple design, complicated meaning",
+    ],
+    options: [
+      {
+        id: "leather_color",
+        name: "Leather Color",
+        choices: ["Black", "Brown", "Tan", "Navy"],
+      },
+      {
+        id: "coordinates",
+        name: "Coordinates",
+        choices: ["Our First Meeting", "Custom (enter address/place name)"],
+      },
+    ],
+  },
+  // ─── Flower Products Data ─────────────────────────────────────────────────────────────
+
+  // ── 1 ────────────────────────────────────────────────────────────────────
+  {
+    id: "eternal-rose-bouquet",
+    name: "Eternal Rose Bouquet",
+    shortDescription:
+      "A dozen premium long-stem roses, hand-tied with elegant satin ribbon.",
+    longDescription:
+      "Nothing says 'I love you' like a dozen of our finest roses. Sourced from sustainable farms, each stem is carefully selected for its vibrant color and full bloom. Arranged in a classic hand-tied bouquet and wrapped in elegant satin ribbon, these roses arrive fresh and ready to impress.",
+    price: 4500,
+    originalPrice: 5500,
+    images: [
+      "https://images.unsplash.com/photo-1562690868-60bbe7293e94?w=900&q=80",
+      "https://images.unsplash.com/photo-1490750967868-88aa4476b946?w=900&q=80",
+      "https://images.unsplash.com/photo-1548094990-c16ca90f1f0d?w=900&q=80",
+    ],
+    category: "Flowers",
+    badge: "Bestseller",
+    tags: ["Roses", "Romantic", "Fresh"],
+    features: [
+      "12 premium long-stem roses",
+      "Hand-tied with satin ribbon",
+      "Fresh from sustainable farms",
+      "Arrives in hydrating water pack",
+      "Gift message included",
+    ],
+    options: [
+      {
+        id: "color",
+        name: "Color",
+        choices: ["Classic Red", "Blush Pink", "Pure White", "Sunset Orange"],
+      },
+      {
+        id: "size",
+        name: "Bouquet Size",
+        choices: ["12 Roses", "24 Roses", "36 Roses"],
+      },
+    ],
+  },
+
+  // ── 2 ────────────────────────────────────────────────────────────────────
+  {
+    id: "tulip-trio",
+    name: "Dutch Tulip Trio",
+    shortDescription: "Three vibrant tulip varieties in a rustic ceramic vase.",
+    longDescription:
+      "Bring the colors of spring indoors with this cheerful tulip arrangement. Featuring three distinct varieties – classic red, sunny yellow, and delicate pink – each stem is hand-selected for its sturdy stem and vibrant petal. Presented in a handcrafted ceramic vase that complements any decor.",
+    price: 3200,
+    images: [
+      "https://images.unsplash.com/photo-1587293852726-70cdb56c2866?w=900&q=80",
+      "https://images.unsplash.com/photo-1470506028280-a011fb34b6f7?w=900&q=80",
+    ],
+    category: "Flowers",
+    tags: ["Tulips", "Spring", "Vase Included"],
+    features: [
+      "24 stems of premium tulips",
+      "3 color varieties: red, yellow, pink",
+      "Handcrafted ceramic vase",
+      "Fresh-cut and hydrated",
+      "Lasts 7–10 days with proper care",
+    ],
+    options: [
+      {
+        id: "color_mix",
+        name: "Color Mix",
+        choices: ["Classic Rainbow", "Pastel Harmony", "Sunset Blend"],
+      },
+      {
+        id: "vase",
+        name: "Vase Style",
+        choices: ["White Ceramic", "Navy Ceramic", "Clear Glass"],
+      },
+    ],
+  },
+
+  // ── 3 ────────────────────────────────────────────────────────────────────
+  {
+    id: "sunflower-sunburst",
+    name: "Sunflower Sunburst",
+    shortDescription:
+      "A radiant bouquet of sunflowers, accented with eucalyptus and seasonal greens.",
+    longDescription:
+      "Brighten anyone's day with the cheerful beauty of sunflowers. This arrangement features 5–7 large sunflowers surrounded by fragrant eucalyptus and fresh greenery. The bold yellow petals and sturdy stems create a stunning display that brings warmth and joy to any space.",
+    price: 3800,
+    originalPrice: 4400,
+    images: [
+      "https://images.unsplash.com/photo-1493804714600-6edb1cd93080?w=900&q=80",
+      "https://images.unsplash.com/photo-1595539302830-8e2c14c9c3e8?w=900&q=80",
+    ],
+    category: "Flowers",
+    badge: "Sale",
+    tags: ["Sunflowers", "Cheerful", "Summer"],
+    features: [
+      "5–7 premium sunflowers",
+      "Fresh eucalyptus and seasonal greens",
+      "Hand-tied with natural jute",
+      "Hydration pack included",
+      "Perfect for birthdays or get-well wishes",
+    ],
+    options: [
+      {
+        id: "size",
+        name: "Arrangement Size",
+        choices: [
+          "Standard (5 stems)",
+          "Deluxe (7 stems)",
+          "Premium (10 stems)",
+        ],
+      },
+      {
+        id: "add_greenery",
+        name: "Greenery Style",
+        choices: ["Eucalyptus Only", "Mixed Greens", "Ruscus & Leatherleaf"],
+      },
+    ],
+  },
+
+  // ── 4 ────────────────────────────────────────────────────────────────────
+  {
+    id: "orchid-zen",
+    name: "Orchid Zen Garden",
+    shortDescription:
+      "A live Phalaenopsis orchid in a sleek ceramic pot with decorative moss.",
+    longDescription:
+      "Elegance personified. This live orchid features two graceful spikes with multiple blooms in a pure white or soft lavender hue. Planted in a modern ceramic pot and topped with preserved moss, it makes a sophisticated gift that keeps on giving – with proper care, orchids re-bloom for years.",
+    price: 6500,
+    images: [
+      "https://images.unsplash.com/photo-1526045431048-f857369baa09?w=900&q=80",
+      "https://images.unsplash.com/photo-1566136025003-77ffa4ec09f1?w=900&q=80",
+    ],
+    category: "Flowers",
+    badge: "New",
+    tags: ["Orchids", "Live Plant", "Low Maintenance"],
+    features: [
+      "Phalaenopsis orchid with 2 spikes",
+      "Multiple blooms per spike",
+      "Sleek ceramic pot with drainage",
+      "Decorative preserved moss top",
+      "Care instructions included",
+      "Re-blooms annually with proper care",
+    ],
+    options: [
+      {
+        id: "color",
+        name: "Bloom Color",
+        choices: ["Pure White", "Lavender Mist", "Hot Pink", "Yellow Splash"],
+      },
+      {
+        id: "pot",
+        name: "Pot Style",
+        choices: ["Matte White Ceramic", "Glossy Black Ceramic", "Terracotta"],
+      },
+    ],
+  },
+
+  // ── 5 ────────────────────────────────────────────────────────────────────
+  {
+    id: "peony-paradise",
+    name: "Peony Paradise Bouquet",
+    shortDescription: "Lush, fragrant peonies in a romantic hand-tied bouquet.",
+    longDescription:
+      "Few flowers capture romance like the peony. This stunning bouquet features 8–10 freshly cut peonies in your choice of color, from soft blush to deep burgundy. Each petal unfurls to reveal a delicate, ruffled bloom that fills the room with a sweet, delicate fragrance. Perfect for weddings, anniversaries, or simply because.",
+    price: 7200,
+    originalPrice: 8500,
+    images: [
+      "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=900&q=80",
+      "https://images.unsplash.com/photo-1490750967868-88aa4476b946?w=900&q=80",
+    ],
+    category: "Flowers",
+    badge: "Bestseller",
+    tags: ["Peonies", "Fragrant", "Romantic"],
+    features: [
+      "8–10 premium peonies",
+      "Hand-tied with silk ribbon",
+      "Fragrant blooms",
+      "Hydration pack included",
+      "Peak season: April–June",
+    ],
+    options: [
+      {
+        id: "color",
+        name: "Color",
+        choices: ["Blush Pink", "Coral", "Burgundy", "White"],
+      },
+      {
+        id: "size",
+        name: "Bouquet Size",
+        choices: ["8 Stems", "12 Stems", "18 Stems"],
+      },
+    ],
+  },
+
+  // ── 6 ────────────────────────────────────────────────────────────────────
+  {
+    id: "wildflower-meadow",
+    name: "Wildflower Meadow Mix",
+    shortDescription:
+      "A colorful mix of seasonal wildflowers in a rustic mason jar.",
+    longDescription:
+      "Bring the beauty of a countryside meadow indoors with this cheerful arrangement. Our florist selects the freshest seasonal wildflowers – including daisies, snapdragons, larkspur, and more – to create a relaxed, whimsical display. Presented in a reusable mason jar tied with twine.",
+    price: 2900,
+    images: [
+      "https://images.unsplash.com/photo-1494783367193-149034c05e8f?w=900&q=80",
+      "https://images.unsplash.com/photo-1508614589041-895b88991e3e?w=900&q=80",
+    ],
+    category: "Flowers",
+    tags: ["Wildflowers", "Rustic", "Seasonal"],
+    features: [
+      "Seasonal wildflower mix",
+      "Arranged in a glass mason jar",
+      "Hand-tied with natural twine",
+      "Unique color palette varies by season",
+      "Perfect for casual gifting",
+    ],
+    options: [
+      {
+        id: "jar",
+        name: "Container",
+        choices: ["Mason Jar", "Galvanized Tin", "Woven Basket"],
+      },
+      {
+        id: "size",
+        name: "Size",
+        choices: [
+          "Small (6–8 stems)",
+          "Medium (12–15 stems)",
+          "Large (20+ stems)",
+        ],
+      },
+    ],
+  },
+
+  // ── 7 ────────────────────────────────────────────────────────────────────
+  {
+    id: "lily-elegance",
+    name: "Lily Elegance Arrangement",
+    shortDescription:
+      "Tall, graceful lilies arranged with lush greenery in a glass vase.",
+    longDescription:
+      "Make a statement with the timeless beauty of lilies. This arrangement features 5–7 stems of premium Oriental or Asiatic lilies, known for their large, fragrant blooms and long vase life. Accented with leatherleaf fern and seasonal greenery, it's a sophisticated choice for any occasion.",
+    price: 5400,
+    images: [
+      "https://images.unsplash.com/photo-1511105441045-5b8d7ef20b9c?w=900&q=80",
+      "https://images.unsplash.com/photo-1562486873-6a3ac00c0e3c?w=900&q=80",
+    ],
+    category: "Flowers",
+    badge: "New",
+    tags: ["Lilies", "Fragrant", "Tall Arrangement"],
+    features: [
+      "5–7 premium lily stems",
+      "Fragrant Oriental or Asiatic varieties",
+      "Arranged in clear glass vase",
+      "Greenery: leatherleaf fern and eucalyptus",
+      "Vase life: 7–10 days",
+    ],
+    options: [
+      {
+        id: "color",
+        name: "Color",
+        choices: ["White", "Pink", "Yellow", "Orange"],
+      },
+      {
+        id: "vase",
+        name: "Vase Style",
+        choices: ["Cylinder Glass", "Flared Glass", "No Vase (Hand-Tied)"],
+      },
+    ],
+  },
+
+  // ── 8 ────────────────────────────────────────────────────────────────────
+  {
+    id: "hydrangea-heaven",
+    name: "Hydrangea Heaven",
+    shortDescription: "Full, billowy hydrangeas in a chic ceramic container.",
+    longDescription:
+      "Few flowers offer the fullness and lush texture of hydrangeas. This arrangement features 5–7 large hydrangea blooms in your choice of color, artfully arranged in a modern ceramic pot. The long-lasting blooms make a stunning centerpiece for any table.",
+    price: 4900,
+    originalPrice: 5900,
+    images: [
+      "https://images.unsplash.com/photo-1526045431048-f857369baa09?w=900&q=80",
+      "https://images.unsplash.com/photo-1588561726653-f1e6c1b5f6d8?w=900&q=80",
+    ],
+    category: "Flowers",
+    badge: "Sale",
+    tags: ["Hydrangeas", "Full Blooms", "Centerpiece"],
+    features: [
+      "5–7 large hydrangea blooms",
+      "Modern ceramic container",
+      "Color options: blue, pink, white, purple",
+      "Foliage accents included",
+      "Lasts 7–10 days with proper care",
+    ],
+    options: [
+      {
+        id: "color",
+        name: "Color",
+        choices: ["Sky Blue", "Soft Pink", "Pure White", "Lavender"],
+      },
+      {
+        id: "container",
+        name: "Container Style",
+        choices: ["White Ceramic", "Navy Ceramic", "Terracotta"],
+      },
+    ],
+  },
+
+  // ── 9 ────────────────────────────────────────────────────────────────────
+  {
+    id: "carnation-classic",
+    name: "Carnation Classic Bouquet",
+    shortDescription:
+      "A timeless bouquet of carnations in a cheerful color palette.",
+    longDescription:
+      "Simple, classic, and long-lasting – carnations are a favorite for their ruffled petals and impressive vase life. This bouquet features 24 stems of premium carnations in your choice of solid or mixed colors, hand-tied with a coordinating ribbon. A wonderful gift for birthdays, anniversaries, or just because.",
+    price: 2800,
+    images: [
+      "https://images.unsplash.com/photo-1562690868-60bbe7293e94?w=900&q=80",
+      "https://images.unsplash.com/photo-1504198453319-5ce911bafcde?w=900&q=80",
+    ],
+    category: "Flowers",
+    tags: ["Carnations", "Long-Lasting", "Affordable"],
+    features: [
+      "24 premium carnation stems",
+      "Hand-tied with ribbon",
+      "Vase life: 14+ days",
+      "Available in solid or mixed colors",
+      "Gift message included",
+    ],
+    options: [
+      {
+        id: "color",
+        name: "Color Theme",
+        choices: [
+          "Solid Red",
+          "Mixed Pastels",
+          "Vibrant Rainbow",
+          "White Elegance",
+        ],
+      },
+      {
+        id: "size",
+        name: "Quantity",
+        choices: ["12 Stems", "24 Stems", "36 Stems"],
+      },
+    ],
+  },
+
+  // ── 10 ───────────────────────────────────────────────────────────────────
+  {
+    id: "succulent-garden",
+    name: "Succulent Garden Dish",
+    shortDescription:
+      "A low-maintenance arrangement of assorted succulents in a ceramic dish.",
+    longDescription:
+      "Perfect for the modern plant lover, this succulent garden features a curated selection of 5–7 different succulents, including echeveria, haworthia, and sedum. Planted in a shallow ceramic dish with decorative stones, it's a living work of art that requires minimal care – just bright light and occasional water.",
+    price: 3900,
+    images: [
+      "https://images.unsplash.com/photo-1459257831348-f0cdd359235f?w=900&q=80",
+      "https://images.unsplash.com/photo-1509423350716-97f9360b4e09?w=900&q=80",
+    ],
+    category: "Flowers",
+    badge: "Trending",
+    tags: ["Succulents", "Low Maintenance", "Live Plant"],
+    features: [
+      "5–7 assorted succulent varieties",
+      "Ceramic dish with drainage",
+      "Decorative top dressing",
+      "Care instructions included",
+      "Thrives indoors with bright light",
+    ],
+    options: [
+      {
+        id: "size",
+        name: "Dish Size",
+        choices: ["Small (6 inches)", "Medium (8 inches)", "Large (10 inches)"],
+      },
+      {
+        id: "style",
+        name: "Style",
+        choices: [
+          "Mixed Succulents",
+          "Cactus Garden",
+          "Fairy Garden (with miniatures)",
+        ],
+      },
+    ],
+  },
+
+  // ── 11 ───────────────────────────────────────────────────────────────────
+  {
+    id: "rose-gerbera-daisy",
+    name: "Gerbera Daisy Cheer",
+    shortDescription: "Bright, bold gerbera daisies in a colorful arrangement.",
+    longDescription:
+      "Bring a burst of happiness with these vibrant gerbera daisies. Known for their large, colorful blooms and sturdy stems, gerberas are a favorite for adding instant cheer. This bouquet includes 10 stems in a mix of bright colors, arranged with seasonal greenery in a clear glass vase.",
+    price: 3600,
+    images: [
+      "https://images.unsplash.com/photo-1494883759339-0b042055a4ee?w=900&q=80",
+      "https://images.unsplash.com/photo-1490750967868-88aa4476b946?w=900&q=80",
+    ],
+    category: "Flowers",
+    tags: ["Gerberas", "Bright", "Cheerful"],
+    features: [
+      "10 gerbera daisy stems",
+      "Mixed bright colors",
+      "Arranged in glass vase",
+      "Greenery accents",
+      "Vase life: 7–10 days",
+    ],
+    options: [
+      {
+        id: "color_mix",
+        name: "Color Palette",
+        choices: [
+          "Rainbow Bright",
+          "Pastel Dreams",
+          "Sunset Hues",
+          "Primary Colors",
+        ],
+      },
+      {
+        id: "vase",
+        name: "Vase Included?",
+        choices: ["Yes (Glass Cylinder)", "No (Hand-Tied Only)"],
+      },
+    ],
+  },
+
+  // ── 12 ───────────────────────────────────────────────────────────────────
+  {
+    id: "lavender-lullaby",
+    name: "Lavender Lullaby",
+    shortDescription: "Aromatic lavender bunches tied with rustic twine.",
+    longDescription:
+      "Fill your home with the calming scent of lavender. This bundle contains 10–15 freshly cut lavender stems, harvested from local farms. The purple spikes and silvery foliage create a soothing, fragrant display that can be hung to dry for lasting enjoyment.",
+    price: 2200,
+    images: [
+      "https://images.unsplash.com/photo-1525362081669-2b476bb628c3?w=900&q=80",
+      "https://images.unsplash.com/photo-1475154196671-f23b2b6acb32?w=900&q=80",
+    ],
+    category: "Flowers",
+    tags: ["Lavender", "Aromatic", "Dried Flowers"],
+    features: [
+      "10–15 fresh lavender stems",
+      "Tied with natural twine",
+      "Can be used fresh or dried",
+      "Calming fragrance",
+      "Perfect for sachets or arrangements",
+    ],
+    options: [
+      {
+        id: "bundle",
+        name: "Bundle Size",
+        choices: ["Small (10 stems)", "Large (20 stems)"],
+      },
+    ],
+  },
+
+  // ── 13 ───────────────────────────────────────────────────────────────────
+  {
+    id: "spring-blossom",
+    name: "Spring Blossom Wreath",
+    shortDescription:
+      "A handcrafted wreath featuring fresh seasonal blooms and foliage.",
+    longDescription:
+      "Welcome guests with this beautiful wreath made from fresh spring flowers. Our florist weaves together seasonal favorites like ranunculus, freesia, and jasmine with eucalyptus and ivy to create a lush, fragrant display. Perfect for doors, walls, or as a stunning centerpiece.",
+    price: 5900,
+    originalPrice: 6900,
+    images: [
+      "https://images.unsplash.com/photo-1489392191049-fc10c97e64b6?w=900&q=80",
+      "https://images.unsplash.com/photo-1499540633125-484965b60031?w=900&q=80",
+    ],
+    category: "Flowers",
+    badge: "New",
+    tags: ["Wreath", "Seasonal", "Handcrafted"],
+    features: [
+      "Fresh seasonal blooms and foliage",
+      "Handcrafted on a wire base",
+      "Approx. 14–16 inches diameter",
+      "Includes hanging loop",
+      "Lasts 1–2 weeks with misting",
+    ],
+    options: [
+      {
+        id: "style",
+        name: "Style",
+        choices: ["Spring Pastels", "Wildflower Meadow", "Rustic Greenery"],
+      },
+    ],
+  },
+
+  // ── 14 ───────────────────────────────────────────────────────────────────
+  {
+    id: "callalily-statement",
+    name: "Calla Lily Statement",
+    shortDescription: "Sleek, sculptural calla lilies in a tall glass vase.",
+    longDescription:
+      "For a modern, minimalist look, nothing beats the elegant curve of calla lilies. This arrangement features 10 stems of premium calla lilies in your choice of white, yellow, or deep purple, arranged in a tall clear glass vase. The clean lines make it a sophisticated centerpiece for weddings or corporate events.",
+    price: 7800,
+    images: [
+      "https://images.unsplash.com/photo-1570481662006-a3a1374699e8?w=900&q=80",
+      "https://images.unsplash.com/photo-1531592900765-82a0cc2d1028?w=900&q=80",
+    ],
+    category: "Flowers",
+    tags: ["Calla Lilies", "Modern", "Sculptural"],
+    features: [
+      "10 premium calla lily stems",
+      "Tall glass vase",
+      "Color options: white, yellow, purple, pink",
+      "Minimalist arrangement",
+      "Perfect for modern decor",
+    ],
+    options: [
+      {
+        id: "color",
+        name: "Color",
+        choices: ["Pure White", "Sunshine Yellow", "Deep Purple", "Blush Pink"],
+      },
+      {
+        id: "vase",
+        name: "Vase Height",
+        choices: ["12 inch", "16 inch", "20 inch"],
+      },
+    ],
+  },
+
+  // ── 15 ───────────────────────────────────────────────────────────────────
+  {
+    id: "dried-floral-bouquet",
+    name: "Everlasting Dried Bouquet",
+    shortDescription:
+      "A timeless bouquet of dried flowers and preserved botanicals.",
+    longDescription:
+      "Enjoy the beauty of flowers that last for years. This artfully arranged dried bouquet features a mix of preserved roses, statice, bunny tails, and eucalyptus in muted earth tones. Perfect for those who want a low-maintenance, long-lasting floral accent that adds texture and warmth to any space.",
+    price: 4200,
+    images: [
+      "https://images.unsplash.com/photo-1518721099412-ded6f48308a3?w=900&q=80",
+      "https://images.unsplash.com/photo-1544033527-192b05d1473b?w=900&q=80",
+    ],
+    category: "Flowers",
+    badge: "Trending",
+    tags: ["Dried Flowers", "Long-Lasting", "Boho"],
+    features: [
+      "Mixed dried flowers and grasses",
+      "Preserved botanicals",
+      "Hand-tied with natural twine",
+      "No maintenance required",
+      "Lasts indefinitely",
+    ],
+    options: [
+      {
+        id: "palette",
+        name: "Color Palette",
+        choices: [
+          "Warm Neutrals",
+          "Blush & Cream",
+          "Dusty Blues",
+          "Terracotta & Rust",
+        ],
+      },
+      {
+        id: "size",
+        name: "Size",
+        choices: ["Small (12 stems)", "Medium (20 stems)", "Large (30 stems)"],
+      },
+    ],
+  },
+
+  // ── 16 ───────────────────────────────────────────────────────────────────
+  {
+    id: "tropical-lei",
+    name: "Tropical Paradise Lei",
+    shortDescription:
+      "A vibrant Hawaiian-style lei made with fresh orchids and tropical flowers.",
+    longDescription:
+      "Bring the spirit of aloha to any celebration. This beautiful lei is hand-strung with fresh orchids, plumeria, and ti leaves, creating a fragrant and colorful garland. Perfect for graduations, weddings, or simply to make someone feel special.",
+    price: 3900,
+    images: [
+      "https://images.unsplash.com/photo-1606293459302-1a8cce63e2f8?w=900&q=80",
+      "https://images.unsplash.com/photo-1549476176-415fca8dbe6a?w=900&q=80",
+    ],
+    category: "Flowers",
+    tags: ["Tropical", "Orchids", "Garland"],
+    features: [
+      "Fresh orchids and tropical flowers",
+      "Hand-strung on cotton cord",
+      "Fragrant and colorful",
+      "Approx. 40 inches long",
+      "Suitable for all occasions",
+    ],
+    options: [
+      {
+        id: "style",
+        name: "Style",
+        choices: ["Orchid Lei", "Plumeria Lei", "Mixed Tropical"],
+      },
+    ],
+  },
+
+  // ── 17 ───────────────────────────────────────────────────────────────────
+  {
+    id: "mini-rose-bonsai",
+    name: "Mini Rose Bonsai",
+    shortDescription:
+      "A charming miniature rose plant in a ceramic bonsai pot.",
+    longDescription:
+      "Adorable and long-lasting, this miniature rose bonsai features a compact rose plant with delicate blooms, trained in a traditional bonsai style. Planted in a glazed ceramic pot, it's a unique gift that combines the beauty of roses with the art of bonsai. With proper care, it will bloom repeatedly.",
+    price: 5500,
+    images: [
+      "https://images.unsplash.com/photo-1589561454226-796a8aa89b05?w=900&q=80",
+      "https://images.unsplash.com/photo-1531072901881-d644216d4bf9?w=900&q=80",
+    ],
+    category: "Flowers",
+    tags: ["Bonsai", "Roses", "Live Plant"],
+    features: [
+      "Miniature rose plant",
+      "Trained in bonsai style",
+      "Ceramic bonsai pot",
+      "Blooms repeatedly",
+      "Care instructions included",
+    ],
+    options: [
+      {
+        id: "color",
+        name: "Bloom Color",
+        choices: ["Red", "Pink", "Yellow", "White"],
+      },
+    ],
+  },
+
+  // ── 18 ───────────────────────────────────────────────────────────────────
+  {
+    id: "seasonal-subscription",
+    name: "Seasonal Flower Subscription – 3 Months",
+    shortDescription:
+      "A 3-month subscription delivering fresh, seasonal bouquets to your door.",
+    longDescription:
+      "Give the gift of fresh flowers all season long. Our subscription delivers a hand-tied bouquet of the freshest seasonal blooms to your recipient's door every month for three months. Each arrangement is unique, featuring flowers at their peak from local growers.",
+    price: 12900,
+    originalPrice: 14700,
+    images: [
+      "https://images.unsplash.com/photo-1561181286-d3fee7d50764?w=900&q=80",
+      "https://images.unsplash.com/photo-1494783367193-149034c05e8f?w=900&q=80",
+    ],
+    category: "Flowers",
+    badge: "Bestseller",
+    tags: ["Subscription", "Seasonal", "Gift"],
+    features: [
+      "3 monthly deliveries",
+      "Hand-tied seasonal bouquets",
+      "Locally sourced flowers",
+      "Customizable delivery schedule",
+      "Gift message with first delivery",
+    ],
+    options: [
+      {
+        id: "duration",
+        name: "Subscription Length",
+        choices: ["3 Months", "6 Months", "12 Months"],
+      },
+      {
+        id: "size",
+        name: "Bouquet Size",
+        choices: ["Standard (10–12 stems)", "Deluxe (18–20 stems)"],
+      },
+    ],
+  },
+
+  // ── 19 ───────────────────────────────────────────────────────────────────
+  {
+    id: "protea-exotic",
+    name: "Exotic Protea Arrangement",
+    shortDescription:
+      "Bold, architectural protea flowers with unique texture and form.",
+    longDescription:
+      "For those who appreciate the unusual, this arrangement showcases the dramatic beauty of protea. Featuring 3–5 large protea blooms (king, pink, or pin cushion) combined with banksia, leucadendron, and eucalyptus, it's a sculptural masterpiece that demands attention.",
+    price: 8900,
+    images: [
+      "https://images.unsplash.com/photo-1561181286-d3fee7d50764?w=900&q=80",
+      "https://images.unsplash.com/photo-1531592900765-82a0cc2d1028?w=900&q=80",
+    ],
+    category: "Flowers",
+    tags: ["Protea", "Exotic", "Sculptural"],
+    features: [
+      "3–5 large protea blooms",
+      "Mixed with banksia and eucalyptus",
+      "Long-lasting (up to 2 weeks)",
+      "Perfect for modern interiors",
+      "Available in king, pink, or pin cushion varieties",
+    ],
+    options: [
+      {
+        id: "style",
+        name: "Style",
+        choices: ["King Protea Focus", "Pink Protea Mix", "Pin Cushion Protea"],
+      },
+    ],
+  },
+
+  // ── 20 ───────────────────────────────────────────────────────────────────
+  {
+    id: "freesia-fragrance",
+    name: "Freesia Fragrance Bouquet",
+    shortDescription:
+      "A delicate bouquet of freesias, known for their sweet, citrusy scent.",
+    longDescription:
+      "Fill your home with the delightful fragrance of freesias. This elegant bouquet features 15–20 stems of freesia in a mix of pastel colors, arranged with delicate baby's breath. The sweet, citrusy scent and graceful blooms make it a favorite for spring celebrations.",
+    price: 4100,
+    images: [
+      "https://images.unsplash.com/photo-1490750967868-88aa4476b946?w=900&q=80",
+      "https://images.unsplash.com/photo-1589561454226-796a8aa89b05?w=900&q=80",
+    ],
+    category: "Flowers",
+    tags: ["Freesia", "Fragrant", "Spring"],
+    features: [
+      "15–20 freesia stems",
+      "Mixed pastel colors",
+      "Sweet, citrusy fragrance",
+      "Arranged with baby's breath",
+      "Vase life: 7–10 days",
+    ],
+    options: [
+      {
+        id: "color_mix",
+        name: "Color Palette",
+        choices: ["Pastel Rainbow", "White & Yellow", "Pink & Purple"],
+      },
+    ],
+  },
+
   // ── 1 ────────────────────────────────────────────────────────────────────
   {
     id: "the-shop-signature",
