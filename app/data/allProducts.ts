@@ -75,34 +75,6 @@ export const shopCategories = [
 // Add a new product object to this array — the rest of the UI handles itself.
 
 const rawProducts: ShopProduct[] = [
-  {
-    id: "t-shirt",
-    name: "T-shirt",
-    shortDescription: "T-shirt for summer",
-    longDescription: "Best cotton t-shirt for summer",
-    price: 1199,
-    originalPrice: 2000,
-    images: [
-      "https://res-console.cloudinary.com/dx327tmux/thumbnails/transform/v1/image/upload/Y19maWxsLGhfMjAwLHdfMjAw/v1/SU1HXzE0OTNfazVyd2xo/template_primary",
-      "https://res-console.cloudinary.com/dx327tmux/thumbnails/transform/v1/image/upload/Y19maWxsLGhfMjAwLHdfMjAw/v1/QXNoaXNoLVBob3Rvcm9vbV9zbWo1ODQ=/template_primary",
-    ],
-    category: "Clothes",
-    badge: "New",
-    tags: ["premium"],
-    features: ["cotton"],
-    options: [
-      {
-        id: "x",
-        name: "size",
-        choices: ["xl", "2xl", "3xl"],
-      },
-      {
-        id: "c",
-        name: "color",
-        choices: ["white"],
-      },
-    ],
-  },
   // ── 1 ────────────────────────────────────────────────────────────────────
   {
     id: "the-shop-signature",
@@ -656,8 +628,10 @@ const rawProducts: ShopProduct[] = [
   {
     id: "wireless-noise-cancelling-earbuds",
     name: "Aura Pro Wireless Earbuds",
-    shortDescription: "Premium true wireless earbuds with active noise cancellation and spatial audio.",
-    longDescription: "Experience sound like never before with the Aura Pro. Featuring custom-tuned 11mm dynamic drivers, adaptive ANC that blocks out the world, and immersive spatial audio with head tracking. With up to 8 hours of battery life (32 with the case) and IPX4 sweat resistance, these earbuds are your perfect daily companion.",
+    shortDescription:
+      "Premium true wireless earbuds with active noise cancellation and spatial audio.",
+    longDescription:
+      "Experience sound like never before with the Aura Pro. Featuring custom-tuned 11mm dynamic drivers, adaptive ANC that blocks out the world, and immersive spatial audio with head tracking. With up to 8 hours of battery life (32 with the case) and IPX4 sweat resistance, these earbuds are your perfect daily companion.",
     price: 15900,
     originalPrice: 19900,
     images: [
@@ -684,7 +658,10 @@ const rawProducts: ShopProduct[] = [
       {
         id: "case",
         name: "Charging Case",
-        choices: ["Standard (Wireless)", "Premium (Wireless + Battery Display)"],
+        choices: [
+          "Standard (Wireless)",
+          "Premium (Wireless + Battery Display)",
+        ],
       },
     ],
   },
@@ -693,8 +670,10 @@ const rawProducts: ShopProduct[] = [
   {
     id: "smart-watch-pro",
     name: "Vitality Smart Watch Pro",
-    shortDescription: "Advanced health and fitness smartwatch with AMOLED display and 7-day battery.",
-    longDescription: "Track every aspect of your wellbeing with the Vitality Smart Watch Pro. Features include continuous heart rate monitoring, blood oxygen (SpO2) measurement, sleep stage analysis, and over 100 sports modes. The brilliant 1.43\" AMOLED display is always-on and readable under direct sunlight, while the robust titanium case ensures durability.",
+    shortDescription:
+      "Advanced health and fitness smartwatch with AMOLED display and 7-day battery.",
+    longDescription:
+      'Track every aspect of your wellbeing with the Vitality Smart Watch Pro. Features include continuous heart rate monitoring, blood oxygen (SpO2) measurement, sleep stage analysis, and over 100 sports modes. The brilliant 1.43" AMOLED display is always-on and readable under direct sunlight, while the robust titanium case ensures durability.',
     price: 27900,
     images: [
       "https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=900&q=80",
@@ -704,7 +683,7 @@ const rawProducts: ShopProduct[] = [
     badge: "Bestseller",
     tags: ["Fitness", "Health Tracking", "AMOLED"],
     features: [
-      "1.43\" AMOLED always-on display",
+      '1.43" AMOLED always-on display',
       "7-day battery life (3 days with always-on)",
       "ECG & SpO2 sensors",
       "GPS, GLONASS, Galileo, Beidou",
@@ -720,7 +699,11 @@ const rawProducts: ShopProduct[] = [
       {
         id: "color",
         name: "Finish",
-        choices: ["Starlight Aluminum", "Graphite Stainless Steel", "Gold Titanium"],
+        choices: [
+          "Starlight Aluminum",
+          "Graphite Stainless Steel",
+          "Gold Titanium",
+        ],
       },
       {
         id: "band",
@@ -734,8 +717,10 @@ const rawProducts: ShopProduct[] = [
   {
     id: "portable-power-station",
     name: "Nomad 300 Power Station",
-    shortDescription: "Compact 300Wh portable power station with pure sine wave inverter and fast charging.",
-    longDescription: "Stay powered anywhere with the Nomad 300. This compact power station packs a 300Wh LiFePO4 battery, pure sine wave AC output, and multiple USB-C PD ports capable of charging laptops, drones, and small appliances. With a 10-year lifespan and solar charging capability, it's your reliable off-grid companion.",
+    shortDescription:
+      "Compact 300Wh portable power station with pure sine wave inverter and fast charging.",
+    longDescription:
+      "Stay powered anywhere with the Nomad 300. This compact power station packs a 300Wh LiFePO4 battery, pure sine wave AC output, and multiple USB-C PD ports capable of charging laptops, drones, and small appliances. With a 10-year lifespan and solar charging capability, it's your reliable off-grid companion.",
     price: 42500,
     originalPrice: 49900,
     images: [
@@ -771,8 +756,10 @@ const rawProducts: ShopProduct[] = [
   {
     id: "gaming-mechanical-keyboard",
     name: "Strike Pro Mechanical Keyboard",
-    shortDescription: "Ultra-responsive gaming keyboard with optical switches and customizable RGB.",
-    longDescription: "Dominate the competition with the Strike Pro. Featuring magnetic Hall Effect switches with adjustable actuation points, this keyboard delivers lightning-fast input. The aluminum top plate, PBT double-shot keycaps, and programmable macros make it a favorite among esports enthusiasts. Complete with per-key RGB and a detachable USB-C cable.",
+    shortDescription:
+      "Ultra-responsive gaming keyboard with optical switches and customizable RGB.",
+    longDescription:
+      "Dominate the competition with the Strike Pro. Featuring magnetic Hall Effect switches with adjustable actuation points, this keyboard delivers lightning-fast input. The aluminum top plate, PBT double-shot keycaps, and programmable macros make it a favorite among esports enthusiasts. Complete with per-key RGB and a detachable USB-C cable.",
     price: 18900,
     images: [
       "https://images.unsplash.com/photo-1595225476474-87563907a212?w=900&q=80",
@@ -792,12 +779,21 @@ const rawProducts: ShopProduct[] = [
       {
         id: "size",
         name: "Form Factor",
-        choices: ["60% (Compact)", "65% (Arrow Keys)", "80% (TKL)", "100% (Full Size)"],
+        choices: [
+          "60% (Compact)",
+          "65% (Arrow Keys)",
+          "80% (TKL)",
+          "100% (Full Size)",
+        ],
       },
       {
         id: "switch",
         name: "Switch Type",
-        choices: ["Magnetic Linear (Smooth)", "Magnetic Tactile (Bump)", "Magnetic Clicky (Audible)"],
+        choices: [
+          "Magnetic Linear (Smooth)",
+          "Magnetic Tactile (Bump)",
+          "Magnetic Clicky (Audible)",
+        ],
       },
       {
         id: "color",
@@ -810,9 +806,11 @@ const rawProducts: ShopProduct[] = [
   // ── 20 ───────────────────────────────────────────────────────────────────
   {
     id: "ultra-hd-monitor",
-    name: "ViewEdge 27\" 4K Studio Monitor",
-    shortDescription: "27-inch 4K UHD monitor with 99% sRGB, factory calibration, and USB-C hub.",
-    longDescription: "Designed for creators and professionals, the ViewEdge 27 delivers stunning 4K resolution with exceptional color accuracy out of the box. The IPS panel covers 99% sRGB and 95% DCI-P3, while the USB-C port provides 90W power delivery and data to a single cable setup. Height-adjustable stand with VESA compatibility ensures ergonomic comfort.",
+    name: 'ViewEdge 27" 4K Studio Monitor',
+    shortDescription:
+      "27-inch 4K UHD monitor with 99% sRGB, factory calibration, and USB-C hub.",
+    longDescription:
+      "Designed for creators and professionals, the ViewEdge 27 delivers stunning 4K resolution with exceptional color accuracy out of the box. The IPS panel covers 99% sRGB and 95% DCI-P3, while the USB-C port provides 90W power delivery and data to a single cable setup. Height-adjustable stand with VESA compatibility ensures ergonomic comfort.",
     price: 45900,
     originalPrice: 52900,
     images: [
@@ -823,7 +821,7 @@ const rawProducts: ShopProduct[] = [
     badge: "Sale",
     tags: ["4K", "USB-C", "Color Accurate"],
     features: [
-      "27\" 4K UHD (3840 x 2160) IPS panel",
+      '27" 4K UHD (3840 x 2160) IPS panel',
       "99% sRGB, 95% DCI-P3 coverage",
       "Factory calibrated (Delta E < 2)",
       "USB-C with 90W PD & data",
@@ -848,8 +846,10 @@ const rawProducts: ShopProduct[] = [
   {
     id: "wool-blend-overcoat",
     name: "Heritage Wool-Blend Overcoat",
-    shortDescription: "Classic double-breasted overcoat in a luxurious wool-cashmere blend.",
-    longDescription: "Elevate your winter wardrobe with this timeless overcoat. Crafted from a premium blend of 80% merino wool and 20% cashmere, it offers exceptional warmth without bulk. The tailored silhouette, notch lapels, and horn-button details exude sophistication. Fully lined with breathable cupro for all-day comfort.",
+    shortDescription:
+      "Classic double-breasted overcoat in a luxurious wool-cashmere blend.",
+    longDescription:
+      "Elevate your winter wardrobe with this timeless overcoat. Crafted from a premium blend of 80% merino wool and 20% cashmere, it offers exceptional warmth without bulk. The tailored silhouette, notch lapels, and horn-button details exude sophistication. Fully lined with breathable cupro for all-day comfort.",
     price: 28900,
     originalPrice: 35900,
     images: [
@@ -871,7 +871,14 @@ const rawProducts: ShopProduct[] = [
       {
         id: "size",
         name: "Size",
-        choices: ["36 (XS)", "38 (S)", "40 (M)", "42 (L)", "44 (XL)", "46 (2XL)"],
+        choices: [
+          "36 (XS)",
+          "38 (S)",
+          "40 (M)",
+          "42 (L)",
+          "44 (XL)",
+          "46 (2XL)",
+        ],
       },
       {
         id: "color",
@@ -885,8 +892,10 @@ const rawProducts: ShopProduct[] = [
   {
     id: "performance-running-shoes",
     name: "Strider Elite Running Shoes",
-    shortDescription: "Lightweight running shoes with responsive foam and breathable engineered mesh.",
-    longDescription: "Engineered for runners seeking both speed and comfort, the Strider Elite features a nitrogen-infused midsole that provides superior energy return and shock absorption. The engineered mesh upper adapts to foot shape while maintaining breathability, and the carbon-infused outsole delivers traction on any surface.",
+    shortDescription:
+      "Lightweight running shoes with responsive foam and breathable engineered mesh.",
+    longDescription:
+      "Engineered for runners seeking both speed and comfort, the Strider Elite features a nitrogen-infused midsole that provides superior energy return and shock absorption. The engineered mesh upper adapts to foot shape while maintaining breathability, and the carbon-infused outsole delivers traction on any surface.",
     price: 15900,
     images: [
       "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=900&q=80",
@@ -926,8 +935,10 @@ const rawProducts: ShopProduct[] = [
   {
     id: "ceramic-coffee-maker",
     name: "Artisan Pour-Over Coffee Set",
-    shortDescription: "Complete ceramic pour-over set with gooseneck kettle and glass carafe.",
-    longDescription: "Brew café-quality coffee at home with this elegant pour-over set. The ceramic dripper with spiral ribs ensures even extraction, while the 1L gooseneck kettle provides precise water flow control. Includes a heat-resistant glass carafe and 100 unbleached paper filters. A perfect gift for coffee enthusiasts.",
+    shortDescription:
+      "Complete ceramic pour-over set with gooseneck kettle and glass carafe.",
+    longDescription:
+      "Brew café-quality coffee at home with this elegant pour-over set. The ceramic dripper with spiral ribs ensures even extraction, while the 1L gooseneck kettle provides precise water flow control. Includes a heat-resistant glass carafe and 100 unbleached paper filters. A perfect gift for coffee enthusiasts.",
     price: 7500,
     originalPrice: 9900,
     images: [
@@ -963,8 +974,10 @@ const rawProducts: ShopProduct[] = [
   {
     id: "leather-chelsea-boots",
     name: "Soho Chelsea Boots",
-    shortDescription: "Classic Chelsea boots in full-grain leather with elastic side panels.",
-    longDescription: "Effortlessly stylish and versatile, these Chelsea boots are crafted from premium full-grain leather. The elastic gussets allow for easy slip-on, while the Goodyear welted construction ensures durability and easy resoling. A leather-lined interior and cushioned insole provide all-day comfort.",
+    shortDescription:
+      "Classic Chelsea boots in full-grain leather with elastic side panels.",
+    longDescription:
+      "Effortlessly stylish and versatile, these Chelsea boots are crafted from premium full-grain leather. The elastic gussets allow for easy slip-on, while the Goodyear welted construction ensures durability and easy resoling. A leather-lined interior and cushioned insole provide all-day comfort.",
     price: 18900,
     images: [
       "https://images.unsplash.com/photo-1638247025967-b4e38f787b76?w=900&q=80",
@@ -1003,8 +1016,10 @@ const rawProducts: ShopProduct[] = [
   {
     id: "wireless-charging-stand",
     name: "MagSafe 3-in-1 Charging Stand",
-    shortDescription: "Premium 3-in-1 wireless charging stand for iPhone, Apple Watch, and AirPods.",
-    longDescription: "Declutter your nightstand with this elegant 3-in-1 charging stand. Certified for MagSafe, it delivers fast 15W charging to iPhone, while the dedicated Apple Watch fast-charge module and AirPods pad ensure all your devices are powered simultaneously. Sleek aluminum body with a non-slip base.",
+    shortDescription:
+      "Premium 3-in-1 wireless charging stand for iPhone, Apple Watch, and AirPods.",
+    longDescription:
+      "Declutter your nightstand with this elegant 3-in-1 charging stand. Certified for MagSafe, it delivers fast 15W charging to iPhone, while the dedicated Apple Watch fast-charge module and AirPods pad ensure all your devices are powered simultaneously. Sleek aluminum body with a non-slip base.",
     price: 11500,
     images: [
       "https://images.unsplash.com/photo-1622445275576-721325763afe?w=900&q=80",
@@ -1034,8 +1049,10 @@ const rawProducts: ShopProduct[] = [
   {
     id: "camping-hammock",
     name: "Ultralight Camping Hammock",
-    shortDescription: "Portable nylon hammock with integrated bug net and tree-friendly straps.",
-    longDescription: "Sleep under the stars with this lightweight camping hammock. Made from ripstop nylon, it packs down to the size of a grapefruit and weighs just 500g. The integrated mosquito net keeps bugs at bay, while the included tree straps (no knots required) protect bark and set up in minutes.",
+    shortDescription:
+      "Portable nylon hammock with integrated bug net and tree-friendly straps.",
+    longDescription:
+      "Sleep under the stars with this lightweight camping hammock. Made from ripstop nylon, it packs down to the size of a grapefruit and weighs just 500g. The integrated mosquito net keeps bugs at bay, while the included tree straps (no knots required) protect bark and set up in minutes.",
     price: 6500,
     originalPrice: 8200,
     images: [
@@ -1049,7 +1066,7 @@ const rawProducts: ShopProduct[] = [
       "Ripstop nylon construction (400lb capacity)",
       "Integrated mosquito net with zipper access",
       "Includes 10ft tree straps and carabiners",
-      "Compression stuff sack (6\" x 4\")",
+      'Compression stuff sack (6" x 4")',
       "Quick-dry, breathable fabric",
       "Total weight: 500g",
     ],
@@ -1071,8 +1088,10 @@ const rawProducts: ShopProduct[] = [
   {
     id: "smart-led-bulb",
     name: "Aura Smart Bulb (4-Pack)",
-    shortDescription: "Wi-Fi enabled smart LED bulbs with tunable white and millions of colors.",
-    longDescription: "Transform your home lighting with these smart LED bulbs. Control them via app or voice assistant to adjust brightness, color temperature (2200K–6500K), or choose from 16 million colors. Set schedules, routines, and scenes. Each bulb consumes just 9W and lasts up to 25,000 hours.",
+    shortDescription:
+      "Wi-Fi enabled smart LED bulbs with tunable white and millions of colors.",
+    longDescription:
+      "Transform your home lighting with these smart LED bulbs. Control them via app or voice assistant to adjust brightness, color temperature (2200K–6500K), or choose from 16 million colors. Set schedules, routines, and scenes. Each bulb consumes just 9W and lasts up to 25,000 hours.",
     price: 4900,
     images: [
       "https://images.unsplash.com/photo-1565814329452-e1efa11c5b89?w=900&q=80",
@@ -1106,8 +1125,10 @@ const rawProducts: ShopProduct[] = [
   {
     id: "leather-journal",
     name: "Vintage Leather Journal",
-    shortDescription: "Handcrafted leather-bound journal with deckle-edge paper and refillable design.",
-    longDescription: "Capture your thoughts in style with this beautifully crafted journal. Made from full-grain vegetable-tanned leather that develops a rich patina over time, it contains 192 pages of acid-free, deckle-edge paper. The wrap-around strap keeps it secure, and the refillable design ensures a lifetime of use.",
+    shortDescription:
+      "Handcrafted leather-bound journal with deckle-edge paper and refillable design.",
+    longDescription:
+      "Capture your thoughts in style with this beautifully crafted journal. Made from full-grain vegetable-tanned leather that develops a rich patina over time, it contains 192 pages of acid-free, deckle-edge paper. The wrap-around strap keeps it secure, and the refillable design ensures a lifetime of use.",
     price: 3800,
     images: [
       "https://images.unsplash.com/photo-1531346878377-a5be20888e57?w=900&q=80",
@@ -1137,7 +1158,7 @@ const rawProducts: ShopProduct[] = [
       {
         id: "size",
         name: "Size",
-        choices: ["A5 (5.8\" x 8.3\")", "A6 (4.1\" x 5.8\")"],
+        choices: ['A5 (5.8" x 8.3")', 'A6 (4.1" x 5.8")'],
       },
     ],
   },
@@ -1146,8 +1167,10 @@ const rawProducts: ShopProduct[] = [
   {
     id: "kitchen-knife-set",
     name: "Forge Pro Knife Set (5-Piece)",
-    shortDescription: "High-carbon stainless steel kitchen knives with ergonomic handles and storage block.",
-    longDescription: "Elevate your culinary experience with this professional knife set. Forged from high-carbon German steel, each blade offers exceptional edge retention and corrosion resistance. The full tang construction provides perfect balance, while the ergonomic Pakkawood handles ensure comfort. Includes a beautiful acacia wood storage block.",
+    shortDescription:
+      "High-carbon stainless steel kitchen knives with ergonomic handles and storage block.",
+    longDescription:
+      "Elevate your culinary experience with this professional knife set. Forged from high-carbon German steel, each blade offers exceptional edge retention and corrosion resistance. The full tang construction provides perfect balance, while the ergonomic Pakkawood handles ensure comfort. Includes a beautiful acacia wood storage block.",
     price: 22500,
     originalPrice: 28900,
     images: [
@@ -1162,7 +1185,7 @@ const rawProducts: ShopProduct[] = [
       "Full tang for perfect balance",
       "Ergonomic Pakkawood handles",
       "Acacia wood storage block included",
-      "Set includes: 8\" chef's, 8\" bread, 7\" santoku, 3.5\" paring, kitchen shears",
+      'Set includes: 8" chef\'s, 8" bread, 7" santoku, 3.5" paring, kitchen shears',
       "Lifetime warranty against defects",
     ],
     options: [
@@ -1178,8 +1201,10 @@ const rawProducts: ShopProduct[] = [
   {
     id: "yoga-mat",
     name: "Eco-Friendly Yoga Mat",
-    shortDescription: "Non-slip natural rubber yoga mat with alignment lines and carrying strap.",
-    longDescription: "Practice with confidence on this sustainable yoga mat. Made from natural tree rubber with a non-toxic, closed-cell surface that prevents sweat absorption and allows for easy cleaning. The 4mm thickness provides optimal cushioning for joints while maintaining stability. Alignment lines help with proper positioning.",
+    shortDescription:
+      "Non-slip natural rubber yoga mat with alignment lines and carrying strap.",
+    longDescription:
+      "Practice with confidence on this sustainable yoga mat. Made from natural tree rubber with a non-toxic, closed-cell surface that prevents sweat absorption and allows for easy cleaning. The 4mm thickness provides optimal cushioning for joints while maintaining stability. Alignment lines help with proper positioning.",
     price: 4900,
     images: [
       "https://images.unsplash.com/photo-1592432678016-e910b452f9a2?w=900&q=80",
@@ -1190,7 +1215,7 @@ const rawProducts: ShopProduct[] = [
     features: [
       "Natural tree rubber base (biodegradable)",
       "Closed-cell surface – sweat resistant",
-      "4mm thickness, 72\" x 26\" dimensions",
+      '4mm thickness, 72" x 26" dimensions',
       "Alignment laser-etched lines",
       "Includes adjustable carrying strap",
       "OEKO-TEX certified, free from phthalates",
@@ -1213,8 +1238,10 @@ const rawProducts: ShopProduct[] = [
   {
     id: "wireless-gaming-mouse",
     name: "Phantom X Wireless Gaming Mouse",
-    shortDescription: "Ultra-lightweight wireless gaming mouse with 26K DPI sensor and 70-hour battery.",
-    longDescription: "Engineered for competitive gamers, the Phantom X delivers pro-level performance with its PixArt 3395 sensor, achieving up to 26,000 DPI and 650 IPS tracking. The honeycomb shell reduces weight to just 59g, while the USB-C fast charging gives 70 hours of gameplay on a single charge.",
+    shortDescription:
+      "Ultra-lightweight wireless gaming mouse with 26K DPI sensor and 70-hour battery.",
+    longDescription:
+      "Engineered for competitive gamers, the Phantom X delivers pro-level performance with its PixArt 3395 sensor, achieving up to 26,000 DPI and 650 IPS tracking. The honeycomb shell reduces weight to just 59g, while the USB-C fast charging gives 70 hours of gameplay on a single charge.",
     price: 8900,
     originalPrice: 10900,
     images: [
@@ -1250,8 +1277,10 @@ const rawProducts: ShopProduct[] = [
   {
     id: "handmade-ceramic-vase",
     name: "Artisan Ceramic Vase",
-    shortDescription: "Hand-thrown stoneware vase with reactive glaze, perfect for dried or fresh flowers.",
-    longDescription: "Add a touch of organic elegance to your home with this unique ceramic vase. Each piece is hand-thrown on a potter's wheel using high-fire stoneware clay, then finished with a reactive glaze that creates subtle variations in color and texture. The wide mouth accommodates bouquets, while the sturdy base ensures stability.",
+    shortDescription:
+      "Hand-thrown stoneware vase with reactive glaze, perfect for dried or fresh flowers.",
+    longDescription:
+      "Add a touch of organic elegance to your home with this unique ceramic vase. Each piece is hand-thrown on a potter's wheel using high-fire stoneware clay, then finished with a reactive glaze that creates subtle variations in color and texture. The wide mouth accommodates bouquets, while the sturdy base ensures stability.",
     price: 4200,
     images: [
       "https://images.unsplash.com/photo-1612196808214-b7e239e5db72?w=900&q=80",
@@ -1263,7 +1292,7 @@ const rawProducts: ShopProduct[] = [
       "Hand-thrown stoneware clay",
       "Reactive glaze (unique color variations)",
       "Food-safe, waterproof interior",
-      "Dimensions: approx. 6\" H x 5\" W",
+      'Dimensions: approx. 6" H x 5" W',
       "Dishwasher safe",
       "Each piece is one-of-a-kind",
     ],
@@ -1271,12 +1300,17 @@ const rawProducts: ShopProduct[] = [
       {
         id: "glaze",
         name: "Glaze Color",
-        choices: ["Oatmeal Speckle", "Moss Green", "Cobalt Blue", "Rust Orange"],
+        choices: [
+          "Oatmeal Speckle",
+          "Moss Green",
+          "Cobalt Blue",
+          "Rust Orange",
+        ],
       },
       {
         id: "size",
         name: "Size",
-        choices: ["Small (6\")", "Medium (8\")", "Large (10\")"],
+        choices: ['Small (6")', 'Medium (8")', 'Large (10")'],
       },
     ],
   },
@@ -1285,8 +1319,10 @@ const rawProducts: ShopProduct[] = [
   {
     id: "active-noise-cancelling-headphones",
     name: "Silence Pro ANC Headphones",
-    shortDescription: "Over-ear headphones with hybrid ANC, 50-hour battery, and plush memory foam earpads.",
-    longDescription: "Escape into your world with the Silence Pro. Hybrid active noise cancellation reduces ambient noise by up to 40dB, while 40mm dynamic drivers deliver rich, balanced sound. The ultra-comfortable memory foam earpads are wrapped in soft protein leather, and the foldable design with hard-shell case makes travel effortless.",
+    shortDescription:
+      "Over-ear headphones with hybrid ANC, 50-hour battery, and plush memory foam earpads.",
+    longDescription:
+      "Escape into your world with the Silence Pro. Hybrid active noise cancellation reduces ambient noise by up to 40dB, while 40mm dynamic drivers deliver rich, balanced sound. The ultra-comfortable memory foam earpads are wrapped in soft protein leather, and the foldable design with hard-shell case makes travel effortless.",
     price: 19900,
     originalPrice: 24900,
     images: [
@@ -1322,8 +1358,10 @@ const rawProducts: ShopProduct[] = [
   {
     id: "stainless-steel-water-bottle",
     name: "Insulated Stainless Steel Bottle",
-    shortDescription: "Double-wall vacuum insulated bottle keeps drinks cold for 24 hours or hot for 12.",
-    longDescription: "Stay hydrated in style with this eco-friendly water bottle. Constructed from 18/8 stainless steel, it's durable, BPA-free, and resistant to condensation. The wide mouth accommodates ice cubes, and the leak-proof lid ensures no spills. Perfect for gym, office, or outdoor adventures.",
+    shortDescription:
+      "Double-wall vacuum insulated bottle keeps drinks cold for 24 hours or hot for 12.",
+    longDescription:
+      "Stay hydrated in style with this eco-friendly water bottle. Constructed from 18/8 stainless steel, it's durable, BPA-free, and resistant to condensation. The wide mouth accommodates ice cubes, and the leak-proof lid ensures no spills. Perfect for gym, office, or outdoor adventures.",
     price: 2900,
     images: [
       "https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=900&q=80",
@@ -1362,8 +1400,10 @@ const rawProducts: ShopProduct[] = [
   {
     id: "ergonomic-office-chair",
     name: "Aeron-Inspired Ergonomic Chair",
-    shortDescription: "Fully adjustable mesh office chair with lumbar support and breathable design.",
-    longDescription: "Experience all-day comfort with this premium ergonomic chair. The breathable mesh back and seat promote airflow, while the adjustable lumbar support, seat depth, and armrests allow for a personalized fit. Designed for long hours at the desk, it meets ANSI/BIFMA standards for durability and safety.",
+    shortDescription:
+      "Fully adjustable mesh office chair with lumbar support and breathable design.",
+    longDescription:
+      "Experience all-day comfort with this premium ergonomic chair. The breathable mesh back and seat promote airflow, while the adjustable lumbar support, seat depth, and armrests allow for a personalized fit. Designed for long hours at the desk, it meets ANSI/BIFMA standards for durability and safety.",
     price: 45900,
     images: [
       "https://images.unsplash.com/photo-1580480055273-228ff5388ef8?w=900&q=80",
@@ -1376,7 +1416,7 @@ const rawProducts: ShopProduct[] = [
       "Breathable mesh back and seat",
       "Adjustable lumbar support (height + depth)",
       "3D adjustable armrests",
-      "Seat depth adjustment (2\" range)",
+      'Seat depth adjustment (2" range)',
       "Tilt tension and lock mechanisms",
       "Weight capacity: 350 lbs",
     ],
@@ -1397,8 +1437,10 @@ const rawProducts: ShopProduct[] = [
   {
     id: "organic-coffee-beans",
     name: "Single-Origin Organic Coffee Beans",
-    shortDescription: "Freshly roasted, ethically sourced Arabica beans from Ethiopian highlands.",
-    longDescription: "Start your morning right with these specialty-grade coffee beans. Sourced from small-scale farmers in the Yirgacheffe region, these beans are shade-grown, organic-certified, and roasted to a medium profile that highlights notes of jasmine, bergamot, and dark chocolate. Each bag is vacuum-sealed within 48 hours of roasting to preserve peak flavor.",
+    shortDescription:
+      "Freshly roasted, ethically sourced Arabica beans from Ethiopian highlands.",
+    longDescription:
+      "Start your morning right with these specialty-grade coffee beans. Sourced from small-scale farmers in the Yirgacheffe region, these beans are shade-grown, organic-certified, and roasted to a medium profile that highlights notes of jasmine, bergamot, and dark chocolate. Each bag is vacuum-sealed within 48 hours of roasting to preserve peak flavor.",
     price: 1350,
     images: [
       "https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=900&q=80",
@@ -1433,8 +1475,10 @@ const rawProducts: ShopProduct[] = [
   {
     id: "modular-sectional-sofa",
     name: "Modular Velvet Sectional Sofa",
-    shortDescription: "Customizable L-shaped sofa with plush velvet upholstery and deep seats.",
-    longDescription: "Transform your living space with this versatile modular sofa. The set includes 4 individual modules that can be arranged into an L-shape, chaise, or separate seating. Upholstered in stain-resistant velvet, the cushions are filled with high-density foam and feather toppers for sink-in comfort. Hidden storage compartments in the ottoman add practicality.",
+    shortDescription:
+      "Customizable L-shaped sofa with plush velvet upholstery and deep seats.",
+    longDescription:
+      "Transform your living space with this versatile modular sofa. The set includes 4 individual modules that can be arranged into an L-shape, chaise, or separate seating. Upholstered in stain-resistant velvet, the cushions are filled with high-density foam and feather toppers for sink-in comfort. Hidden storage compartments in the ottoman add practicality.",
     price: 89900,
     originalPrice: 109900,
     images: [
@@ -1461,7 +1505,12 @@ const rawProducts: ShopProduct[] = [
       {
         id: "config",
         name: "Configuration",
-        choices: ["Left-facing L-shape", "Right-facing L-shape", "Chaise Only", "Full Set (4 modules)"],
+        choices: [
+          "Left-facing L-shape",
+          "Right-facing L-shape",
+          "Chaise Only",
+          "Full Set (4 modules)",
+        ],
       },
     ],
   },
@@ -1470,8 +1519,10 @@ const rawProducts: ShopProduct[] = [
   {
     id: "smart-air-purifier",
     name: "BreatheSmart Air Purifier",
-    shortDescription: "HEPA 13 air purifier with smart sensors, Wi-Fi, and coverage up to 500 sq ft.",
-    longDescription: "Breathe cleaner air with this intelligent air purifier. The true HEPA 13 filter captures 99.97% of airborne particles down to 0.3 microns, including allergens, dust, and pet dander. Built-in air quality sensors automatically adjust fan speed, and the companion app provides real-time PM2.5 readings. Whisper-quiet operation makes it perfect for bedrooms.",
+    shortDescription:
+      "HEPA 13 air purifier with smart sensors, Wi-Fi, and coverage up to 500 sq ft.",
+    longDescription:
+      "Breathe cleaner air with this intelligent air purifier. The true HEPA 13 filter captures 99.97% of airborne particles down to 0.3 microns, including allergens, dust, and pet dander. Built-in air quality sensors automatically adjust fan speed, and the companion app provides real-time PM2.5 readings. Whisper-quiet operation makes it perfect for bedrooms.",
     price: 28900,
     images: [
       "https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=900&q=80",
@@ -1505,8 +1556,10 @@ const rawProducts: ShopProduct[] = [
   {
     id: "handwoven-wool-rug",
     name: "Handwoven Wool Area Rug",
-    shortDescription: "100% wool rug with traditional geometric patterns, hand-tufted by artisans.",
-    longDescription: "Add warmth and texture to any room with this artisan-crafted wool rug. Hand-tufted using 100% New Zealand wool, it features a timeless geometric design in muted earth tones. The thick pile provides cushioning underfoot, and the cotton canvas backing prevents slipping. Sustainably produced without synthetic dyes.",
+    shortDescription:
+      "100% wool rug with traditional geometric patterns, hand-tufted by artisans.",
+    longDescription:
+      "Add warmth and texture to any room with this artisan-crafted wool rug. Hand-tufted using 100% New Zealand wool, it features a timeless geometric design in muted earth tones. The thick pile provides cushioning underfoot, and the cotton canvas backing prevents slipping. Sustainably produced without synthetic dyes.",
     price: 24900,
     originalPrice: 32900,
     images: [
@@ -1518,7 +1571,7 @@ const rawProducts: ShopProduct[] = [
     tags: ["Wool", "Handmade", "Eco-Friendly"],
     features: [
       "100% New Zealand wool pile",
-      "Hand-tufted, 0.5\" pile height",
+      'Hand-tufted, 0.5" pile height',
       "Traditional geometric patterns",
       "Cotton canvas backing (rug pad recommended)",
       "Stain-resistant and naturally flame-retardant",
@@ -1542,8 +1595,10 @@ const rawProducts: ShopProduct[] = [
   {
     id: "reusable-produce-bags",
     name: "Organic Cotton Produce Bags (Set of 6)",
-    shortDescription: "Zero-waste mesh bags for fruits, vegetables, and bulk items. Machine washable.",
-    longDescription: "Ditch single-use plastic with these durable produce bags. Made from 100% GOTS-certified organic cotton mesh, they are lightweight, breathable, and tare-weight labeled for easy checkout. Each set includes 6 bags in assorted sizes, perfect for groceries, bulk bin items, and even as travel laundry bags.",
+    shortDescription:
+      "Zero-waste mesh bags for fruits, vegetables, and bulk items. Machine washable.",
+    longDescription:
+      "Ditch single-use plastic with these durable produce bags. Made from 100% GOTS-certified organic cotton mesh, they are lightweight, breathable, and tare-weight labeled for easy checkout. Each set includes 6 bags in assorted sizes, perfect for groceries, bulk bin items, and even as travel laundry bags.",
     price: 1800,
     images: [
       "https://images.unsplash.com/photo-1542838132-92c53300491e?w=900&q=80",
@@ -1572,8 +1627,10 @@ const rawProducts: ShopProduct[] = [
   {
     id: "mid-century-desk",
     name: "Walnut Mid-Century Modern Desk",
-    shortDescription: "Solid walnut desk with tapered legs, hidden drawer, and cable management.",
-    longDescription: "A timeless piece for any home office. Crafted from solid American walnut with a matte lacquer finish, this desk features a spacious work surface, a single dovetailed drawer with soft-close slides, and a built-in cable management tray. The tapered legs give it a classic mid-century silhouette that pairs beautifully with both modern and traditional decor.",
+    shortDescription:
+      "Solid walnut desk with tapered legs, hidden drawer, and cable management.",
+    longDescription:
+      "A timeless piece for any home office. Crafted from solid American walnut with a matte lacquer finish, this desk features a spacious work surface, a single dovetailed drawer with soft-close slides, and a built-in cable management tray. The tapered legs give it a classic mid-century silhouette that pairs beautifully with both modern and traditional decor.",
     price: 58900,
     images: [
       "https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?w=900&q=80",
@@ -1585,7 +1642,7 @@ const rawProducts: ShopProduct[] = [
     features: [
       "Solid American walnut construction",
       "Matte lacquer finish, hand-rubbed",
-      "Dimensions: 55\"W x 27\"D x 30\"H",
+      'Dimensions: 55"W x 27"D x 30"H',
       "Single dovetail drawer with soft-close",
       "Integrated cable management grommet",
       "Tapered solid wood legs",
@@ -1608,8 +1665,10 @@ const rawProducts: ShopProduct[] = [
   {
     id: "greek-olive-oil",
     name: "Extra Virgin Olive Oil – Cold Pressed",
-    shortDescription: "Single-estate Greek olive oil, cold-extracted, high polyphenol content.",
-    longDescription: "Experience the true taste of Kalamata olives with this award-winning extra virgin olive oil. Harvested and cold-pressed within hours of picking, it retains high levels of antioxidants and a robust, peppery finish. Perfect for finishing dishes, dipping bread, or as a base for vinaigrettes.",
+    shortDescription:
+      "Single-estate Greek olive oil, cold-extracted, high polyphenol content.",
+    longDescription:
+      "Experience the true taste of Kalamata olives with this award-winning extra virgin olive oil. Harvested and cold-pressed within hours of picking, it retains high levels of antioxidants and a robust, peppery finish. Perfect for finishing dishes, dipping bread, or as a base for vinaigrettes.",
     price: 2200,
     originalPrice: 2800,
     images: [
@@ -1640,8 +1699,10 @@ const rawProducts: ShopProduct[] = [
   {
     id: "foldable-treadmill",
     name: "UltraFold Walking Treadmill",
-    shortDescription: "Compact under-desk treadmill with 7.5 mph max speed and remote control.",
-    longDescription: "Stay active while working or watching TV with this space-saving treadmill. The hydraulic folding system allows it to stand vertically, taking up just 2 sq ft of floor space. A 2.5 HP quiet motor supports speeds from 0.5–7.5 mph, and the shock-absorbing deck reduces joint impact. Includes remote control and LED display.",
+    shortDescription:
+      "Compact under-desk treadmill with 7.5 mph max speed and remote control.",
+    longDescription:
+      "Stay active while working or watching TV with this space-saving treadmill. The hydraulic folding system allows it to stand vertically, taking up just 2 sq ft of floor space. A 2.5 HP quiet motor supports speeds from 0.5–7.5 mph, and the shock-absorbing deck reduces joint impact. Includes remote control and LED display.",
     price: 34900,
     originalPrice: 42900,
     images: [
@@ -1652,7 +1713,7 @@ const rawProducts: ShopProduct[] = [
     badge: "Trending",
     tags: ["Under Desk", "Folding", "Walking"],
     features: [
-      "Folding design: 56\" L x 22\" W x 5\" H (folded)",
+      'Folding design: 56" L x 22" W x 5" H (folded)',
       "2.5 HP continuous-duty motor",
       "Speed range: 0.5–7.5 mph",
       "Shock-absorbing running deck",
@@ -1677,8 +1738,10 @@ const rawProducts: ShopProduct[] = [
   {
     id: "artisan-sourdough-starter",
     name: "San Francisco Sourdough Starter Kit",
-    shortDescription: "Everything you need to bake artisan sourdough: dehydrated starter, banneton, and lame.",
-    longDescription: "Begin your sourdough journey with this complete kit. Includes a dehydrated 100-year-old San Francisco sourdough culture, a proofing basket (banneton), scoring lame, bench scraper, and detailed recipe guide. The starter comes alive in just 3 days, producing bakery-quality loaves with a tangy flavor and crisp crust.",
+    shortDescription:
+      "Everything you need to bake artisan sourdough: dehydrated starter, banneton, and lame.",
+    longDescription:
+      "Begin your sourdough journey with this complete kit. Includes a dehydrated 100-year-old San Francisco sourdough culture, a proofing basket (banneton), scoring lame, bench scraper, and detailed recipe guide. The starter comes alive in just 3 days, producing bakery-quality loaves with a tangy flavor and crisp crust.",
     price: 4200,
     images: [
       "https://images.unsplash.com/photo-1586444248902-2f64eddc13df?w=900&q=80",
@@ -1707,8 +1770,10 @@ const rawProducts: ShopProduct[] = [
   {
     id: "leather-recliner-chair",
     name: "Leather Power Recliner Chair",
-    shortDescription: "Single-motor power recliner with USB charging and heat massage.",
-    longDescription: "Relax in ultimate comfort with this power recliner. The high-quality top-grain leather upholstery is soft and durable, while the infinite-position power recline allows you to stop at any angle. Built-in USB ports keep devices charged, and the lumbar heat and vibration massage soothe tired muscles.",
+    shortDescription:
+      "Single-motor power recliner with USB charging and heat massage.",
+    longDescription:
+      "Relax in ultimate comfort with this power recliner. The high-quality top-grain leather upholstery is soft and durable, while the infinite-position power recline allows you to stop at any angle. Built-in USB ports keep devices charged, and the lumbar heat and vibration massage soothe tired muscles.",
     price: 52900,
     images: [
       "https://images.unsplash.com/photo-1505843513577-22bb7d21e455?w=900&q=80",
@@ -1733,7 +1798,7 @@ const rawProducts: ShopProduct[] = [
       {
         id: "size",
         name: "Size",
-        choices: ["Standard (35\"W)", "Oversized (41\"W)"],
+        choices: ['Standard (35"W)', 'Oversized (41"W)'],
       },
     ],
   },
@@ -1742,8 +1807,10 @@ const rawProducts: ShopProduct[] = [
   {
     id: "wireless-doorbell-camera",
     name: "Smart Video Doorbell",
-    shortDescription: "Wireless 2K doorbell camera with facial recognition and two-way audio.",
-    longDescription: "Keep your home secure with this advanced video doorbell. The 2K HDR camera captures crisp details day or night, while AI-powered facial recognition can alert you when familiar or unknown faces appear. Two-way audio lets you speak to visitors remotely, and the wireless design means easy installation with the included rechargeable battery.",
+    shortDescription:
+      "Wireless 2K doorbell camera with facial recognition and two-way audio.",
+    longDescription:
+      "Keep your home secure with this advanced video doorbell. The 2K HDR camera captures crisp details day or night, while AI-powered facial recognition can alert you when familiar or unknown faces appear. Two-way audio lets you speak to visitors remotely, and the wireless design means easy installation with the included rechargeable battery.",
     price: 15900,
     originalPrice: 19900,
     images: [
@@ -1765,7 +1832,11 @@ const rawProducts: ShopProduct[] = [
       {
         id: "power",
         name: "Power Source",
-        choices: ["Battery Only", "Hardwired (Existing Doorbell Wires)", "Battery + Solar Panel"],
+        choices: [
+          "Battery Only",
+          "Hardwired (Existing Doorbell Wires)",
+          "Battery + Solar Panel",
+        ],
       },
       {
         id: "color",
@@ -1779,8 +1850,10 @@ const rawProducts: ShopProduct[] = [
   {
     id: "bamboo-cutting-board",
     name: "End-Grain Bamboo Cutting Board",
-    shortDescription: "Large, reversible cutting board with juice groove and built-in knife sharpener.",
-    longDescription: "A chef's essential, this end-grain bamboo board is gentle on knife edges and highly durable. The reversible design features a deep juice groove on one side for meats and a flat surface on the other for vegetables. An integrated ceramic knife sharpener and non-slip feet add functionality. Made from sustainable Moso bamboo.",
+    shortDescription:
+      "Large, reversible cutting board with juice groove and built-in knife sharpener.",
+    longDescription:
+      "A chef's essential, this end-grain bamboo board is gentle on knife edges and highly durable. The reversible design features a deep juice groove on one side for meats and a flat surface on the other for vegetables. An integrated ceramic knife sharpener and non-slip feet add functionality. Made from sustainable Moso bamboo.",
     price: 5400,
     images: [
       "https://images.unsplash.com/photo-1590794056226-79ef3a8147e1?w=900&q=80",
@@ -1793,14 +1866,18 @@ const rawProducts: ShopProduct[] = [
       "Reversible: juice groove + flat side",
       "Integrated ceramic knife sharpener",
       "Non-slip silicone feet",
-      "Dimensions: 18\" x 12\" x 1.5\"",
+      'Dimensions: 18" x 12" x 1.5"',
       "Sustainable Moso bamboo, food-safe finish",
     ],
     options: [
       {
         id: "size",
         name: "Size",
-        choices: ["Small (12\" x 9\")", "Large (18\" x 12\")", "Extra Large (20\" x 15\")"],
+        choices: [
+          'Small (12" x 9")',
+          'Large (18" x 12")',
+          'Extra Large (20" x 15")',
+        ],
       },
       {
         id: "finish",
@@ -1814,8 +1891,10 @@ const rawProducts: ShopProduct[] = [
   {
     id: "weighted-blanket",
     name: "Cooling Weighted Blanket",
-    shortDescription: "10 lb bamboo viscose weighted blanket with glass beads, breathable and machine washable.",
-    longDescription: "Experience deeper sleep with this therapeutic weighted blanket. The 10 lb weight is ideal for individuals (approx. 10% of body weight) and evenly distributed using non-toxic glass beads sewn into 7-layer quilted pockets. The bamboo viscose cover is naturally cooling, moisture-wicking, and machine washable for easy care.",
+    shortDescription:
+      "10 lb bamboo viscose weighted blanket with glass beads, breathable and machine washable.",
+    longDescription:
+      "Experience deeper sleep with this therapeutic weighted blanket. The 10 lb weight is ideal for individuals (approx. 10% of body weight) and evenly distributed using non-toxic glass beads sewn into 7-layer quilted pockets. The bamboo viscose cover is naturally cooling, moisture-wicking, and machine washable for easy care.",
     price: 8900,
     images: [
       "https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=900&q=80",
@@ -1824,7 +1903,7 @@ const rawProducts: ShopProduct[] = [
     category: "Home & Living",
     tags: ["Sleep", "Therapeutic", "Cooling"],
     features: [
-      "10 lbs weight, 48\" x 72\" dimensions",
+      '10 lbs weight, 48" x 72" dimensions',
       "Non-toxic glass bead fill (lead-free)",
       "7-layer quilted design for even distribution",
       "Breathable bamboo viscose cover",
@@ -1835,7 +1914,11 @@ const rawProducts: ShopProduct[] = [
       {
         id: "weight",
         name: "Weight",
-        choices: ["10 lbs (Twin)", "15 lbs (Full/Queen)", "20 lbs (Queen/King)"],
+        choices: [
+          "10 lbs (Twin)",
+          "15 lbs (Full/Queen)",
+          "20 lbs (Queen/King)",
+        ],
       },
       {
         id: "color",
@@ -1849,8 +1932,10 @@ const rawProducts: ShopProduct[] = [
   {
     id: "electric-guitar",
     name: "Vintage Style Electric Guitar",
-    shortDescription: "Solid-body electric guitar with alder body, maple neck, and dual humbuckers.",
-    longDescription: "Capture classic rock tones with this well-crafted electric guitar. The alder body offers balanced resonance, while the bolt-on maple neck with rosewood fingerboard provides smooth playability. Two vintage-voiced humbuckers deliver warm, articulate sound suitable for blues, rock, and beyond. Includes a padded gig bag.",
+    shortDescription:
+      "Solid-body electric guitar with alder body, maple neck, and dual humbuckers.",
+    longDescription:
+      "Capture classic rock tones with this well-crafted electric guitar. The alder body offers balanced resonance, while the bolt-on maple neck with rosewood fingerboard provides smooth playability. Two vintage-voiced humbuckers deliver warm, articulate sound suitable for blues, rock, and beyond. Includes a padded gig bag.",
     price: 34900,
     originalPrice: 42900,
     images: [
@@ -1886,8 +1971,10 @@ const rawProducts: ShopProduct[] = [
   {
     id: "ceramic-plant-pot",
     name: "Self-Watering Ceramic Plant Pot",
-    shortDescription: "Glazed ceramic pot with hidden reservoir for low-maintenance plant care.",
-    longDescription: "Keep your plants thriving with this elegant self-watering planter. The glazed ceramic exterior resists moisture, while an internal reservoir holds up to 1 liter of water. A cotton wick system delivers water gradually, preventing over or under-watering. Perfect for busy plant parents or as a thoughtful gift.",
+    shortDescription:
+      "Glazed ceramic pot with hidden reservoir for low-maintenance plant care.",
+    longDescription:
+      "Keep your plants thriving with this elegant self-watering planter. The glazed ceramic exterior resists moisture, while an internal reservoir holds up to 1 liter of water. A cotton wick system delivers water gradually, preventing over or under-watering. Perfect for busy plant parents or as a thoughtful gift.",
     price: 3200,
     images: [
       "https://images.unsplash.com/photo-1485955900006-10f4d324d411?w=900&q=80",
@@ -1907,7 +1994,7 @@ const rawProducts: ShopProduct[] = [
       {
         id: "size",
         name: "Pot Diameter",
-        choices: ["4\" (Small)", "6\" (Medium)", "8\" (Large)"],
+        choices: ['4" (Small)', '6" (Medium)', '8" (Large)'],
       },
       {
         id: "color",
@@ -1924,7 +2011,9 @@ function formatImageUrl(url: string): string {
 
   // 1. Cloudinary Console Dashboard URLs
   if (url.includes("res-console.cloudinary.com")) {
-    const match = url.match(/res-console\.cloudinary\.com\/([^/]+)\/thumbnails\/transform\/[^/]+\/image\/upload\/([^/]+)\/v1\/([^/]+)/);
+    const match = url.match(
+      /res-console\.cloudinary\.com\/([^/]+)\/thumbnails\/transform\/[^/]+\/image\/upload\/([^/]+)\/v1\/([^/]+)/,
+    );
     if (match) {
       try {
         const cloudName = match[1];
@@ -1933,13 +2022,15 @@ function formatImageUrl(url: string): string {
         const b64Transform = match[2].replace(/-/g, "+").replace(/_/g, "/");
         const b64PublicId = match[3].replace(/-/g, "+").replace(/_/g, "/");
 
-        const transformations = typeof atob === "function"
-          ? atob(b64Transform)
-          : Buffer.from(b64Transform, "base64").toString();
+        const transformations =
+          typeof atob === "function"
+            ? atob(b64Transform)
+            : Buffer.from(b64Transform, "base64").toString();
 
-        const publicId = typeof atob === "function"
-          ? atob(b64PublicId)
-          : Buffer.from(b64PublicId, "base64").toString();
+        const publicId =
+          typeof atob === "function"
+            ? atob(b64PublicId)
+            : Buffer.from(b64PublicId, "base64").toString();
 
         return `https://res.cloudinary.com/${cloudName}/image/upload/${transformations}/v1/${publicId}`;
       } catch (e) {
@@ -1950,7 +2041,8 @@ function formatImageUrl(url: string): string {
 
   // 2. Google Drive Links
   if (url.includes("drive.google.com")) {
-    const fileIdMatch = url.match(/\/file\/d\/([^/]+)/) || url.match(/id=([^&]+)/);
+    const fileIdMatch =
+      url.match(/\/file\/d\/([^/]+)/) || url.match(/id=([^&]+)/);
     if (fileIdMatch) {
       return `https://drive.google.com/uc?export=view&id=${fileIdMatch[1]}`;
     }
