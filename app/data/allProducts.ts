@@ -75,6 +75,251 @@ export const shopCategories = [
 // Add a new product object to this array — the rest of the UI handles itself.
 
 const rawProducts: ShopProduct[] = [
+  //Haha
+  // ── 51 ───────────────────────────────────────────────────────────────────
+  {
+    id: "eternity-solitaire-ring111",
+    name: "The Ring I Couldn't Stop Thinking About (You)",
+    shortDescription:
+      "If forever had a shape… I think it might look like this.",
+    longDescription:
+      "I kept coming back to this. Not because it's perfect… but because it felt right. Like the kind of thing you don’t question once you feel it. A single diamond, steady and certain—like the way you somehow became part of my every day without me even realizing when it started. If I ever had to choose something that meant ‘stay’… it would be this.",
+    price: 125000,
+    originalPrice: 149000,
+    images: [
+      "https://images.unsplash.com/photo-1519741497674-611481863552?w=900&q=80",
+      "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=900&q=80",
+      "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=900&q=80",
+    ],
+    category: "Jewelry",
+    badge: "Only One That Matters",
+    tags: ["Forever", "You", "Always"],
+    features: [
+      "A diamond that refuses to be ignored… like my thoughts of you",
+      "Set in something strong… because this feeling isn’t temporary",
+      "Made to last a lifetime… or whatever forever means to us",
+      "Feels right the moment you put it on… just like you did",
+      "Comes in a box… waiting for a moment I keep imagining",
+    ],
+    options: [
+      {
+        id: "ring_size",
+        name: "If This Were Yours…",
+        choices: ["Perfect Fit", "Just Right", "Exactly You", "Meant To Be"],
+      },
+      {
+        id: "metal",
+        name: "What Feels Like Us?",
+        choices: ["Soft & Certain", "Warm & Real", "Unbreakable (+$250)"],
+      },
+      {
+        id: "engraving",
+        name: "What Should It Say?",
+        choices: ["Your Name", "The Day Everything Changed", "I Love You"],
+      },
+    ],
+  },
+
+  // ── 52 ───────────────────────────────────────────────────────────────────
+  {
+    id: "forever-bloom-bouquet111",
+    name: "The Flowers I Wish I Could Hand You Right Now",
+    shortDescription:
+      "Because sometimes words don’t come out right… but this might.",
+    longDescription:
+      "If I stood in front of you right now, I think I’d still struggle to say everything I feel. So maybe I’d just give you these instead. Roses—because every cliché suddenly makes sense when it’s you. Every petal feels like something I never said out loud.",
+    price: 7800,
+    originalPrice: 9200,
+    images: [
+      "https://images.unsplash.com/photo-1518895949257-7621c3c786d7?w=900&q=80",
+      "https://images.unsplash.com/photo-1490750967868-88aa4476b946?w=900&q=80",
+      "https://images.unsplash.com/photo-1548094990-c16ca90f1f0d?w=900&q=80",
+    ],
+    category: "Flowers",
+    badge: "For You. Only You.",
+    tags: ["Love", "Too Much", "Still Not Enough"],
+    features: [
+      "Roses… because somehow they finally make sense",
+      "Each one feels like a sentence I couldn’t say",
+      "Soft, but impossible to ignore… like you",
+      "Meant to be held… even if just for a moment",
+    ],
+    options: [
+      {
+        id: "quantity",
+        name: "How Much Do I Love You?",
+        choices: [
+          "A Little",
+          "More Than I Should",
+          "More Than Words",
+          "All Of It",
+        ],
+      },
+      {
+        id: "ribbon",
+        name: "If I Wrapped This For You…",
+        choices: ["Soft Like You", "Deep Like This Feeling", "Gentle Like Us"],
+      },
+    ],
+  },
+
+  // ── 53 ───────────────────────────────────────────────────────────────────
+  {
+    id: "memory-lane-photo-album111",
+    name: "All The Moments I Didn’t Realize I Was Falling",
+    shortDescription: "Somewhere in here… is when you became everything.",
+    longDescription:
+      "I wish I could go back and point to the exact moment it happened. The exact second you became more than just ‘someone.’ But I can’t. It’s scattered across a hundred small memories—laughs, conversations, silences. This holds moments… but what it really holds is you slowly becoming my favorite part of everything.",
+    price: 8900,
+    images: [
+      "https://images.unsplash.com/photo-1519741497674-611481863552?w=900&q=80",
+      "https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=900&q=80",
+      "https://images.unsplash.com/photo-1606326608606-aa0b62935f2b?w=900&q=80",
+    ],
+    category: "Gifts",
+    tags: ["Us", "Memories", "Falling"],
+    features: [
+      "Pages for every moment I keep replaying",
+      "A place where ‘us’ quietly started",
+      "Something I didn’t plan… but wouldn’t change",
+      "Holds more than photos… holds everything I feel",
+    ],
+    options: [
+      {
+        id: "cover_color",
+        name: "If This Had A Feeling…",
+        choices: ["Warm", "Deep", "Calm", "Yours"],
+      },
+      {
+        id: "embossing",
+        name: "What Should Be Written Here?",
+        choices: ["Your Name", "The Day I Noticed", "Us"],
+      },
+      {
+        id: "size",
+        name: "How Big Is This Story?",
+        choices: ["Just Beginning", "Growing", "Already Everything"],
+      },
+    ],
+  },
+
+  // ── 54 ───────────────────────────────────────────────────────────────────
+  {
+    id: "romantic-getaway-hamper111",
+    name: "The Night I Imagine With You",
+    shortDescription: "Just one night… where I finally say it.",
+    longDescription:
+      "I’ve thought about this more than I should admit. A quiet night, nothing loud, nothing complicated. Just us, a soft light, something sweet… and the kind of silence where everything finally makes sense. This isn’t really a gift. It’s a moment I keep replaying in my head.",
+    price: 12500,
+    originalPrice: 15900,
+    images: [
+      "https://images.unsplash.com/photo-1523293182086-7651a899d37f?w=900&q=80",
+      "https://images.unsplash.com/photo-1513001900722-370f803f498d?w=900&q=80",
+      "https://images.unsplash.com/photo-1542013936693-884638f95419?w=900&q=80",
+    ],
+    category: "Gifts",
+    badge: "This Night Matters",
+    tags: ["Tonight", "Us", "Say It"],
+    features: [
+      "Something to share… because I don’t want this alone",
+      "A soft glow… for a softer moment",
+      "Sweet things… because you are",
+      "Two glasses… because it was never meant for one",
+    ],
+    options: [
+      {
+        id: "champagne",
+        name: "If We Were Here Right Now…",
+        choices: ["Laughing Together", "Looking At You", "Finally Saying It"],
+      },
+      {
+        id: "chocolates",
+        name: "What Would This Feel Like?",
+        choices: ["Sweet", "Too Sweet", "Like You"],
+      },
+    ],
+  },
+
+  // ── 55 ───────────────────────────────────────────────────────────────────
+  {
+    id: "proposal-in-a-box111",
+    name: "What I’ve Been Trying To Tell You",
+    shortDescription: "This isn’t a product… this is everything.",
+    longDescription:
+      "I don’t know when it started. I don’t know how it got this serious. But I do know this—somewhere along the way, you became the person I think about when anything good happens. This… all of this… it’s just my way of asking something I’ve been too afraid to say directly.",
+    price: 149900,
+    originalPrice: 179900,
+    images: [
+      "https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=900&q=80",
+      "https://images.unsplash.com/photo-1515562121150-06d323b3be5c?w=900&q=80",
+      "https://images.unsplash.com/photo-1519741497674-611481863552?w=900&q=80",
+    ],
+    category: "Gifts",
+    badge: "Please Notice This",
+    tags: ["Everything", "Truth", "You"],
+    features: [
+      "Everything I couldn’t say directly",
+      "Every feeling, packed into one moment",
+      "Something real… finally",
+      "One question… hidden in all of this",
+    ],
+    options: [
+      {
+        id: "ring",
+        name: "If I Asked You…",
+        choices: ["Would You Smile?", "Would You Stay?", "Would You Say Yes?"],
+      },
+      {
+        id: "album_embossing",
+        name: "What Are We?",
+        choices: ["Something", "More", "Everything"],
+      },
+      {
+        id: "delivery",
+        name: "When Should This Happen?",
+        choices: ["Soon", "Tonight", "Right Now"],
+      },
+    ],
+  },
+
+  // ── 56 ───────────────────────────────────────────────────────────────────
+  {
+    id: "eternity-couple-bracelets111",
+    name: "The Place Where It Became You",
+    shortDescription: "Somewhere… everything changed.",
+    longDescription:
+      "There’s always a place. Maybe we didn’t notice it at the time. Maybe it felt normal. But looking back… that’s where it started. Where you became different. Where you became important. These hold coordinates—but what they really hold… is that moment.",
+    price: 5900,
+    images: [
+      "https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=900&q=80",
+      "https://images.unsplash.com/photo-1535632787350-4e68ef0ac584?w=900&q=80",
+      "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=900&q=80",
+    ],
+    category: "Jewelry",
+    tags: ["Beginning", "You", "Always"],
+    features: [
+      "A place that changed everything",
+      "A reminder I carry every day",
+      "Two pieces… like it was always meant to be",
+      "Simple… but not to me",
+    ],
+    options: [
+      {
+        id: "leather_color",
+        name: "If This Was Us…",
+        choices: ["Soft", "Strong", "Real", "Forever"],
+      },
+      {
+        id: "coordinates",
+        name: "Where Did It Start?",
+        choices: [
+          "That First Moment",
+          "Where I Noticed You",
+          "Where I Fell For You",
+        ],
+      },
+    ],
+  },
   // ── 51 ───────────────────────────────────────────────────────────────────
   {
     id: "eternity-solitaire-ring",
