@@ -52,7 +52,10 @@ export const siteConfig = {
   social: {
     facebook: "https://facebook.com/arundada9000",
     instagram: "https://instagram.com/arundada9000",
+    youtube: "https://youtube.com/@arundada9000",
+    linkedin: "https://linkedin.com/arundada9000",
     twitter: "https://youtube.com/@arundada9000",
+    tiktok: "https://tiktok.com/@arundada9000",
   },
 
   /** Agency credit (SajiloDigital) */
