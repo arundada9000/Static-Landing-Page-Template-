@@ -4,6 +4,7 @@ import React, {
   createContext,
   useContext,
   useEffect,
+  useState,
   useReducer,
   useCallback,
 } from "react";
@@ -123,6 +124,8 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     isOpen: false,
   });
 
+  const [mounted, setMounted] = useState(false);
+
   // Hydrate from localStorage on mount & listen to cross-tab storage events
   useEffect(() => {
     const hydrate = (saved: string | null) => {
@@ -138,6 +141,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
 
     // Initial hydrate
     hydrate(localStorage.getItem(STORAGE_KEY));
+    setMounted(true);
 
     // Listen to changes from other tabs
     const handleStorageChange = (e: StorageEvent) => {
@@ -152,12 +156,14 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
 
   // Persist to localStorage whenever items change
   useEffect(() => {
-    try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(state.items));
-    } catch {
-      // ignore (e.g. private mode quota)
+    if (mounted) {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(state.items));
+      } catch {
+        // ignore (e.g. private mode quota)
+      }
     }
-  }, [state.items]);
+  }, [state.items, mounted]);
 
   const totalItems = state.items.reduce((s, i) => s + i.quantity, 0);
   const subtotal = state.items.reduce(

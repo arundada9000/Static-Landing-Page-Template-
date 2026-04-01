@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { siteConfig } from "@/config/site";
 import { CartProvider } from "./context/CartContext";
+import { WishlistProvider } from "./context/WishlistContext";
 import CartDrawer from "./components/CartDrawer";
 import { Toaster } from "sonner";
 
@@ -71,10 +72,12 @@ export default function RootLayout({
       className={`${inter.variable} scroll-smooth antialiased h-full`}
     >
       <body className="min-h-full flex flex-col font-sans bg-surface-alt text-heading pb-20 md:pb-0">
-        <CartProvider>
-          {children}
-          <CartDrawer />
-        </CartProvider>
+        <WishlistProvider>
+          <CartProvider>
+            {children}
+            <CartDrawer />
+          </CartProvider>
+        </WishlistProvider>
         <Toaster 
           position="top-center" 
           expand={true}

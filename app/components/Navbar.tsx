@@ -4,10 +4,11 @@ import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { Home, Package, Info, ShoppingBag, Phone, Menu, X, Star, Settings } from "lucide-react";
+import { Home, Package, Info, ShoppingBag, Phone, Menu, X, Star, Settings, Heart } from "lucide-react";
 import { siteConfig, navLinks } from "@/config/site";
 import { motion, AnimatePresence } from "framer-motion";
 import { useCart } from "../context/CartContext";
+import { useWishlist } from "../context/WishlistContext";
 
 const mobileLinks = [
   { label: "Home", href: "/", icon: Home },
@@ -19,15 +20,17 @@ const mobileLinks = [
 
 const sidebarLinks = [
   { label: "Home", href: "/", icon: Home },
+  { label: "Shop", href: "/shop", icon: ShoppingBag },
+  { label: "Wishlist", href: "/wishlist", icon: Heart },
   { label: "About", href: "/about", icon: Info },
   { label: "Products", href: "/#products", icon: Package },
   { label: "Benefits", href: "/#benefits", icon: Star },
-  { label: "Process", href: "/#process", icon: Settings },
   { label: "Contact", href: "/contact", icon: Phone },
 ];
 
 export default function Navbar() {
   const { openCart, totalItems } = useCart();
+  const { wishlist } = useWishlist();
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [activeHash, setActiveHash] = useState("");
@@ -178,38 +181,52 @@ export default function Navbar() {
             </div>
 
             {/* Desktop CTA & Mobile Hamburger */}
-            <div className="flex items-center gap-3 shrink-0">
+            <div className="flex items-center gap-1 sm:gap-2 lg:gap-3 shrink-0">
+              {/* Shop Now CTA */}
               <Link
                 href="/shop"
-                className="hidden md:flex items-center gap-2 text-white px-6 lg:px-8 py-2.5 rounded-full text-sm font-bold transition-all duration-300 active:scale-95 group"
+                className="hidden xl:flex items-center gap-2 text-white px-5 lg:px-6 py-2.5 rounded-full text-sm font-bold transition-all duration-300 active:scale-95 group"
                 style={{
                   background: "linear-gradient(to right, var(--color-primary), var(--color-primary-dark))",
                   boxShadow: "0 4px 20px color-mix(in srgb, var(--color-primary) 35%, transparent)",
                 }}
               >
                 <ShoppingBag className="w-4 h-4 group-hover:-rotate-12 transition-transform duration-300" />
-                Shop Now
+                <span className="whitespace-nowrap">Shop Now</span>
+              </Link>
+
+              {/* Wishlist Link */}
+              <Link
+                href="/wishlist"
+                className="relative p-2 text-stone-600 hover:text-rose-500 hover:bg-rose-50 rounded-full transition-colors active:scale-95 hidden sm:flex items-center justify-center"
+                aria-label="View Wishlist"
+              >
+                <Heart className="w-5 h-5 sm:w-6 sm:h-6" />
+                {wishlist.length > 0 && (
+                  <span className="absolute top-0 right-0 w-4 h-4 bg-rose-500 text-white text-[10px] font-bold flex items-center justify-center rounded-full shadow-sm">
+                    {wishlist.length}
+                  </span>
+                )}
               </Link>
 
               {/* Cart Button */}
               <button
                 onClick={openCart}
-                className="relative p-2 text-stone-600 hover:bg-stone-100 rounded-full transition-colors active:scale-95"
+                className="relative p-2 text-stone-600 hover:bg-stone-100 rounded-full transition-colors active:scale-95 flex items-center justify-center cursor-pointer"
                 style={{ ["--tw-text-opacity" as string]: "1" }}
+                aria-label="Open Cart"
               >
-                <ShoppingBag className="w-6 h-6" />
+                <ShoppingBag className="w-5 h-5 sm:w-6 sm:h-6" />
                 {totalItems > 0 && (
-                  <span className="absolute 0 top-0.5 right-0.5 w-4 h-4 bg-rose-500 text-white text-[10px] font-bold flex items-center justify-center rounded-full shadow-sm">
+                  <span className="absolute top-0 right-0 w-4 h-4 bg-rose-500 text-white text-[10px] font-bold flex items-center justify-center rounded-full shadow-sm">
                     {totalItems}
                   </span>
                 )}
               </button>
 
+              {/* Mobile Hamburger */}
               <button
-                className="lg:hidden p-2 text-stone-600 hover:bg-stone-100 rounded-full transition-colors active:scale-95"
-                style={{ ["--tw-text-opacity" as string]: "1" }}
-                onMouseEnter={(e) => (e.currentTarget.style.color = "var(--color-primary)")}
-                onMouseLeave={(e) => (e.currentTarget.style.color = "")}
+                className="lg:hidden p-2 text-stone-600 hover:bg-stone-100 rounded-full transition-colors active:scale-95 flex items-center justify-center cursor-pointer"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 aria-label="Toggle menu"
               >
