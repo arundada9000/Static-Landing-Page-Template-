@@ -335,7 +335,7 @@ const rawProducts: ShopProduct[] = [
     images: [
       "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=900&q=80",
       "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?w=900&q=80",
-      "https://images.unsplash.com/photo-1536610656141-0d4b7e47d3e0?w=900&q=80",
+      "https://images.unsplash.com/photo-1761115138039-ee9c0a42a843?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     ],
     category: "Jewelry",
     badge: "Limited",
@@ -378,7 +378,7 @@ const rawProducts: ShopProduct[] = [
     originalPrice: 9200,
     images: [
       "https://images.unsplash.com/photo-1562690868-60bbe7293e94?w=900&q=80",
-      "https://images.unsplash.com/photo-1490750967868-88aa4476b946?w=900&q=80",
+      "https://images.unsplash.com/photo-1595212592138-369161d1ac88?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cmVkJTIwcm9zZXxlbnwwfHwwfHx8MA%3D%3D",
       "https://images.unsplash.com/photo-1548094990-c16ca90f1f0d?w=900&q=80",
     ],
     category: "Flowers",
@@ -415,7 +415,6 @@ const rawProducts: ShopProduct[] = [
     images: [
       "https://images.unsplash.com/photo-1529070538774-1843cb3265df?w=900&q=80",
       "https://images.unsplash.com/photo-1606326608606-aa0b62935f2b?w=900&q=80",
-      "https://images.unsplash.com/photo-1588099768523-f4e1a16f0174?w=900&q=80",
     ],
     category: "Gifts",
     tags: ["Memories", "Us?", "Keepsake"],
@@ -463,7 +462,7 @@ const rawProducts: ShopProduct[] = [
     originalPrice: 15900,
     images: [
       "https://images.unsplash.com/photo-1513001900722-370f803f498d?w=900&q=80",
-      "https://images.unsplash.com/photo-1542013936693-884638f95419?w=900&q=80",
+
       "https://images.unsplash.com/photo-1523293182086-7651a899d37f?w=900&q=80",
     ],
     category: "Gifts",
@@ -509,8 +508,8 @@ const rawProducts: ShopProduct[] = [
     originalPrice: 179900,
     images: [
       "https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=900&q=80",
-      "https://images.unsplash.com/photo-1515562121150-06d323b3be5c?w=900&q=80",
-      "https://images.unsplash.com/photo-1604336020151-c88412fd7be3?w=900&q=80",
+      "https://plus.unsplash.com/premium_photo-1671815629160-40598a2f00a7?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8cHJvcG9zYWwlMjBib3glMjBzZXR8ZW58MHx8MHx8fDA%3D",
+      "https://plus.unsplash.com/premium_photo-1675230158930-627b5c31ea9e?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDEyfHx8ZW58MHx8fHx8",
     ],
     category: "Gifts",
     badge: "Exclusive",
@@ -556,7 +555,7 @@ const rawProducts: ShopProduct[] = [
       "It’s funny how one place, one moment, or one meeting can change everything. These bracelets hold coordinates—but they’re really about what happened there. Subtle, simple, easy to wear… but impossible to ignore once you know what they mean.",
     price: 5900,
     images: [
-      "https://images.unsplash.com/photo-1589674781759-21f0bbfea1b1?w=900&q=80",
+      "https://images.unsplash.com/photo-1633810543462-77c4a3b13f07?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YnJhY2VsZXR8ZW58MHx8MHx8fDA%3D",
       "https://images.unsplash.com/photo-1535632787350-4e68ef0ac584?w=900&q=80",
       "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=900&q=80",
     ],
@@ -595,7 +594,7 @@ const rawProducts: ShopProduct[] = [
     originalPrice: 5500,
     images: [
       "https://images.unsplash.com/photo-1562690868-60bbe7293e94?w=900&q=80",
-      "https://images.unsplash.com/photo-1490750967868-88aa4476b946?w=900&q=80",
+      "https://images.unsplash.com/photo-1595212592138-369161d1ac88?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cmVkJTIwcm9zZXxlbnwwfHwwfHx8MA%3D%3D",
       "https://images.unsplash.com/photo-1548094990-c16ca90f1f0d?w=900&q=80",
     ],
     category: "Flowers",
@@ -668,8 +667,8 @@ const rawProducts: ShopProduct[] = [
     price: 3800,
     originalPrice: 4400,
     images: [
-      "https://images.unsplash.com/photo-1493804714600-6edb1cd93080?w=900&q=80",
-      "https://images.unsplash.com/photo-1595539302830-8e2c14c9c3e8?w=900&q=80",
+      "https://images.unsplash.com/photo-1597848212624-a19eb35e2651?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c3VuZmxvd2VyfGVufDB8fDB8fHww",
+      "https://images.unsplash.com/photo-1722176707847-7699fa007d4d?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDExfHx8ZW58MHx8fHx8",
     ],
     category: "Flowers",
     badge: "Sale",
@@ -709,8 +708,8 @@ const rawProducts: ShopProduct[] = [
       "Elegance personified. This live orchid features two graceful spikes with multiple blooms in a pure white or soft lavender hue. Planted in a modern ceramic pot and topped with preserved moss, it makes a sophisticated gift that keeps on giving – with proper care, orchids re-bloom for years.",
     price: 6500,
     images: [
-      "https://images.unsplash.com/photo-1526045431048-f857369baa09?w=900&q=80",
-      "https://images.unsplash.com/photo-1566136025003-77ffa4ec09f1?w=900&q=80",
+      "https://images.unsplash.com/photo-1474557157379-8aa74a6ef541?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://images.unsplash.com/photo-1747583612249-67a1438aa999?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDZ8fHxlbnwwfHx8fHw%3D",
     ],
     category: "Flowers",
     badge: "New",
@@ -747,8 +746,8 @@ const rawProducts: ShopProduct[] = [
     price: 7200,
     originalPrice: 8500,
     images: [
-      "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=900&q=80",
-      "https://images.unsplash.com/photo-1490750967868-88aa4476b946?w=900&q=80",
+      "https://images.unsplash.com/photo-1550237390-96532abac3ec?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://images.unsplash.com/photo-1595212592138-369161d1ac88?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cmVkJTIwcm9zZXxlbnwwfHwwfHx8MA%3D%3D",
     ],
     category: "Flowers",
     badge: "Bestseller",
@@ -824,8 +823,8 @@ const rawProducts: ShopProduct[] = [
       "Make a statement with the timeless beauty of lilies. This arrangement features 5–7 stems of premium Oriental or Asiatic lilies, known for their large, fragrant blooms and long vase life. Accented with leatherleaf fern and seasonal greenery, it's a sophisticated choice for any occasion.",
     price: 5400,
     images: [
-      "https://images.unsplash.com/photo-1511105441045-5b8d7ef20b9c?w=900&q=80",
-      "https://images.unsplash.com/photo-1562486873-6a3ac00c0e3c?w=900&q=80",
+      "https://images.unsplash.com/photo-1685307298280-a6655309a0bf?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bGlsbHklMjBhcnJhbmdlbWVudHxlbnwwfHwwfHx8MA%3D%3D",
+      "https://images.unsplash.com/photo-1761422907951-2c30facbd3ce?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8bGlsbHklMjBhcnJhbmdlbWVudHxlbnwwfHwwfHx8MA%3D%3D",
     ],
     category: "Flowers",
     badge: "New",
@@ -862,7 +861,7 @@ const rawProducts: ShopProduct[] = [
     originalPrice: 5900,
     images: [
       "https://images.unsplash.com/photo-1526045431048-f857369baa09?w=900&q=80",
-      "https://images.unsplash.com/photo-1588561726653-f1e6c1b5f6d8?w=900&q=80",
+      "https://images.unsplash.com/photo-1747583612249-67a1438aa999?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDZ8fHxlbnwwfHx8fHw%3D",
     ],
     category: "Flowers",
     badge: "Sale",
@@ -899,7 +898,7 @@ const rawProducts: ShopProduct[] = [
     price: 2800,
     images: [
       "https://images.unsplash.com/photo-1562690868-60bbe7293e94?w=900&q=80",
-      "https://images.unsplash.com/photo-1504198453319-5ce911bafcde?w=900&q=80",
+      "https://images.unsplash.com/photo-1747583612249-67a1438aa999?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDZ8fHxlbnwwfHx8fHw%3D",
     ],
     category: "Flowers",
     tags: ["Carnations", "Long-Lasting", "Affordable"],
@@ -980,7 +979,7 @@ const rawProducts: ShopProduct[] = [
     price: 3600,
     images: [
       "https://images.unsplash.com/photo-1494883759339-0b042055a4ee?w=900&q=80",
-      "https://images.unsplash.com/photo-1490750967868-88aa4476b946?w=900&q=80",
+      "https://images.unsplash.com/photo-1722176707847-7699fa007d4d?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDExfHx8ZW58MHx8fHx8",
     ],
     category: "Flowers",
     tags: ["Gerberas", "Bright", "Cheerful"],
@@ -1020,7 +1019,7 @@ const rawProducts: ShopProduct[] = [
     price: 2200,
     images: [
       "https://images.unsplash.com/photo-1525362081669-2b476bb628c3?w=900&q=80",
-      "https://images.unsplash.com/photo-1475154196671-f23b2b6acb32?w=900&q=80",
+      "https://plus.unsplash.com/premium_photo-1675230158930-627b5c31ea9e?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDEyfHx8ZW58MHx8fHx8",
     ],
     category: "Flowers",
     tags: ["Lavender", "Aromatic", "Dried Flowers"],
@@ -1083,7 +1082,7 @@ const rawProducts: ShopProduct[] = [
     price: 7800,
     images: [
       "https://images.unsplash.com/photo-1570481662006-a3a1374699e8?w=900&q=80",
-      "https://images.unsplash.com/photo-1531592900765-82a0cc2d1028?w=900&q=80",
+      "https://images.unsplash.com/photo-1753879118115-8f25ef6af5b8?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDI1fHx8ZW58MHx8fHx8",
     ],
     category: "Flowers",
     tags: ["Calla Lilies", "Modern", "Sculptural"],
@@ -1118,8 +1117,8 @@ const rawProducts: ShopProduct[] = [
       "Enjoy the beauty of flowers that last for years. This artfully arranged dried bouquet features a mix of preserved roses, statice, bunny tails, and eucalyptus in muted earth tones. Perfect for those who want a low-maintenance, long-lasting floral accent that adds texture and warmth to any space.",
     price: 4200,
     images: [
-      "https://images.unsplash.com/photo-1518721099412-ded6f48308a3?w=900&q=80",
-      "https://images.unsplash.com/photo-1544033527-192b05d1473b?w=900&q=80",
+      "https://images.unsplash.com/photo-1550237390-96532abac3ec?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://plus.unsplash.com/premium_photo-1674502312436-fe0d277118fe?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDh8fHxlbnwwfHx8fHw%3D",
     ],
     category: "Flowers",
     badge: "Trending",
@@ -1160,8 +1159,8 @@ const rawProducts: ShopProduct[] = [
       "Bring the spirit of aloha to any celebration. This beautiful lei is hand-strung with fresh orchids, plumeria, and ti leaves, creating a fragrant and colorful garland. Perfect for graduations, weddings, or simply to make someone feel special.",
     price: 3900,
     images: [
-      "https://images.unsplash.com/photo-1606293459302-1a8cce63e2f8?w=900&q=80",
-      "https://images.unsplash.com/photo-1549476176-415fca8dbe6a?w=900&q=80",
+      "https://images.unsplash.com/photo-1618080578815-335456280012?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8b3JjaGlkJTIwZmxvd2VyfGVufDB8fDB8fHww",
+      "https://images.unsplash.com/photo-1516477266610-9e4c763da721?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8b3JjaGlkJTIwZmxvd2VyfGVufDB8fDB8fHww",
     ],
     category: "Flowers",
     tags: ["Tropical", "Orchids", "Garland"],
@@ -1223,8 +1222,8 @@ const rawProducts: ShopProduct[] = [
     price: 12900,
     originalPrice: 14700,
     images: [
-      "https://images.unsplash.com/photo-1561181286-d3fee7d50764?w=900&q=80",
-      "https://images.unsplash.com/photo-1494783367193-149034c05e8f?w=900&q=80",
+      "https://images.unsplash.com/photo-1601975195921-c39b81b22de3?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://images.unsplash.com/photo-1529420972496-b5119438ba73?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDJ8fHxlbnwwfHx8fHw%3D",
     ],
     category: "Flowers",
     badge: "Bestseller",
@@ -1260,8 +1259,8 @@ const rawProducts: ShopProduct[] = [
       "For those who appreciate the unusual, this arrangement showcases the dramatic beauty of protea. Featuring 3–5 large protea blooms (king, pink, or pin cushion) combined with banksia, leucadendron, and eucalyptus, it's a sculptural masterpiece that demands attention.",
     price: 8900,
     images: [
-      "https://images.unsplash.com/photo-1561181286-d3fee7d50764?w=900&q=80",
-      "https://images.unsplash.com/photo-1531592900765-82a0cc2d1028?w=900&q=80",
+      "https://images.unsplash.com/photo-1752850965161-f028ece179e0?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://images.unsplash.com/photo-1752850965166-2a25e8091af4?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDF8fHxlbnwwfHx8fHw%3D",
     ],
     category: "Flowers",
     tags: ["Protea", "Exotic", "Sculptural"],
@@ -1291,8 +1290,8 @@ const rawProducts: ShopProduct[] = [
       "Fill your home with the delightful fragrance of freesias. This elegant bouquet features 15–20 stems of freesia in a mix of pastel colors, arranged with delicate baby's breath. The sweet, citrusy scent and graceful blooms make it a favorite for spring celebrations.",
     price: 4100,
     images: [
-      "https://images.unsplash.com/photo-1490750967868-88aa4476b946?w=900&q=80",
-      "https://images.unsplash.com/photo-1589561454226-796a8aa89b05?w=900&q=80",
+      "https://images.unsplash.com/photo-1697534635855-9bddc72c0bdd?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://images.unsplash.com/photo-1697534635869-60721eba35bd?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     ],
     category: "Flowers",
     tags: ["Freesia", "Fragrant", "Spring"],
@@ -2411,7 +2410,7 @@ const rawProducts: ShopProduct[] = [
     price: 22500,
     originalPrice: 28900,
     images: [
-      "https://images.unsplash.com/photo-1593615696111-3f0f7e4f1f66?w=900&q=80",
+      "https://images.unsplash.com/photo-1614362705324-8da11fd16754?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "https://images.unsplash.com/photo-1590794056226-79ef3a8147e1?w=900&q=80",
     ],
     category: "Home & Living",
@@ -2482,7 +2481,7 @@ const rawProducts: ShopProduct[] = [
     price: 8900,
     originalPrice: 10900,
     images: [
-      "https://images.unsplash.com/photo-1615663245857-ac93f023c9e1?w=900&q=80",
+      "https://images.unsplash.com/photo-1544966685-5bb6cc6cb6d6?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=900&q=80",
     ],
     category: "Electronics",
@@ -2520,8 +2519,8 @@ const rawProducts: ShopProduct[] = [
       "Add a touch of organic elegance to your home with this unique ceramic vase. Each piece is hand-thrown on a potter's wheel using high-fire stoneware clay, then finished with a reactive glaze that creates subtle variations in color and texture. The wide mouth accommodates bouquets, while the sturdy base ensures stability.",
     price: 4200,
     images: [
-      "https://images.unsplash.com/photo-1612196808214-b7e239e5db72?w=900&q=80",
-      "https://images.unsplash.com/photo-1604072366595-e75dc92d6bdc?w=900&q=80",
+      "https://images.unsplash.com/photo-1660721671073-e139688fa3cf?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Y2VyYW1pYyUyMHZhc2V8ZW58MHx8MHx8fDA%3D",
+      "https://images.unsplash.com/photo-1721477061031-dea234bd7249?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     ],
     category: "Home & Living",
     tags: ["Handmade", "Ceramic", "Decor"],
@@ -2800,8 +2799,8 @@ const rawProducts: ShopProduct[] = [
     price: 24900,
     originalPrice: 32900,
     images: [
-      "https://images.unsplash.com/photo-1575417375460-2399d3c8a2f0?w=900&q=80",
-      "https://images.unsplash.com/photo-1600166898405-df6c2a2f3c4f?w=900&q=80",
+      "https://images.unsplash.com/photo-1745905308908-25f35bacd146?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://images.unsplash.com/photo-1753879118115-8f25ef6af5b8?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDI1fHx8ZW58MHx8fHx8",
     ],
     category: "Home & Living",
     badge: "Bestseller",
@@ -3051,8 +3050,8 @@ const rawProducts: ShopProduct[] = [
     price: 15900,
     originalPrice: 19900,
     images: [
-      "https://images.unsplash.com/photo-1558002038-1055e2e28d9b?w=900&q=80",
-      "https://images.unsplash.com/photo-1557324232-b8917d3c3dcb?w=900&q=80",
+      "https://images.unsplash.com/photo-1633194883650-df448a10d554?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://images.unsplash.com/photo-1759216853052-883040267c8c?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     ],
     category: "Electronics",
     badge: "New",
@@ -3176,8 +3175,8 @@ const rawProducts: ShopProduct[] = [
     price: 34900,
     originalPrice: 42900,
     images: [
-      "https://images.unsplash.com/photo-1542728926-5229d2c3b981?w=900&q=80",
-      "https://images.unsplash.com/photo-1509564899744-209f5d44c9c7?w=900&q=80",
+      "https://images.unsplash.com/photo-1568193755668-aae18714a9f1?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZWxlY3RyaWMlMjBndWl0YXJ8ZW58MHx8MHx8fDA%3D",
+      "https://images.unsplash.com/photo-1550985616-10810253b84d?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     ],
     category: "Electronics",
     badge: "Sale",
