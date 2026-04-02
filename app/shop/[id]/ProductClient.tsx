@@ -11,6 +11,7 @@ import { ShopProduct, formatPrice, allProducts } from "../../data/allProducts";
 import { siteConfig } from "@/config/site";
 import { motion, AnimatePresence } from "framer-motion";
 import { toast } from "sonner";
+import ShareProduct from "../../components/ShareProduct";
 
 export default function ProductClient({ product }: { product: ShopProduct }) {
   const router = useRouter();
@@ -141,6 +142,8 @@ export default function ProductClient({ product }: { product: ShopProduct }) {
                   sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-cover transition-transform duration-700 group-hover:scale-105 pointer-events-none"
                   priority
+                  fetchPriority="high"
+                  quality={85}
                 />
               </motion.div>
             </AnimatePresence>
@@ -205,9 +208,14 @@ export default function ProductClient({ product }: { product: ShopProduct }) {
                 {product.badge}
               </span>
             )}
-            <h1 className="text-4xl md:text-5xl font-extrabold text-stone-900 leading-tight mb-4">
-              {product.name}
-            </h1>
+            <div className="flex justify-between items-start gap-4">
+              <h1 className="text-4xl md:text-5xl font-extrabold text-stone-900 leading-tight mb-4">
+                {product.name}
+              </h1>
+              <div className="hidden sm:block mt-1 shrink-0 z-20">
+                <ShareProduct productTitle={product.name} />
+              </div>
+            </div>
             <div className="inline-flex items-center gap-4 bg-stone-100/50 border border-stone-200/40 p-2 pr-6 rounded-[2rem] shadow-inner mb-6">
               <div
                 className="px-6 py-3 rounded-[1.75rem] flex items-center justify-center text-white shadow-lg"
@@ -356,6 +364,9 @@ export default function ProductClient({ product }: { product: ShopProduct }) {
 
           {/* Mobile Sticky Bar */}
           <div className="fixed bottom-15 left-0 w-full bg-white/80 backdrop-blur-xl border-t border-stone-200/60 p-4 z-40 sm:hidden flex flex-row gap-2 shadow-[0_-10px_40px_rgba(0,0,0,0.05)]">
+            <div className="w-[46px] shrink-0">
+              <ShareProduct productTitle={product.name} />
+            </div>
             <button
               onClick={handleAddToCart}
               className="flex-1 flex items-center justify-center gap-2 py-3.5 rounded-xl font-extrabold text-white text-sm tracking-tight shadow-md transition-all duration-300 hover:scale-[1.02] active:scale-95 cursor-pointer relative overflow-hidden group"

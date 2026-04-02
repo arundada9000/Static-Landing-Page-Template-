@@ -24,7 +24,8 @@ export default function ShopPage() {
   const [sortOrder, setSortOrder] = useState("default"); // default, asc, desc
   const [searchQuery, setSearchQuery] = useState("");
   const [showFilters, setShowFilters] = useState(false);
-  const [loadedCount, setLoadedCount] = useState(12);
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 12;
   const [gridCols, setGridCols] = useState("3"); // "2", "3", "4"
   const [mobileGridCols, setMobileGridCols] = useState("1"); // "1", "2"
   const loadMoreRef = useRef<HTMLDivElement>(null);
@@ -78,29 +79,14 @@ export default function ShopPage() {
       return 0; // default order based on array index
     });
 
-  // Reset loaded products when filters change
+  // Reset page when filters change
   useEffect(() => {
-    setLoadedCount(12);
+    setCurrentPage(1);
   }, [activeCategory, activeBadge, sortOrder, searchQuery]);
 
-  // Infinite scroll observer setup
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting) {
-          // Increase loaded count gently when hitting the bottom
-          setLoadedCount((prev) => Math.min(prev + 12, filteredProducts.length));
-        }
-      },
-      { rootMargin: "600px" } // Trigger 600px before reaching the actual element
-    );
-
-    if (loadMoreRef.current) observer.observe(loadMoreRef.current);
-
-    return () => observer.disconnect();
-  }, [filteredProducts.length]);
-
-  const displayedProducts = filteredProducts.slice(0, loadedCount);
+  const totalPages = Math.ceil(filteredProducts.length / itemsPerPage);
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const displayedProducts = filteredProducts.slice(startIndex, startIndex + itemsPerPage);
 
   const getGridClass = () => {
     const mobileClass = mobileGridCols === "2" ? "grid-cols-2 gap-x-3 gap-y-6" : "grid-cols-1 gap-x-8 gap-y-12";
@@ -360,7 +346,9 @@ export default function ShopPage() {
                             alt={product.name}
                             fill
                             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                            priority={idx < 6}
+                            priority={idx < 4}
+                            fetchPriority={idx === 0 ? "high" : "auto"}
+                            quality={75}
                             className="object-cover transition-transform duration-700 group-hover:scale-105"
                           />
                           {/* Hover Overlay */}
@@ -462,10 +450,65 @@ export default function ShopPage() {
                 ))}
               </div>
 
-              {/* Invisible trigger element, shows a spinner if loading */}
-              {loadedCount < filteredProducts.length && (
-                <div ref={loadMoreRef} className="w-full h-24 flex items-center justify-center mt-12">
-                  <div className="w-8 h-8 border-4 border-stone-200 border-t-[var(--color-primary)] rounded-full animate-spin opacity-50 transition-opacity" />
+              {/* Pagination UI */}
+              {totalPages > 1 && (
+                <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mt-16 pt-8 border-t border-stone-200/50">
+                  <span className="text-sm font-medium text-stone-500">
+                    Showing <span className="text-stone-900 font-bold">{startIndex + 1}</span> to <span className="text-stone-900 font-bold">{Math.min(startIndex + itemsPerPage, filteredProducts.length)}</span> of <span className="text-stone-900 font-bold">{filteredProducts.length}</span> Results
+                  </span>
+                  
+                  <div className="flex items-center gap-2">
+                    <button 
+                      onClick={() => {
+                        setCurrentPage(p => Math.max(1, p - 1));
+                        window.scrollTo({ top: 400, behavior: "smooth" });
+                      }}
+                      disabled={currentPage === 1}
+                      className="px-4 py-2.5 bg-white rounded-xl shadow-sm border border-stone-200 text-stone-700 disabled:opacity-40 disabled:cursor-not-allowed hover:bg-stone-50 hover:text-stone-900 transition-colors font-bold text-sm cursor-pointer active:scale-95"
+                    >
+                      Previous
+                    </button>
+                    
+                    <div className="hidden sm:flex items-center gap-1.5">
+                      {Array.from({ length: totalPages }).map((_, i) => {
+                        // Logic to only show a few pages around the current page to prevent UI overflow
+                        if (
+                          totalPages > 7 &&
+                          (i < 1 || i > totalPages - 2) === false &&
+                          Math.abs(currentPage - (i + 1)) > 1
+                        ) {
+                          if (i === 1 || i === totalPages - 2) {
+                            return <span key={i} className="px-2 text-stone-400">...</span>;
+                          }
+                          return null;
+                        }
+
+                        return (
+                          <button
+                            key={i}
+                            onClick={() => {
+                              setCurrentPage(i + 1);
+                              window.scrollTo({ top: 400, behavior: "smooth" });
+                            }}
+                            className={`w-10 h-10 rounded-xl font-extrabold flex items-center justify-center transition-all cursor-pointer active:scale-95 ${currentPage === i + 1 ? "bg-stone-900 text-white shadow-lg shadow-stone-900/20" : "bg-white text-stone-600 border border-stone-200 hover:border-stone-300 hover:bg-stone-50"}`}
+                          >
+                            {i + 1}
+                          </button>
+                        );
+                      })}
+                    </div>
+
+                    <button 
+                      onClick={() => {
+                        setCurrentPage(p => Math.min(totalPages, p + 1));
+                        window.scrollTo({ top: 400, behavior: "smooth" });
+                      }}
+                      disabled={currentPage === totalPages}
+                      className="px-4 py-2.5 bg-white rounded-xl shadow-sm border border-stone-200 text-stone-700 disabled:opacity-40 disabled:cursor-not-allowed hover:bg-stone-50 hover:text-stone-900 transition-colors font-bold text-sm cursor-pointer active:scale-95"
+                    >
+                      Next
+                    </button>
+                  </div>
                 </div>
               )}
             </>

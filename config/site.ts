@@ -37,6 +37,9 @@ export const siteConfig = {
     "high quality craftsmanship",
     "innovative design",
     "premium lifestyle",
+    "Sajilo Digital",
+    "Template Ecommerce",
+    "ecommerce",
   ],
 
   /** Contact information */

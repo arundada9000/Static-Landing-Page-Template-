@@ -28,7 +28,7 @@ import {
 
 export const heroContent = {
   /** Small badge text at top of hero */
-  badge: "Premium Quality · Free Worldwide Shipping",
+  badge: "Premium Quality | Free Worldwide Shipping",
 
   /** Headline (3 parts — middle is highlighted with gradient) */
   headlineStart: "The Future of",

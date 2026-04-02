@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { useCart } from "../context/CartContext";
 import { X, Plus, Minus, Trash2, QrCode, ArrowLeft, Check, Download } from "lucide-react";
 import { formatPrice } from "../data/allProducts";
@@ -16,6 +17,7 @@ export default function CartDrawer() {
     subtotal,
     removeItem,
     updateQty,
+    clearCart,
     checkoutViaWhatsApp,
   } = useCart();
 
@@ -68,9 +70,19 @@ export default function CartDrawer() {
                   </h2>
                 </div>
               ) : (
-                <h2 className="text-xl font-extrabold text-stone-900">
-                  Your Cart
-                </h2>
+                <div className="flex items-center gap-3">
+                  <h2 className="text-xl font-extrabold text-stone-900">
+                    Your Cart
+                  </h2>
+                  {items.length > 0 && (
+                    <button
+                      onClick={clearCart}
+                      className="text-[10px] uppercase tracking-wider font-extrabold text-rose-500 hover:text-rose-600 bg-rose-50 hover:bg-rose-100 px-3 py-1.5 rounded-full transition-colors"
+                    >
+                      Clear All
+                    </button>
+                  )}
+                </div>
               )}
 
               <button
@@ -203,24 +215,26 @@ export default function CartDrawer() {
                   ) : (
                     items.map((item, idx) => (
                       <div key={idx} className="flex gap-4">
-                        <div className="w-20 h-20 relative rounded-xl overflow-hidden bg-stone-100 shrink-0 border border-stone-100">
+                        <Link href={`/shop/${item.product.id}`} onClick={closeCart} className="w-20 h-20 relative rounded-xl overflow-hidden bg-stone-100 shrink-0 border border-stone-100 group">
                           <Image
                             src={item.product.images[0]}
                             alt={item.product.name}
                             fill
-                            className="object-cover"
+                            className="object-cover group-hover:scale-105 transition-transform duration-500"
                           />
-                        </div>
-                        <div className="flex-1 flex flex-col justify-between">
+                        </Link>
+                        <div className="flex-1 flex flex-col justify-between min-w-0">
                           <div>
-                            <h3 className="font-bold text-stone-900 text-sm leading-tight line-clamp-2">
-                              {item.product.name}
-                            </h3>
+                            <Link href={`/shop/${item.product.id}`} onClick={closeCart}>
+                              <h3 className="font-bold text-stone-900 text-sm leading-tight line-clamp-2 hover:text-[var(--color-primary)] transition-colors">
+                                {item.product.name}
+                              </h3>
+                            </Link>
                             {/* Selected Options */}
-                            <div className="text-xs text-stone-500 mt-1 space-y-0.5">
+                            <div className="text-xs text-stone-500 mt-1 space-y-0.5 w-full">
                               {Object.entries(item.selectedOptions).map(
                                 ([key, val]) => (
-                                  <div key={key}>
+                                  <div key={key} className="truncate">
                                     <span className="font-medium text-stone-400">
                                       {item.product.options?.find((o) =>
                                         o.choices.includes(val),

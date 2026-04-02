@@ -13,7 +13,7 @@ import { ShoppingBag, ArrowRight, X, HeartCrack } from "lucide-react";
 import { toast } from "sonner";
 
 export default function WishlistPage() {
-  const { wishlist, toggleWishlist } = useWishlist();
+  const { wishlist, toggleWishlist, clearWishlist } = useWishlist();
   const { addItem, openCart } = useCart();
 
   const wishlistedProducts = useMemo(() => {
@@ -50,13 +50,23 @@ export default function WishlistPage() {
 
       <main className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32 w-full">
         <FadeIn direction="up">
-          <div className="mb-12">
-            <h1 className="text-4xl md:text-5xl font-extrabold text-stone-900 mb-4 tracking-tight">
-              Your Wishlist
-            </h1>
-            <p className="text-lg text-stone-500 max-w-2xl">
-              Keep track of the items you love. Add them to your cart when you're ready.
-            </p>
+          <div className="mb-12 flex flex-col sm:flex-row sm:items-end justify-between gap-6">
+            <div>
+              <h1 className="text-4xl md:text-5xl font-extrabold text-stone-900 mb-4 tracking-tight">
+                Your Wishlist
+              </h1>
+              <p className="text-lg text-stone-500 max-w-2xl">
+                Keep track of the items you love. Add them to your cart when you're ready.
+              </p>
+            </div>
+            {wishlistedProducts.length > 0 && (
+              <button 
+                onClick={() => clearWishlist()}
+                className="px-6 py-2.5 bg-rose-50 text-rose-600 rounded-full font-bold text-sm hover:bg-rose-100 transition-colors shrink-0 active:scale-95"
+              >
+                Clear Wishlist
+              </button>
+            )}
           </div>
         </FadeIn>
 
