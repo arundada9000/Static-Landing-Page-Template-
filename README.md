@@ -14,47 +14,58 @@
 
 ---
 
+## Images
+
+<p align="center">
+<img src="./public/screenshots/pricing.png"  width=400>
+<img src="./public/screenshots/pricing1.png" width=400>
+<img src="./public/screenshots/pricing2.png" width=400>
+<img src="./public/screenshots/pricing3.png" width=400>
+<img src="./public/screenshots/pricing4.png" width=400>
+</p>
+
 ## What Is This?
 
-This is SajiloDigital's **flagship product landing page template** designed to showcase and sell any physical or digital product beautifully. Clothing, electronics, health goods, SaaS tools, food products — you name it. Built to impress at first glance and convert visitors into buyers.
+This is SajiloDigital's **flagship product landing page template** designed to showcase and sell any physical or digital product beautifully. Clothing, electronics, health goods, SaaS tools, food products you name it. Built to impress at first glance and convert visitors into buyers.
 
 Key highlights:
-- **Config-driven** — almost everything is controlled by 2 config files; no React knowledge required for basic rebranding
-- **Full shopping cart** — add-to-cart, QR payment, WhatsApp checkout, and localStorage persistence built-in
-- **Premium animations** — Framer Motion scroll-triggered fade-ins across every section
-- **PWA-ready** — ships with a `manifest.ts` for installable app support
-- **Full legal pages** — Privacy Policy and Terms & Conditions included
+
+- **Config-driven** almost everything is controlled by 2 config files; no React knowledge required for basic rebranding
+- **Full shopping cart** add-to-cart, QR payment, WhatsApp checkout, and localStorage persistence built-in
+- **Premium animations** Framer Motion scroll-triggered fade-ins across every section
+- **PWA-ready** ships with a `manifest.ts` for installable app support
+- **Full legal pages** Privacy Policy and Terms & Conditions included
 
 ---
 
 ## Pages Included
 
-| Page | Route | Description |
-|------|-------|-------------|
-| Home | `/` | Full marketing landing page (9 sections) |
-| About | `/about` | Brand story, vision & mission |
-| Shop | `/shop` | Full product catalog with filtering + cart |
-| Shop Detail | `/shop/[id]` | Individual product page with variants & Add to Cart |
-| Contact | `/contact` | Contact form + address + social links |
-| Privacy Policy | `/privacy` | Pre-built privacy policy page |
-| Terms & Conditions | `/terms` | Pre-built T&C page |
+| Page               | Route        | Description                                         |
+| ------------------ | ------------ | --------------------------------------------------- |
+| Home               | `/`          | Full marketing landing page (9 sections)            |
+| About              | `/about`     | Brand story, vision & mission                       |
+| Shop               | `/shop`      | Full product catalog with filtering + cart          |
+| Shop Detail        | `/shop/[id]` | Individual product page with variants & Add to Cart |
+| Contact            | `/contact`   | Contact form + address + social links               |
+| Privacy Policy     | `/privacy`   | Pre-built privacy policy page                       |
+| Terms & Conditions | `/terms`     | Pre-built T&C page                                  |
 
 ---
 
 ## Sections on the Landing Page (`/`)
 
-| Section | Component | Description |
-|---------|-----------|-------------|
-| **Navbar** | `Navbar.tsx` | Sticky, mobile-responsive navigation with cart icon + mobile bottom nav |
-| **Hero** | `Hero.tsx` | Full-screen opener with animated headline, badge, and dual CTA buttons |
-| **About (Short)** | `AboutShort.tsx` | Brand story snippet with image |
-| **Trust Bar** | `Trust.tsx` | 5 trust-building feature badges |
-| **Products** | `Products.tsx` | 3-card landing preview with WhatsApp Order + View buttons |
-| **Benefits** | `Benefits.tsx` | 5 key product benefits with floating stat cards |
-| **Process** | `Process.tsx` | 4-step how-it's-made visual cards |
-| **FAQ** | `FAQ.tsx` | Animated accordion with configurable questions and answers |
-| **CTA** | `CTA.tsx` | Final conversion section (WhatsApp / Shop / Call) |
-| **Footer** | `Footer.tsx` | Contact info, quick links, social media, legal links |
+| Section           | Component        | Description                                                             |
+| ----------------- | ---------------- | ----------------------------------------------------------------------- |
+| **Navbar**        | `Navbar.tsx`     | Sticky, mobile-responsive navigation with cart icon + mobile bottom nav |
+| **Hero**          | `Hero.tsx`       | Full-screen opener with animated headline, badge, and dual CTA buttons  |
+| **About (Short)** | `AboutShort.tsx` | Brand story snippet with image                                          |
+| **Trust Bar**     | `Trust.tsx`      | 5 trust-building feature badges                                         |
+| **Products**      | `Products.tsx`   | 3-card landing preview with WhatsApp Order + View buttons               |
+| **Benefits**      | `Benefits.tsx`   | 5 key product benefits with floating stat cards                         |
+| **Process**       | `Process.tsx`    | 4-step how-it's-made visual cards                                       |
+| **FAQ**           | `FAQ.tsx`        | Animated accordion with configurable questions and answers              |
+| **CTA**           | `CTA.tsx`        | Final conversion section (WhatsApp / Shop / Call)                       |
+| **Footer**        | `Footer.tsx`     | Contact info, quick links, social media, legal links                    |
 
 > **Note:** The old 3-section landing page now includes a **FAQ** section between Process and CTA.
 
@@ -86,11 +97,11 @@ Open [http://localhost:3000](http://localhost:3000) — the template is live!
 
 Almost everything lives in **2 config files**. You rarely need to touch React components.
 
-### Step 1 — `config/site.ts` · Identity, Contact & Payments
+### Step 1 `config/site.ts` · Identity, Contact & Payments
 
 ```typescript
 export const siteConfig = {
-  name: "ClientBrand",               // ← Displayed in navbar, footer, SEO
+  name: "ClientBrand", // ← Displayed in navbar, footer, SEO
   tagline: "Your One-Line Tagline",
   description: "SEO meta description...",
   url: "https://clientdomain.com",
@@ -108,13 +119,13 @@ export const siteConfig = {
     phone: "+1 (800) 000-0000",
     email: "hello@client.com",
     address: "123 Street, City, Country",
-    whatsapp: "10000000000",          // ← International format, no + or spaces
+    whatsapp: "10000000000", // ← International format, no + or spaces
   },
 
   social: {
     facebook: "https://facebook.com/client",
     instagram: "https://instagram.com/client",
-    twitter: "https://twitter.com/client",   // can also be a YouTube URL
+    twitter: "https://twitter.com/client", // can also be a YouTube URL
   },
 
   /** QR payment options shown in the cart drawer */
@@ -144,7 +155,7 @@ export const mobileNavLinks = [
 ];
 ```
 
-### Step 2 — `config/content.ts` · All Page Copy & Images
+### Step 2 `config/content.ts` · All Page Copy & Images
 
 Edit any section's text and Unsplash image URLs:
 
@@ -153,7 +164,7 @@ Edit any section's text and Unsplash image URLs:
 export const heroContent = {
   badge: "Free Shipping · 30-Day Returns",
   headlineStart: "The World's Best",
-  headlineHighlight: "Premium",       // ← Gets the gradient effect
+  headlineHighlight: "Premium", // ← Gets the gradient effect
   headlineEnd: "Wireless Earbuds",
   subheadline: "Crystal-clear sound. All-day comfort.",
   heroImage: "https://images.unsplash.com/photo-XXXX?w=1920&q=80",
@@ -174,35 +185,32 @@ export const faqItems = [
 // About, Trust, Benefits, Process, CTA, Footer — all configurable the same way
 ```
 
-### Step 3 — `app/data/allProducts.ts` · Full Shop Catalog
+### Step 3 `app/data/allProducts.ts` · Full Shop Catalog
 
 This file powers both the `/shop` listing page and individual `/shop/[id]` product pages. Add a new object to the array and the entire UI updates automatically:
 
 ```typescript
 export const allProducts: ShopProduct[] = [
   {
-    id: "unique-slug",           // ← Used as the URL: /shop/unique-slug
+    id: "unique-slug", // ← Used as the URL: /shop/unique-slug
     name: "Product Name",
     shortDescription: "One-liner for listing cards.",
     longDescription: "Full description shown on the detail page.",
-    price: 5000,                 // In CURRENCY units (see below)
-    originalPrice: 6500,         // Optional — shows struck-through sale price
+    price: 5000, // In CURRENCY units (see below)
+    originalPrice: 6500, // Optional — shows struck-through sale price
     images: [
       "https://images.unsplash.com/photo-XXXX?w=900&q=80",
       "https://images.unsplash.com/photo-YYYY?w=900&q=80",
     ],
-    category: "Watches",         // Must match an entry in shopCategories[]
-    badge: "Bestseller",         // Optional: "New" | "Sale" | "Limited" | "Trending" | any string
+    category: "Watches", // Must match an entry in shopCategories[]
+    badge: "Bestseller", // Optional: "New" | "Sale" | "Limited" | "Trending" | any string
     tags: ["Premium", "Leather"],
-    features: [
-      "Feature one",
-      "Feature two",
-    ],
+    features: ["Feature one", "Feature two"],
     options: [
-      { id: "size",  name: "Size",  choices: ["S", "M", "L", "XL"] },
+      { id: "size", name: "Size", choices: ["S", "M", "L", "XL"] },
       { id: "color", name: "Color", choices: ["Black", "White"] },
     ],
-    active: true,                // Set false to soft-hide without deleting
+    active: true, // Set false to soft-hide without deleting
   },
 ];
 
@@ -210,7 +218,13 @@ export const allProducts: ShopProduct[] = [
 export const CURRENCY = "NPR ";
 
 // Categories that appear in the filter bar on /shop
-export const shopCategories = ["All", "Watches", "Accessories", "Bags", "Apparel"];
+export const shopCategories = [
+  "All",
+  "Watches",
+  "Accessories",
+  "Bags",
+  "Apparel",
+];
 ```
 
 ---
@@ -226,8 +240,8 @@ The template includes a **fully functional cart** with no external services requ
 3. Cart icon in the Navbar shows a live item count badge
 4. Clicking the icon slides open the **Cart Drawer** from the right
 5. Customer can adjust quantities, remove items, or checkout via:
-   - **WhatsApp** — generates a pre-filled WhatsApp message with the full order summary and opens `wa.me`
-   - **QR Pay** — shows a scannable QR code (eSewa / Khalti / any method) and then sends a "PAID VIA QR" WhatsApp message
+   - **WhatsApp** generates a pre-filled WhatsApp message with the full order summary and opens `wa.me`
+   - **QR Pay** shows a scannable QR code (eSewa / Khalti / any method) and then sends a "PAID VIA QR" WhatsApp message
 
 ### Cart Persistence
 
@@ -263,34 +277,34 @@ import { FadeIn } from "@/app/components/FadeIn";
 
 <FadeIn delay={0.2} direction="up">
   <p>This fades in from below when scrolled into view.</p>
-</FadeIn>
+</FadeIn>;
 ```
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `delay` | `number` | `0` | Seconds before the animation starts |
-| `direction` | `"up" \| "down" \| "left" \| "right" \| "none"` | `"up"` | Slide direction before fade |
-| `className` | `string` | `""` | Passed to the wrapping `motion.div` |
+| Prop        | Type                                            | Default | Description                         |
+| ----------- | ----------------------------------------------- | ------- | ----------------------------------- |
+| `delay`     | `number`                                        | `0`     | Seconds before the animation starts |
+| `direction` | `"up" \| "down" \| "left" \| "right" \| "none"` | `"up"`  | Slide direction before fade         |
+| `className` | `string`                                        | `""`    | Passed to the wrapping `motion.div` |
 
 ### CSS Animation Utilities (`app/globals.css`)
 
 Ready-to-use classes for decorative elements:
 
-| Class | Effect |
-|-------|--------|
-| `.animate-float` | Gentle 6s up/down float |
-| `.animate-float-slow` | Slow 9s float with horizontal drift |
-| `.animate-pulse-glow` | Pulsing primary-color box shadow |
-| `.animate-shimmer` | Left-to-right shimmer sweep |
-| `.animate-slide-up` | One-time slide-up on load |
-| `.animate-scale-in` | One-time scale-in on load |
-| `.animate-spin-slow` | Slow 20s rotation |
-| `.animate-fade-in-up` | One-time fade + upward slide |
-| `.animate-bounce-soft` | Soft 2s vertical bounce |
-| `.gradient-animated` | Continuously shifting gradient |
-| `.hover-lift` | Hover: lift card with shadow |
-| `.glass-card` | Glassmorphism backdrop blur |
-| `.delay-{100–1000}` | Animation delay helpers |
+| Class                  | Effect                              |
+| ---------------------- | ----------------------------------- |
+| `.animate-float`       | Gentle 6s up/down float             |
+| `.animate-float-slow`  | Slow 9s float with horizontal drift |
+| `.animate-pulse-glow`  | Pulsing primary-color box shadow    |
+| `.animate-shimmer`     | Left-to-right shimmer sweep         |
+| `.animate-slide-up`    | One-time slide-up on load           |
+| `.animate-scale-in`    | One-time scale-in on load           |
+| `.animate-spin-slow`   | Slow 20s rotation                   |
+| `.animate-fade-in-up`  | One-time fade + upward slide        |
+| `.animate-bounce-soft` | Soft 2s vertical bounce             |
+| `.gradient-animated`   | Continuously shifting gradient      |
+| `.hover-lift`          | Hover: lift card with shadow        |
+| `.glass-card`          | Glassmorphism backdrop blur         |
+| `.delay-{100–1000}`    | Animation delay helpers             |
 
 ---
 
@@ -300,21 +314,21 @@ All colors are in **one place** — `app/globals.css`:
 
 ```css
 @theme inline {
-  --color-primary:        #4F46E5;   /* Main brand color — change this! */
-  --color-primary-light:  #818CF8;   /* Hover states */
-  --color-primary-dark:   #3730A3;   /* Dark section backgrounds */
-  --color-primary-50:     #EEF2FF;   /* Light tint backgrounds */
-  --color-primary-100:    #C7D2FE;   /* Border colors */
-  --color-accent:         #F59E0B;   /* Gold highlights & gradients */
-  --color-accent-light:   #FDE68A;   /* Lighter gold */
-  --color-secondary:      #f8f7ff;   /* Light surface tint */
+  --color-primary: #4f46e5; /* Main brand color — change this! */
+  --color-primary-light: #818cf8; /* Hover states */
+  --color-primary-dark: #3730a3; /* Dark section backgrounds */
+  --color-primary-50: #eef2ff; /* Light tint backgrounds */
+  --color-primary-100: #c7d2fe; /* Border colors */
+  --color-accent: #f59e0b; /* Gold highlights & gradients */
+  --color-accent-light: #fde68a; /* Lighter gold */
+  --color-secondary: #f8f7ff; /* Light surface tint */
   --color-secondary-dark: #e8e6f5;
-  --color-surface:        #ffffff;
-  --color-surface-alt:    #fafafa;
-  --color-border:         #e8e0ff;
-  --color-muted:          #78716c;
-  --color-heading:        #1c1917;
-  --color-body:           #44403c;
+  --color-surface: #ffffff;
+  --color-surface-alt: #fafafa;
+  --color-border: #e8e0ff;
+  --color-muted: #78716c;
+  --color-heading: #1c1917;
+  --color-body: #44403c;
 }
 ```
 
@@ -322,14 +336,14 @@ All colors are in **one place** — `app/globals.css`:
 
 ### Color Presets by Industry
 
-| Industry | `--color-primary` | `--color-accent` |
-|----------|-------------------|-----------------|
-| **Health / Wellness** | `#059669` emerald | `#F59E0B` amber |
-| **Tech / SaaS** | `#3B82F6` blue | `#8B5CF6` violet |
-| **Luxury / Fashion** | `#1C1917` near-black | `#D97706` gold |
-| **Food & Beverage** | `#16A34A` green | `#CA8A04` golden |
-| **Beauty / Cosmetics** | `#EC4899` pink | `#F59E0B` amber |
-| **Sports / Fitness** | `#DC2626` red | `#F97316` orange |
+| Industry               | `--color-primary`    | `--color-accent` |
+| ---------------------- | -------------------- | ---------------- |
+| **Health / Wellness**  | `#059669` emerald    | `#F59E0B` amber  |
+| **Tech / SaaS**        | `#3B82F6` blue       | `#8B5CF6` violet |
+| **Luxury / Fashion**   | `#1C1917` near-black | `#D97706` gold   |
+| **Food & Beverage**    | `#16A34A` green      | `#CA8A04` golden |
+| **Beauty / Cosmetics** | `#EC4899` pink       | `#F59E0B` amber  |
+| **Sports / Fitness**   | `#DC2626` red        | `#F97316` orange |
 
 ---
 
@@ -417,13 +431,13 @@ All colors are in **one place** — `app/globals.css`:
 
 The template ships with full metadata coverage out of the box via `app/layout.tsx`:
 
-- **Title & description** — auto-generated from `siteConfig.name` and `siteConfig.tagline`
-- **OpenGraph** — og:title, og:description, og:image (1200×630)
-- **Twitter Card** — `summary_large_image`
-- **Keywords** — pulled from `siteConfig.keywords[]`
-- **Favicon & Apple icon** — set via `siteConfig.logoSrc`
-- **Web App Manifest** — `app/manifest.ts` reads `siteConfig` automatically
-- **Viewport** — theme color, mobile-optimised scale
+- **Title & description** auto-generated from `siteConfig.name` and `siteConfig.tagline`
+- **OpenGraph** og:title, og:description, og:image (1200×630)
+- **Twitter Card** `summary_large_image`
+- **Keywords** pulled from `siteConfig.keywords[]`
+- **Favicon & Apple icon** set via `siteConfig.logoSrc`
+- **Web App Manifest** `app/manifest.ts` reads `siteConfig` automatically
+- **Viewport** theme color, mobile-optimised scale
 
 Each legal/content page (`/contact`, `/privacy`, `/terms`) has its own `layout.tsx` with dedicated metadata.
 
@@ -457,41 +471,45 @@ Use nginx as a reverse proxy to point the domain to port 3000.
 ## Client Launch Checklist
 
 ### Branding & Content
-- [ ] `config/site.ts` — name, tagline, logo, contact details, WhatsApp number, social links
-- [ ] `config/site.ts` — `qrPayments` array with correct QR image paths
-- [ ] `config/content.ts` — all section copy and Unsplash image URLs replaced with real client images
-- [ ] `app/data/products.ts` — 3 landing-page featured products updated
-- [ ] `app/data/allProducts.ts` — full shop catalog with real products, prices, options
+
+- [ ] `config/site.ts` name, tagline, logo, contact details, WhatsApp number, social links
+- [ ] `config/site.ts` `qrPayments` array with correct QR image paths
+- [ ] `config/content.ts` all section copy and Unsplash image URLs replaced with real client images
+- [ ] `app/data/products.ts` 3 landing-page featured products updated
+- [ ] `app/data/allProducts.ts` full shop catalog with real products, prices, options
 
 ### Design
-- [ ] `app/globals.css` — `--color-primary` matches client brand color
-- [ ] `/public/images/og-image.png` — 1200×630px Open Graph image
-- [ ] `/public/images/circular-logo.png` — circular logo for favicon & navbar
+
+- [ ] `app/globals.css` `--color-primary` matches client brand color
+- [ ] `/public/images/og-image.png` 1200×630px Open Graph image
+- [ ] `/public/images/circular-logo.png` circular logo for favicon & navbar
 
 ### Technical
-- [ ] `.env` — `NEXT_PUBLIC_SITE_URL` set to client's domain
-- [ ] `next.config.ts` — image domains updated if using non-Unsplash image hosts
-- [ ] `npm run build` — zero TypeScript/lint errors
+
+- [ ] `.env` `NEXT_PUBLIC_SITE_URL` set to client's domain
+- [ ] `next.config.ts` image domains updated if using non-Unsplash image hosts
+- [ ] `npm run build` zero TypeScript/lint errors
 - [ ] Tested on mobile (iOS + Android via DevTools) and desktop
 - [ ] Custom domain connected in hosting dashboard
 
 ### Legal
-- [ ] `/privacy/page.tsx` — update company name and contact details within the copy
-- [ ] `/terms/page.tsx` — update company name and terms copy
+
+- [ ] `/privacy/page.tsx` update company name and contact details within the copy
+- [ ] `/terms/page.tsx` update company name and terms copy
 
 ---
 
 ## Tech Stack
 
-| Tech | Version | Role |
-|------|---------|------|
-| [Next.js](https://nextjs.org) | 16.2 | React framework (App Router) |
-| [React](https://react.dev) | 19 | UI library |
-| [Tailwind CSS](https://tailwindcss.com) | v4 | Utility-first CSS with `@theme` tokens |
-| [TypeScript](https://typescriptlang.org) | 5 | Type safety |
-| [Framer Motion](https://www.framer.com/motion/) | 12 | Scroll-triggered animations & cart drawer |
-| [Lucide React](https://lucide.dev) | latest | Icon library |
-| [Unsplash](https://unsplash.com) | — | Placeholder photography (replace for production) |
+| Tech                                            | Version | Role                                             |
+| ----------------------------------------------- | ------- | ------------------------------------------------ |
+| [Next.js](https://nextjs.org)                   | 16.2    | React framework (App Router)                     |
+| [React](https://react.dev)                      | 19      | UI library                                       |
+| [Tailwind CSS](https://tailwindcss.com)         | v4      | Utility-first CSS with `@theme` tokens           |
+| [TypeScript](https://typescriptlang.org)        | 5       | Type safety                                      |
+| [Framer Motion](https://www.framer.com/motion/) | 12      | Scroll-triggered animations & cart drawer        |
+| [Lucide React](https://lucide.dev)              | latest  | Icon library                                     |
+| [Unsplash](https://unsplash.com)                | —       | Placeholder photography (replace for production) |
 
 ---
 
@@ -514,4 +532,4 @@ Use nginx as a reverse proxy to point the domain to port 3000.
 
 ---
 
-*© SajiloDigital. This template is for internal agency use.*
+_© SajiloDigital.Created by Arun Neupane. This template is for internal agency use._
