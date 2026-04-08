@@ -25,6 +25,9 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
   return {
     title: `${product.name} | ${siteConfig.name}`,
     description: product.shortDescription,
+    alternates: {
+      canonical: `${siteConfig.url}/shop/${product.id}`,
+    },
     openGraph: {
       title: `${product.name} | ${siteConfig.name}`,
       description: product.shortDescription,

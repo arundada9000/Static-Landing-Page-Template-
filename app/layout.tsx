@@ -39,7 +39,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `${siteConfig.name} — ${siteConfig.tagline}`,
+    title: `${siteConfig.name} | ${siteConfig.tagline}`,
     description: siteConfig.description,
     images: [siteConfig.ogImage],
   },
@@ -75,6 +75,50 @@ export default function RootLayout({
       className={`${inter.variable} scroll-smooth antialiased h-full`}
     >
       <body className="min-h-full flex flex-col font-sans bg-surface-alt text-heading pb-20 md:pb-0">
+        {/* ── JSON-LD Structured Data ─────────────────────────────────────── */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@graph": [
+                {
+                  "@type": "Organization",
+                  "@id": `${siteConfig.url}/#organization`,
+                  name: siteConfig.name,
+                  url: siteConfig.url,
+                  logo: {
+                    "@type": "ImageObject",
+                    url: `${siteConfig.url}${siteConfig.ogImage}`,
+                  },
+                  contactPoint: {
+                    "@type": "ContactPoint",
+                    telephone: siteConfig.contact.phone,
+                    contactType: "customer service",
+                    email: siteConfig.contact.email,
+                  },
+                  sameAs: Object.values(siteConfig.social).filter(Boolean),
+                },
+                {
+                  "@type": "WebSite",
+                  "@id": `${siteConfig.url}/#website`,
+                  url: siteConfig.url,
+                  name: siteConfig.name,
+                  description: siteConfig.description,
+                  publisher: { "@id": `${siteConfig.url}/#organization` },
+                  potentialAction: {
+                    "@type": "SearchAction",
+                    target: {
+                      "@type": "EntryPoint",
+                      urlTemplate: `${siteConfig.url}/shop?q={search_term_string}`,
+                    },
+                    "query-input": "required name=search_term_string",
+                  },
+                },
+              ],
+            }),
+          }}
+        />
         <WishlistProvider>
           <CartProvider>
             {children}
