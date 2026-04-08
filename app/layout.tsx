@@ -13,6 +13,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  verification: {
+    google: "pCI23x8QkqEkm14y5vcYidDqNBFz646fRm5d15_hts4",
+  },
   title: `${siteConfig.name} — ${siteConfig.tagline}`,
   description: siteConfig.description,
   keywords: siteConfig.keywords,
@@ -78,8 +81,8 @@ export default function RootLayout({
             <CartDrawer />
           </CartProvider>
         </WishlistProvider>
-        <Toaster 
-          position="top-center" 
+        <Toaster
+          position="top-center"
           expand={true}
           toastOptions={{
             classNames: {
@@ -91,16 +94,11 @@ export default function RootLayout({
                 "rounded-xl bg-primary px-4 py-2 text-xs font-semibold text-white transition-all hover:bg-primary-dark hover:scale-105 active:scale-95",
               cancelButton:
                 "rounded-xl bg-black/5 px-4 py-2 text-xs font-semibold transition-all hover:bg-black/10 hover:scale-105 active:scale-95",
-              success:
-                "border-green-500/20 bg-green-50/85 text-green-900",
-              error:
-                "border-red-500/20 bg-red-50/85 text-red-900",
-              warning:
-                "border-amber-500/20 bg-amber-50/85 text-amber-900",
-              info:
-                "border-blue-500/20 bg-blue-50/85 text-blue-900",
-              default:
-                "border-white/40 bg-white/85 text-heading",
+              success: "border-green-500/20 bg-green-50/85 text-green-900",
+              error: "border-red-500/20 bg-red-50/85 text-red-900",
+              warning: "border-amber-500/20 bg-amber-50/85 text-amber-900",
+              info: "border-blue-500/20 bg-blue-50/85 text-blue-900",
+              default: "border-white/40 bg-white/85 text-heading",
             },
           }}
         />
