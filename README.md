@@ -1,9 +1,10 @@
-<p align="center">
+﻿<p align="center">
   <img src="https://img.shields.io/badge/Built%20by-SajiloDigital-4F46E5?style=for-the-badge&logo=vercel&logoColor=white" alt="Built by SajiloDigital" />
   <img src="https://img.shields.io/badge/Next.js-16.2-black?style=for-the-badge&logo=nextdotjs" alt="Next.js" />
   <img src="https://img.shields.io/badge/TailwindCSS-v4-38BDF8?style=for-the-badge&logo=tailwindcss&logoColor=white" alt="Tailwind CSS" />
   <img src="https://img.shields.io/badge/TypeScript-Strict-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
   <img src="https://img.shields.io/badge/Framer%20Motion-v12-FF0055?style=for-the-badge&logo=framer&logoColor=white" alt="Framer Motion" />
+  <img src="https://img.shields.io/badge/License-Custom%20Non--Commercial-red?style=for-the-badge" alt="License" />
 </p>
 
 <h1 align="center">Premium Product Landing Page Template</h1>
@@ -532,4 +533,9 @@ Use nginx as a reverse proxy to point the domain to port 3000.
 
 ---
 
-_© SajiloDigital.Created by Arun Neupane. This template is for internal agency use._
+_
+## License
+
+This project is for educational and personal learning purposes only. Commercial use, public deployment, or any revenue-generating use requires explicit written permission from the author. See [LICENSE](LICENSE) for details.
+
+_© SajiloDigital. Created by Arun Neupane.__
